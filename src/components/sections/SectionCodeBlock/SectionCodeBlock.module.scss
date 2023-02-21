@@ -1,0 +1,19 @@
+@import "@styles/mixins.scss";
+
+.content {
+  margin-bottom: 5rem;
+  gap: 3rem;
+}
+
+.code-block-container {
+  width: 100%;
+  order: 1;
+  flex-basis: 50%;
+}
+
+@include screen-max-width(xl) {
+  .code-block-container {
+    flex-basis: 100%;
+    order: 2 !important;
+  }
+}

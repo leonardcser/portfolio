@@ -1,0 +1,27 @@
+.container {
+  width: 100%;
+}
+
+.title {
+  font-family: var(--ff-serif);
+  font-size: 3rem;
+  margin: 0;
+  line-height: 3rem;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  margin: 1rem 0 0 0;
+  font-weight: 300;
+  color: rgb(199, 199, 199);
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}

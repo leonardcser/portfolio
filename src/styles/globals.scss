@@ -1,0 +1,89 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: var(--ff-sans), -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
+}
+
+body {
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+:root {
+  --color-text: #{$color-text-dark};
+  --color-bg: #{$color-bg-dark};
+  --header-height: #{$header-height};
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+p {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  max-width: 60ch;
+}
+
+button {
+  display: block;
+  border: inherit;
+  background: inherit;
+  color: inherit;
+  padding: 0;
+  cursor: pointer;
+}
+
+.main-container {
+  max-width: 1600px;
+  // position: relative;
+  margin: 0 auto;
+}
+
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+section {
+  padding: 0 5rem;
+}
+
+@include screen-max-width(md) {
+  section {
+    padding: 0 3rem;
+  }
+}
+
+@include screen-max-width(sm) {
+  section {
+    padding: 0 2em;
+  }
+}
+
+.logo {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

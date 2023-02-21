@@ -1,0 +1,7 @@
+DigitalDreams
+
+Ideas:
+Text chaning every couple of seconds
+Custom cursor
+Animated elements on page
+email: hello@example.com

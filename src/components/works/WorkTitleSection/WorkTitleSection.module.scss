@@ -1,0 +1,42 @@
+@import "@styles/mixins.scss";
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.title {
+  margin: 0;
+  margin-bottom: 0.75rem;
+  font-family: var(--ff-serif);
+  font-size: 8rem;
+  line-height: 115%;
+  pointer-events: none;
+}
+
+@include screen-max-width(lg) {
+  .title {
+    font-size: 7rem;
+  }
+}
+
+@include screen-max-width(md) {
+  .title {
+    font-size: 5rem;
+  }
+}
+
+@include screen-max-width(sm) {
+  .title {
+    font-size: 3.5rem;
+  }
+}
+
+@include screen-max-height(sm) {
+  .title {
+    font-size: 5rem;
+  }
+}

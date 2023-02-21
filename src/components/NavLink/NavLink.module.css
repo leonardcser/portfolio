@@ -1,0 +1,32 @@
+.navlink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: color 200ms ease-in-out;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.navlink .name {
+  position: relative;
+  font-weight: 600;
+}
+
+.navlink:hover,
+.navlink .name.active {
+  color: white;
+}
+
+.navlink .name::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  height: 2px;
+  width: 15px;
+  transition: background-color 200ms ease-in-out;
+}
+
+.navlink .name.active::after {
+  background-color: white;
+}

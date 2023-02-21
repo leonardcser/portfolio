@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  /* opacity: 0.75; */
+}
+
+.link {
+  font-size: 2rem;
+  font-weight: 300;
+}

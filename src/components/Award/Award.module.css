@@ -1,0 +1,19 @@
+.award-container {
+  margin-bottom: 1rem;
+  position: relative;
+  width: fit-content;
+  opacity: 0.5;
+}
+
+.award-leaves {
+  display: flex;
+}
+
+.award-text {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 0.8rem;
+}
