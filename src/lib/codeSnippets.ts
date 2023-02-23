@@ -175,5 +175,19 @@ class IsIn(Validator):
                 )
                 return False
             return True
+
+@dataclass
+class QueryValidator:
+    """
+    This class is used to validate the input params of the AbstractQuery classes
+    """
+    cls: "AbstractQuery"
+
+    def validate(self) -> tuple[bool, Union[str, None]]:
+        for v in self.cls.VALIDATORS:
+            value = getattr(self.cls, v.key)
+            if not v.validate(self.cls, value):
+                return False, v.error
+        return True, None
 `,
 };

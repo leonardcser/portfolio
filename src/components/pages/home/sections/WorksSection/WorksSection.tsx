@@ -1,4 +1,5 @@
 import { Award } from "@components/Award/Award";
+import { ResponsiveSplitCols } from "@components/ResponsiveSplitCols/ResponsiveSplitCols";
 import { SectionCodeBlock } from "@components/sections/SectionCodeBlock/SectionCodeBlock";
 import { SectionImage } from "@components/sections/SectionImage/SectionImage";
 import { SectionMainTitle } from "@components/sections/SectionMainTitle/SectionMainTitle";
@@ -48,11 +49,18 @@ export const WorksSection = () => {
             full web tool that helps companies identify conflict of interest in
             their data in order to take more informed decisions.
           </p>
-          <Award>
-            AWS
-            <br />
-            Certified
-          </Award>
+          <ResponsiveSplitCols style={{ gap: "1.5rem" }}>
+            <Award>
+              Hackathon
+              <br />
+              1st Place
+            </Award>
+            <Award>
+              AWS
+              <br />
+              Certified
+            </Award>
+          </ResponsiveSplitCols>
         </SectionImage>
         <SectionImage
           image={{
@@ -74,7 +82,7 @@ export const WorksSection = () => {
           <p>
             The goal of this project was to create a neural network that could
             solve 6 character captchas from Amazon. I achieved an average
-            accuracy of 92%.
+            accuracy of 93%.
           </p>
         </SectionImage>
         <SectionCodeBlock
@@ -93,9 +101,9 @@ export const WorksSection = () => {
             href="/works/autoscout24"
           />
           <p>
-            In order to push my limits with Python, I created an API wrapper for
-            the car listing website, AutoScout24. This project was a great way
-            to learn about Python factories and abstractions.
+            An API wrapper for the car listing website, AutoScout24. This
+            project was a great way to learn about Python factories and
+            abstractions.
           </p>
         </SectionCodeBlock>
 

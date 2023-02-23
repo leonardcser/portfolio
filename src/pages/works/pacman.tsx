@@ -22,14 +22,13 @@ export default function Pacman() {
             height="66vh"
             absolute
           />
-          <Header activeHeight="66vh">
+          <Header activeHeight="5vh" goHome>
             <NavLink name="Overview" to="overview" />
             <NavLink name="Collaboration" to="collaboration" />
             <NavLink name="Design" to="design" />
             <NavLink name="Challenges" to="challenges" />
             <NavLink name="Features" to="features" />
             <NavLink name="Reflexion" to="reflexion" />
-            {/* <NavLink name="Home" href="/" icon={<FaHome size={15} />} /> */}
           </Header>
         </>
       }
@@ -45,7 +44,7 @@ export default function Pacman() {
         <p>
           As part of the CS-107 EPFL introduction to programming course, I
           worked with a teammate to recreate the classic Pac-Man game in Java.
-          We competed against approximately 200 teams and were proud to win
+          We competed against approximately 300 teams and were proud to win
           first place.
           <br />
           This project helped me learn Java and object-oriented programming,
@@ -75,7 +74,7 @@ export default function Pacman() {
           <p>
             As part of the CS-107 EPFL introduction to programming course, I
             worked with a teammate to recreate the classic Pac-Man game in Java.
-            We competed against approximately 200 teams and were proud to win
+            We competed against approximately 300 teams and were proud to win
             first place.
           </p>
           <p>

@@ -20,7 +20,7 @@ export default function CaptchaSolver() {
             height="66vh"
             absolute
           />
-          <Header activeHeight="66vh">
+          <Header activeHeight="5vh" goHome>
             <NavLink name="Overview" to="overview" />
             <NavLink name="Data" to="data" />
             <NavLink name="Training" to="training" />

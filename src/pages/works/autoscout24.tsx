@@ -21,7 +21,7 @@ export default function AutoScout24() {
             height="66vh"
             absolute
           />
-          <Header activeHeight="66vh">
+          <Header activeHeight="5vh" goHome>
             <NavLink name="Overview" to="overview" />
             <NavLink name="Highlights" to="highlights" />
             <NavLink name="Packaging" to="packaging" />

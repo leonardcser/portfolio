@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { FaPython } from "react-icons/fa";
 import { FiMaximize, FiMinimize } from "react-icons/fi";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { nord } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import dynamic from "next/dynamic";
 
 import styles from "./CodeBlock.module.scss";
 
@@ -34,14 +33,27 @@ const CodeBlock: React.FC<Props> = ({
 }) => {
   const [isFocused, setIsFocused] = useState(false);
 
-  const toggleFocus = () => {
+  const toggleFocus = useCallback(() => {
     setIsFocused(prev => !prev);
     if (isFocused) {
       document.body.style.overflow = "auto";
     } else {
       document.body.style.overflow = "hidden";
     }
-  };
+  }, [isFocused]);
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (isFocused && e.key === "Escape") {
+        toggleFocus();
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = "auto";
+    };
+  }, [isFocused, toggleFocus]);
 
   return (
     <div
