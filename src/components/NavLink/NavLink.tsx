@@ -17,18 +17,32 @@ export const NavLink: React.FC<Props> = ({ name, to, href, icon, onClick }) => {
   const router = useRouter();
 
   return href ? (
-    <Link href={href} className={styles.navlink}>
-      <div
-        className={
-          styles.name + (router.asPath === href ? ` ${styles.active}` : "")
-        }
-      >
-        {name}
-      </div>
-      {icon}
-    </Link>
+    href === "/" ? (
+      <button className={styles.navlink} onClick={() => router.back()}>
+        {icon}
+        <div
+          className={
+            styles.name + (router.asPath === href ? ` ${styles.active}` : "")
+          }
+        >
+          {name}
+        </div>
+      </button>
+    ) : (
+      <Link href={href} className={styles.navlink}>
+        {icon}
+        <div
+          className={
+            styles.name + (router.asPath === href ? ` ${styles.active}` : "")
+          }
+        >
+          {name}
+        </div>
+      </Link>
+    )
   ) : (
     <div className={styles.navlink}>
+      {icon}
       <ScrollLink
         className={styles.name}
         activeClass={styles.active}
@@ -41,7 +55,6 @@ export const NavLink: React.FC<Props> = ({ name, to, href, icon, onClick }) => {
       >
         {name}
       </ScrollLink>
-      {icon}
     </div>
   );
 };

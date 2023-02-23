@@ -1,13 +1,14 @@
 import { FiChevronLeft } from "react-icons/fi";
-import Link from "next/link";
+import { useRouter } from "next/router";
 
 import styles from "./GoHome.module.css";
 
 export const GoHome = () => {
+  const router = useRouter();
   return (
-    <Link href="/" className={styles.container}>
+    <button className={styles.container} onClick={() => router.back()}>
       <FiChevronLeft size={30} />
       <span className={styles.link}>Home</span>
-    </Link>
+    </button>
   );
 };

@@ -1,6 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { FaChevronLeft } from "react-icons/fa";
 import { IoMenu } from "react-icons/io5";
+import { NavLink } from "@components/NavLink/NavLink";
 
 import styles from "./Header.module.scss";
 
@@ -8,11 +10,13 @@ interface Props {
   children: React.ReactNode;
   // viewportHeight
   activeHeight?: string;
+  goHome?: boolean;
 }
 
 export const Header: React.FC<Props> = ({
   children,
   activeHeight = "100vh",
+  goHome = false,
 }) => {
   const [active, setActive] = useState(false);
   const [open, setOpen] = useState(false);
@@ -56,10 +60,21 @@ export const Header: React.FC<Props> = ({
         />
       </button>
       <nav
-        className={styles.container + (open ? ` ${styles.open}` : "")}
+        className={styles.nav + (open ? ` ${styles.open}` : "")}
         onClick={() => setOpen(false)}
       >
-        {newChildren}
+        {goHome ? (
+          <div
+            className={
+              styles["home-container"] + (active ? ` ${styles.active}` : "")
+            }
+          >
+            <NavLink name="Home" href="/" icon={<FaChevronLeft size={16} />} />
+          </div>
+        ) : (
+          <div></div>
+        )}
+        <div className={styles["links-container"]}>{newChildren}</div>
       </nav>
     </header>
   );

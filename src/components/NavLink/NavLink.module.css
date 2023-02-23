@@ -5,6 +5,7 @@
   cursor: pointer;
   transition: color 200ms ease-in-out;
   color: rgba(255, 255, 255, 0.5);
+  /* pointer-events: all; */
 }
 
 .navlink .name {
