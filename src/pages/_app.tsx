@@ -16,7 +16,7 @@ const dm_sans = DM_Sans({
   subsets: ["latin"],
 });
 
-// TODO: add head
+// TODO: add custom head
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>

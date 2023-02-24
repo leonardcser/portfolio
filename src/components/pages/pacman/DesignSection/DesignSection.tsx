@@ -6,7 +6,6 @@ import styles from "./DesignSection.module.scss";
 export const DesignSection: React.FC = () => {
   return (
     <section id="design">
-      {/* TODO: Make this flex responsive */}
       <div className={styles.container}>
         <Image
           src="/images/pacmanArcade.png"

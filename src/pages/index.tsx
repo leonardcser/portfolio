@@ -8,7 +8,6 @@ import { HomeSection } from "@components/pages/home/sections/HomeSection/HomeSec
 import { WorksSection } from "@components/pages/home/sections/WorksSection/WorksSection";
 import GRADIENTS from "@lib/gradients";
 
-// TODO: create custom head + error pages
 export default function Home() {
   return (
     <MainLayout
