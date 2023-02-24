@@ -1,8 +1,10 @@
 @import "@styles/variables.scss";
+@import "@styles/mixins.scss";
 
 $dot-size: 20px;
 $line-width: 2px;
 $image-height: 50px;
+$dot-text-spacing: 1rem;
 
 .container {
   display: grid;
@@ -17,7 +19,7 @@ $image-height: 50px;
 .content-container {
   display: flex;
   //   align-items: center;
-  gap: 1rem;
+  gap: $dot-text-spacing;
   position: relative;
   padding-bottom: 2rem;
 
@@ -66,10 +68,47 @@ $image-height: 50px;
 
 .dot {
   margin-top: calc($image-height / 4);
+  min-width: $dot-size;
+  min-height: $dot-size;
   width: $dot-size;
   height: $dot-size;
   border: 2px solid $color-text-dark;
   border-radius: 50%;
   background-color: $color-bg-dark;
   z-index: 2;
+}
+
+@include screen-max-width(md) {
+  .item-container {
+    position: relative;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-bottom: 2rem;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: $dot-size;
+      left: ($dot-size - $line-width) / 2;
+      width: 2px;
+      height: 100%;
+      background-color: $color-text-dark;
+    }
+
+    .content-container {
+      padding: 0;
+
+      &::after {
+        content: none;
+      }
+    }
+
+    .image-container {
+      order: 2;
+      margin-left: calc($dot-size + $dot-text-spacing);
+      img {
+        object-position: 0%;
+      }
+    }
+  }
 }
