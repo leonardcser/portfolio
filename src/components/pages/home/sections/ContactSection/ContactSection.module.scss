@@ -1,0 +1,32 @@
+@import "@styles/variables.scss";
+
+.email-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  .email {
+    position: relative;
+    margin: 1.5rem 0;
+    font-size: 1.75rem;
+    //   text-decoration: underline;
+    // line-height: 0%;
+  }
+
+  .email::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background: $color-text-dark;
+    transition: width 0.3s;
+  }
+
+  &:hover {
+    .email::after {
+      width: 100%;
+    }
+  }
+}
