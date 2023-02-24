@@ -85,7 +85,6 @@ $icon-size-sm: 14px;
     justify-content: center;
     font-size: 2rem;
     opacity: 0;
-    transition: opacity 200ms ease-in-out;
 
     svg {
       width: $icon-size-lg;
@@ -104,6 +103,7 @@ $icon-size-sm: 14px;
     }
 
     &.open {
+      transition: opacity 200ms ease-in-out;
       pointer-events: all;
       opacity: 1;
     }
