@@ -110,10 +110,10 @@ export const BackgroundLines: React.FC<Props> = ({
   });
   const [scrollTS, setScrollTS] = useState(0);
   const [opacity, setOpacity] = useState(0);
-  const curv = isDesktop ? -0.1 : -10;
+  const curv = isDesktop ? -0.1 : 0;
   const radius = 600;
   const maxWaveHeight = 250;
-  const extraStartCurves = isDesktop ? 2 : 15;
+  const extraStartCurves = isDesktop ? 2 : 0;
   const spacing = 42;
 
   const randAngle1 = 1;
@@ -128,10 +128,7 @@ export const BackgroundLines: React.FC<Props> = ({
     if (isDesktop) {
       return { x: window.innerWidth / 2, y: -1000 };
     }
-    return {
-      x: window.innerWidth / 3,
-      y: window.innerWidth / 2,
-    };
+    return { x: 0, y: 0 };
   }, []);
 
   /**
