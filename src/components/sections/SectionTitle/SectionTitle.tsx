@@ -1,5 +1,5 @@
-import Fade from "react-reveal/Fade";
 import Link from "next/link";
+import { FadeIn } from "@components/FadeIn/FadeIn";
 import { Tag } from "@components/Tag/Tag";
 
 import styles from "./SectionTitle.module.scss";
@@ -39,11 +39,5 @@ export const SectionTitle: React.FC<Props> = ({
       )}
     </div>
   );
-  return fade ? (
-    <Fade cascade bottom distance="20px">
-      {component}
-    </Fade>
-  ) : (
-    component
-  );
+  return fade ? <FadeIn>{component}</FadeIn> : component;
 };

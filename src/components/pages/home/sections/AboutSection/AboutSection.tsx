@@ -39,32 +39,6 @@ export const AboutSection: React.FC = () => {
             },
           ]}
         />
-
-        {/* <Logos
-          logos={[
-            {
-              path: "logo_epfl.png",
-              width: 175,
-              height: 75,
-              subtitle: "Ecole Polytechnique Fédérale de Lausanne",
-              text: "My time at EPFL was instrumental in shaping my career path. My passion for computer science was ignited here.",
-            },
-            {
-              path: "logo_epflentrepreneurclub.png",
-              width: 75,
-              height: 75,
-              subtitle: "EPFL Entrepeneur Club",
-              text: "During my studies, I was a member of the EPFL Entrepreneur Club. I was able to learn from and collaborate with other entrepreneurs.",
-            },
-            {
-              path: "logo_scrapeout.png",
-              width: 75,
-              height: 75,
-              subtitle: "Scrapeout",
-              text: "With interest in data analytics, I founded Scrapeout, a data analytics company. I was able to learn about the ins and outs of running a business.",
-            },
-          ]}
-        /> */}
       </section>
       <BackgroundLines height={100} makeGradient={GRADIENTS.main} />
     </>

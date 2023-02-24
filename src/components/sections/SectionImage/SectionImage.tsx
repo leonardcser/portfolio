@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import Fade from "react-reveal/Fade";
 import Image from "next/image";
 import Link from "next/link";
+import { FadeIn } from "@components/FadeIn/FadeIn";
 import { ResponsiveSplitCols } from "@components/ResponsiveSplitCols/ResponsiveSplitCols";
 
 import styles from "./SectionImage.module.scss";
@@ -66,9 +66,9 @@ export const SectionImage: React.FC<Props> = ({
           <Image fill src={image.src} alt={image.alt} />
         </div>
       )}
-      <Fade cascade bottom distance="20px">
-        <div style={{ flex: 1, order: order }}>{children}</div>
-      </Fade>
+      <FadeIn style={{ flex: 1, order: order, display: "block" }}>
+        {children}
+      </FadeIn>
     </ResponsiveSplitCols>
   );
 };

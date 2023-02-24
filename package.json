@@ -17,6 +17,7 @@
     "**/*.(md|json|css|scss)": "npx prettier --write"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
     "@next/font": "^13.1.6",
     "@types/node": "18.11.14",
     "@types/react": "18.0.26",
@@ -25,9 +26,9 @@
     "eslint-config-next": "13.0.6",
     "next": "^13.0.6",
     "react": "18.2.0",
+    "react-awesome-reveal": "^4.2.3",
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",
-    "react-reveal": "^1.2.2",
     "react-scroll": "^1.8.9",
     "react-syntax-highlighter": "^15.5.0",
     "sharp": "^0.31.2",
