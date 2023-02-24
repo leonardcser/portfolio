@@ -141,13 +141,9 @@ export default function Pacman() {
         <p>
           The main features of the game included a player GUI, leaderboard,
           ghost algorithms, and a score/points system. In addition, we added
-          several extensions to the game, such as glow, wall design, arcade
-          elements, a bonus map, new ghosts, a magnet effect for power pellets,
-          tunnels, improved graphics, intro music, sound effects, a pellet
-          counter, time tracker, FPS display, menu, difficulty options,
-          performance options, camera options, camera shake, help menu with
-          multiple pages, quit game, pause game, and end game. These additions
-          made the game more engaging and enjoyable for players.
+          several extensions to the game, such as glow, arcade elements, a bonus
+          map, new ghosts and so much more. These additions made the game more
+          engaging and enjoyable for players.
         </p>
         <div
           style={{
