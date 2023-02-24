@@ -15,7 +15,7 @@ export const ErrorTitleSection: React.FC<Props> = ({ title, code }) => {
       height="100vh"
       className={styles.container}
     >
-      <GoHome back={false} />
+      <GoHome />
       <h1 className={styles.title}>{title}</h1>
       <h2 className={styles.code}>{code}</h2>
     </FullSectionContainer>

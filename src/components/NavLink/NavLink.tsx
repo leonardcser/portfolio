@@ -11,13 +11,21 @@ interface Props {
   href?: string;
   icon?: React.ReactNode;
   onClick?: () => void;
+  back?: boolean;
 }
 
-export const NavLink: React.FC<Props> = ({ name, to, href, icon, onClick }) => {
+export const NavLink: React.FC<Props> = ({
+  name,
+  to,
+  href,
+  icon,
+  onClick,
+  back,
+}) => {
   const router = useRouter();
 
   return href ? (
-    href === "/" ? (
+    back ? (
       <button className={styles.navlink} onClick={() => router.back()}>
         {icon}
         <div

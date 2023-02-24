@@ -8,7 +8,7 @@ interface Props {
   back?: boolean;
 }
 
-export const GoHome: React.FC<Props> = ({ back = true }) => {
+export const GoHome: React.FC<Props> = ({ back = false }) => {
   const router = useRouter();
   const inner = (
     <>
