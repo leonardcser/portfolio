@@ -4,10 +4,10 @@ import { Cursor } from "@components/Cursor/Cursor";
 import { Header } from "@components/Header/Header";
 import { MainLayout } from "@components/layouts/MainLayout/MainLayout";
 import { NavLink } from "@components/NavLink/NavLink";
+import { WorkTitleSection } from "@components/pages/works/WorkTitleSection/WorkTitleSection";
 import { SectionImage } from "@components/sections/SectionImage/SectionImage";
 import { SectionMainTitle } from "@components/sections/SectionMainTitle/SectionMainTitle";
 import { SectionTitle } from "@components/sections/SectionTitle/SectionTitle";
-import { WorkTitleSection } from "@components/works/WorkTitleSection/WorkTitleSection";
 import GRADIENTS from "@lib/gradients";
 
 export default function CaptchaSolver() {
@@ -102,7 +102,11 @@ export default function CaptchaSolver() {
         </div>
       </section>
       <section id="training">
-        <SectionTitle title="Training" subtitle="Developing a Neural Network" />
+        <SectionTitle
+          title="Training"
+          subtitle="Developing a Neural Network"
+          fade
+        />
         <p>
           Training the model was a long process that involved a lot of trial and
           error. I first implemented the base five-character model, and then

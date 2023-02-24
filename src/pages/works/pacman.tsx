@@ -1,16 +1,15 @@
 import Image from "next/image";
 import { Award } from "@components/Award/Award";
 import { BackgroundLines } from "@components/BackgroundLines/BackgroundLines";
-import { Cursor } from "@components/Cursor/Cursor";
 import { Header } from "@components/Header/Header";
 import { MainLayout } from "@components/layouts/MainLayout/MainLayout";
 import { NavLink } from "@components/NavLink/NavLink";
+import { DesignSection } from "@components/pages/pacman/DesignSection/DesignSection";
+import { WorkTitleSection } from "@components/pages/works/WorkTitleSection/WorkTitleSection";
 import { SectionImage } from "@components/sections/SectionImage/SectionImage";
 import { SectionMainTitle } from "@components/sections/SectionMainTitle/SectionMainTitle";
 import { SectionTitle } from "@components/sections/SectionTitle/SectionTitle";
-import { WorkTitleSection } from "@components/works/WorkTitleSection/WorkTitleSection";
 import GRADIENTS from "@lib/gradients";
-// import { FaHome } from "react-icons/fa";
 
 export default function Pacman() {
   return (
@@ -91,10 +90,6 @@ export default function Pacman() {
       </section>
       <BackgroundLines makeGradient={GRADIENTS.pacman} height={100} />
       <section id="collaboration">
-        {/* <SectionTitle
-          title="Development"
-          subtitle="Working with Git and Documentation"
-        /> */}
         <SectionMainTitle title="Development" />
         <SectionTitle
           title="Collaboration"
@@ -112,32 +107,7 @@ export default function Pacman() {
           Google doc to gather helpful resources and links.
         </p>
       </section>
-      <section id="design">
-        {/* TODO: Make this flex responsive */}
-        <div style={{ display: "flex", gap: "3rem", alignItems: "center" }}>
-          <Image
-            src="/images/pacmanArcade.png"
-            alt="pacman arcade"
-            width={129}
-            height={242}
-          />
-          <div>
-            <SectionTitle
-              title="Design"
-              subtitle="Arcade-inspired Design Elements"
-              fade
-            />
-            <p>
-              For the game&apos;s design, we opted to use custom assets that
-              originated from the original game graphics. I added a unique field
-              to the game by incorporating an arcade-inspired design with small
-              details like glow, retro arcade style, VHS lines, and a joystick
-              that moves based on user input. These elements created an
-              immersive and nostalgic gaming experience.
-            </p>
-          </div>
-        </div>
-      </section>
+      <DesignSection />
       <section id="challenges">
         <SectionTitle
           title="Challenges"

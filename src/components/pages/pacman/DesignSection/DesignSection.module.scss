@@ -1,0 +1,17 @@
+@import "@styles/mixins.scss";
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+@include screen-max-width(md) {
+  .container {
+    flex-wrap: wrap;
+
+    img {
+      order: 1;
+    }
+  }
+}

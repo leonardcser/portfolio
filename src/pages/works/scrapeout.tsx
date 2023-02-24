@@ -3,11 +3,11 @@ import { BackgroundLines } from "@components/BackgroundLines/BackgroundLines";
 import { Header } from "@components/Header/Header";
 import { MainLayout } from "@components/layouts/MainLayout/MainLayout";
 import { NavLink } from "@components/NavLink/NavLink";
+import { WorkTitleSection } from "@components/pages/works/WorkTitleSection/WorkTitleSection";
 import { ResponsiveSplitCols } from "@components/ResponsiveSplitCols/ResponsiveSplitCols";
 import { SectionImage } from "@components/sections/SectionImage/SectionImage";
 import { SectionMainTitle } from "@components/sections/SectionMainTitle/SectionMainTitle";
 import { SectionTitle } from "@components/sections/SectionTitle/SectionTitle";
-import { WorkTitleSection } from "@components/works/WorkTitleSection/WorkTitleSection";
 import GRADIENTS from "@lib/gradients";
 
 export default function Scrapeout() {
@@ -81,7 +81,11 @@ export default function Scrapeout() {
       <BackgroundLines makeGradient={GRADIENTS.scrapeout} height={100} />
       <section id="technologies">
         <SectionMainTitle title="Development" />
-        <SectionTitle title="Technologies" subtitle="From Flask to Nextjs" />
+        <SectionTitle
+          title="Technologies"
+          subtitle="From Flask to Nextjs"
+          fade
+        />
         <p>
           I started my web development journey with a simple Python Flask app.
           As the complexity of the project grew, I decided to use a frontend
@@ -94,6 +98,7 @@ export default function Scrapeout() {
         <SectionTitle
           title="Infrastructure"
           subtitle="Setting up for Production"
+          fade
         />
         <p>
           Setting up the infrastructure for production was the most complicated
@@ -105,7 +110,7 @@ export default function Scrapeout() {
         </p>
       </section>
       <section id="design">
-        <SectionTitle title="Design" subtitle="Customizing the Frontend" />
+        <SectionTitle title="Design" subtitle="Customizing the Frontend" fade />
         <p>
           I also enjoyed working on the frontend, building a custom UI library
           with custom SCSS. To make the codebase easier to manage as the project
@@ -118,6 +123,7 @@ export default function Scrapeout() {
         <SectionTitle
           title="Entrepreneurship"
           subtitle="Learning Beyond Coding"
+          fade
         />
         <p>
           Working on this project also taught me a lot about entrepreneurship. I
@@ -131,7 +137,11 @@ export default function Scrapeout() {
       <BackgroundLines makeGradient={GRADIENTS.scrapeout} height={100} />
       <section id="reflexion">
         <SectionMainTitle title="Conclusion" />
-        <SectionTitle title="Reflexion" subtitle="A Rewarding Experience" />
+        <SectionTitle
+          title="Reflexion"
+          subtitle="A Rewarding Experience"
+          fade
+        />
         <p>
           Overall, this project was a rewarding experience. I was able to learn
           and apply a variety of skills, from coding to infrastructure and

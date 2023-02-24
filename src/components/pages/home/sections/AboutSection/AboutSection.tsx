@@ -9,7 +9,7 @@ export const AboutSection = () => {
   return (
     <>
       <section id="about">
-        <SectionTitle title="My Story" subtitle="About" />
+        <SectionTitle title="My Story" subtitle="About" fade />
         <p>
           As a data-driven entrepreneur with a passion for tech, I bring a
           unique combination of skills to solve human problems. My knowledge in

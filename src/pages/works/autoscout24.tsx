@@ -4,10 +4,10 @@ import { Header } from "@components/Header/Header";
 import { MainLayout } from "@components/layouts/MainLayout/MainLayout";
 import { NavLink } from "@components/NavLink/NavLink";
 import { HighlightsSection } from "@components/pages/autoscout24/sections/HighlightsSection/HighlightsSection";
+import { WorkTitleSection } from "@components/pages/works/WorkTitleSection/WorkTitleSection";
 import { SectionCodeBlock } from "@components/sections/SectionCodeBlock/SectionCodeBlock";
 import { SectionMainTitle } from "@components/sections/SectionMainTitle/SectionMainTitle";
 import { SectionTitle } from "@components/sections/SectionTitle/SectionTitle";
-import { WorkTitleSection } from "@components/works/WorkTitleSection/WorkTitleSection";
 import { AUTOSCOUT24_EXAMPLE_SHORT } from "@lib/codeSnippets";
 import GRADIENTS from "@lib/gradients";
 

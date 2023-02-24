@@ -7,7 +7,7 @@ export const ContactSection = () => {
     <>
       <section id="contact">
         <SectionTitle title="Send me an Email" subtitle="Contact" />
-        <p>hello@leonardcseres.com</p>
+        <p>leocser632@gmail.com</p>
       </section>
       <BackgroundLines height="60vh" makeGradient={GRADIENTS.main} />
     </>
