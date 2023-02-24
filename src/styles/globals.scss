@@ -91,3 +91,11 @@ section {
     scroll-behavior: auto !important;
   }
 }
+
+// Loading bug fix for Next.js Image component
+// https://nextjs.org/docs/api-reference/next/image
+@supports (font: -apple-system-body) and (-webkit-appearance: none) {
+  img[loading="lazy"] {
+    clip-path: inset(0.6px);
+  }
+}

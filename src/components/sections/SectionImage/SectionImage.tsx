@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { FadeIn } from "@components/FadeIn/FadeIn";
 import { ResponsiveSplitCols } from "@components/ResponsiveSplitCols/ResponsiveSplitCols";
+import { SkeletonImage } from "@components/SkeletonImage/SkeletonImage";
 
 import styles from "./SectionImage.module.scss";
 
@@ -55,7 +55,7 @@ export const SectionImage: React.FC<Props> = ({
           className={styles["image-container"]}
           style={{ height: imgContainerHeight }}
         >
-          <Image fill src={image.src} alt={image.alt} />
+          <SkeletonImage src={image.src} alt={image.alt} />
         </Link>
       ) : (
         <div
@@ -63,7 +63,7 @@ export const SectionImage: React.FC<Props> = ({
           className={styles["image-container"]}
           style={{ height: imgContainerHeight }}
         >
-          <Image fill src={image.src} alt={image.alt} />
+          <SkeletonImage src={image.src} alt={image.alt} />
         </div>
       )}
       <FadeIn style={{ flex: 1, order: order, display: "block" }}>
