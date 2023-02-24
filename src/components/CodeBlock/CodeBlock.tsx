@@ -34,12 +34,12 @@ const CodeBlock: React.FC<Props> = ({
   const [isFocused, setIsFocused] = useState(false);
 
   const toggleFocus = useCallback(() => {
-    setIsFocused(prev => !prev);
     if (isFocused) {
       document.body.style.overflow = "auto";
     } else {
       document.body.style.overflow = "hidden";
     }
+    setIsFocused(prev => !prev);
   }, [isFocused]);
 
   useEffect(() => {
@@ -51,9 +51,14 @@ const CodeBlock: React.FC<Props> = ({
     window.addEventListener("keydown", onKeyDown);
     return () => {
       window.removeEventListener("keydown", onKeyDown);
-      document.body.style.overflow = "auto";
     };
   }, [isFocused, toggleFocus]);
+
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
 
   return (
     <div
