@@ -2,11 +2,9 @@
 
 .logos {
   display: flex;
-  /* align-items: center; */
   justify-content: center;
   flex-wrap: wrap;
   gap: 2rem;
-  /* padding: 0 2rem; */
   padding-top: 3rem;
 }
 
@@ -18,7 +16,6 @@
 
 .item-container {
   height: 100%;
-  // border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .item-container p {

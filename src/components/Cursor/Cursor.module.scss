@@ -1,7 +1,9 @@
+@import "@styles/variables.scss";
+
 .cursor {
   pointer-events: none;
   border-radius: 50%;
-  background-color: white;
+  background-color: $color-text-dark;
   top: -50px;
   left: -50px;
   width: 50px;

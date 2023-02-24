@@ -1,15 +1,15 @@
+@import "@styles/variables.scss";
+
 .footer {
-  /* margin-top: 5rem; */
   padding: 0 3rem;
 }
 
 .container {
-  /* border-top: 1px solid rgba(255, 255, 255, 0.2); */
   padding: 3rem 0;
 }
 
 .muted {
   margin-top: 0.5rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: $color-text-muted-dark;
   font-size: 0.75rem;
 }

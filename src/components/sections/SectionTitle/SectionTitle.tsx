@@ -2,7 +2,7 @@ import Fade from "react-reveal/Fade";
 import Link from "next/link";
 import { Tag } from "@components/Tag/Tag";
 
-import styles from "./SectionTitle.module.css";
+import styles from "./SectionTitle.module.scss";
 
 interface Props {
   title: string;

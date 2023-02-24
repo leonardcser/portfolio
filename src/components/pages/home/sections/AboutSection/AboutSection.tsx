@@ -1,11 +1,9 @@
-import Image from "next/image";
 import { BackgroundLines } from "@components/BackgroundLines/BackgroundLines";
-import { Logos } from "@components/Logos/Logos";
 import { SectionTitle } from "@components/sections/SectionTitle/SectionTitle";
 import { Timeline } from "@components/Timeline/Timeline";
 import GRADIENTS from "@lib/gradients";
 
-export const AboutSection = () => {
+export const AboutSection: React.FC = () => {
   return (
     <>
       <section id="about">

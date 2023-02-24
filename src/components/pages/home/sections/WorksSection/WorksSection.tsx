@@ -6,7 +6,7 @@ import { SectionMainTitle } from "@components/sections/SectionMainTitle/SectionM
 import { SectionTitle } from "@components/sections/SectionTitle/SectionTitle";
 import { AUTOSCOUT24_EXAMPLE_SHORT } from "@lib/codeSnippets";
 
-export const WorksSection = () => {
+export const WorksSection: React.FC = () => {
   return (
     <section id="works">
       <SectionMainTitle title="My Favorite Works" />

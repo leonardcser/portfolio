@@ -1,5 +1,4 @@
 import { BackgroundLines } from "@components/BackgroundLines/BackgroundLines";
-import { Cursor } from "@components/Cursor/Cursor";
 import { Header } from "@components/Header/Header";
 import { MainLayout } from "@components/layouts/MainLayout/MainLayout";
 import { NavLink } from "@components/NavLink/NavLink";

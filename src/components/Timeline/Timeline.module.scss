@@ -1,3 +1,5 @@
+@import "@styles/variables.scss";
+
 $dot-size: 20px;
 $line-width: 2px;
 $image-height: 50px;
@@ -30,7 +32,7 @@ $image-height: 50px;
     left: ($dot-size - $line-width) / 2;
     width: 2px;
     height: 100%;
-    background-color: #fff;
+    background-color: $color-text-dark;
   }
 
   h4 {
@@ -66,8 +68,8 @@ $image-height: 50px;
   margin-top: calc($image-height / 4);
   width: $dot-size;
   height: $dot-size;
-  border: 2px solid #fff;
+  border: 2px solid $color-text-dark;
   border-radius: 50%;
-  background-color: black;
+  background-color: $color-bg-dark;
   z-index: 2;
 }

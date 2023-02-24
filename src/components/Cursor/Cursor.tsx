@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
-import styles from "./Cursor.module.css";
+import styles from "./Cursor.module.scss";
 
 export const Cursor: React.FC = () => {
   const cursor = useRef<HTMLDivElement>(null);

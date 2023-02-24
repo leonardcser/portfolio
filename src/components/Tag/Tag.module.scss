@@ -1,7 +1,9 @@
+@import "@styles/variables.scss";
+
 .tag {
   font-weight: 700;
   /* color: rgb(37, 106, 255); */
-  border: 1px solid white;
+  border: 1px solid $color-text-dark;
   padding: 0.25rem;
   border-radius: 0.3rem;
 }

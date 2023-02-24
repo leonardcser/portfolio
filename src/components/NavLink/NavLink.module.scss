@@ -1,10 +1,12 @@
+@import "@styles/variables.scss";
+
 .navlink {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   cursor: pointer;
   transition: color 200ms ease-in-out;
-  color: rgba(255, 255, 255, 0.5);
+  color: $color-text-muted-dark;
   /* pointer-events: all; */
 }
 
@@ -15,7 +17,7 @@
 
 .navlink:hover,
 .navlink .name.active {
-  color: white;
+  color: $color-text-dark;
 }
 
 .navlink .name::after {
@@ -29,5 +31,5 @@
 }
 
 .navlink .name.active::after {
-  background-color: white;
+  background-color: $color-text-dark;
 }

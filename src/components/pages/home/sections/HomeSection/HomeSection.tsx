@@ -2,7 +2,7 @@ import { FullSectionContainer } from "@components/sections/FullSectionContainer/
 
 import styles from "./HomeSection.module.scss";
 
-export const HomeSection = () => {
+export const HomeSection: React.FC = () => {
   return (
     <FullSectionContainer sectionId="home" style={{ justifyContent: "center" }}>
       <div className={styles.container}>

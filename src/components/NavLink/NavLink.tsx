@@ -3,7 +3,7 @@ import { Link as ScrollLink } from "react-scroll";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import styles from "./NavLink.module.css";
+import styles from "./NavLink.module.scss";
 
 interface Props {
   name: string;
