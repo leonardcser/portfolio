@@ -21,8 +21,8 @@ export const DesignSection: React.FC = () => {
           />
           <p>
             For the game&apos;s design, we opted to use custom assets that
-            originated from the original game graphics. I added a unique field
-            to the game by incorporating an arcade-inspired design with small
+            originated from the original game graphics. I added a unique feel to
+            the game by incorporating an arcade-inspired design with small
             details like glow, retro arcade style, VHS lines, and a joystick
             that moves based on user input. These elements created an immersive
             and nostalgic gaming experience.

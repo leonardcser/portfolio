@@ -41,7 +41,6 @@ export default function Scrapeout() {
             height: 720,
           }}
           order={0}
-          href="/works/scrapeout"
         >
           <SectionTitle
             title="Overview"
