@@ -4,7 +4,7 @@ import { Header } from "@components/Header/Header";
 import { MainLayout } from "@components/layouts/MainLayout/MainLayout";
 import { NavLink } from "@components/NavLink/NavLink";
 import { WorkTitleSection } from "@components/pages/works/WorkTitleSection/WorkTitleSection";
-import { SectionImage } from "@components/sections/SectionImage/SectionImage";
+import { ResponsiveMediaSplit } from "@components/sections/ResponsiveMediaSplit/ResponsiveMediaSpit";
 import { SectionMainTitle } from "@components/sections/SectionMainTitle/SectionMainTitle";
 import { SectionTitle } from "@components/sections/SectionTitle/SectionTitle";
 import GRADIENTS from "@lib/gradients";
@@ -31,9 +31,9 @@ export default function CaptchaSolver() {
     >
       <WorkTitleSection title="Captcha Solver" />
       <section id="overview">
-        <SectionImage
+        <ResponsiveMediaSplit
           image={{
-            src: "/images/amazoncaptcha.png",
+            src: "/images/amazoncaptcha.jpg",
             alt: "ml captcha solves",
             width: 1718,
             height: 868,
@@ -53,12 +53,7 @@ export default function CaptchaSolver() {
             The project was challenging, but it taught me a lot about image
             processing and neural networks.
           </p>
-          {/* <div style={{ display: "flex", gap: "1.5rem" }}>
-            <SiTensorflow size={50} />
-            <SiGooglecloud size={50} />
-            <SiPython size={50} />
-          </div> */}
-        </SectionImage>
+        </ResponsiveMediaSplit>
       </section>
       <BackgroundLines makeGradient={GRADIENTS.captcha} height={100} />
       <section id="data">

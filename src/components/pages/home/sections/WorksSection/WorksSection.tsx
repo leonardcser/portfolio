@@ -1,9 +1,10 @@
 import { Award } from "@components/Award/Award";
 import { ResponsiveSplitCols } from "@components/ResponsiveSplitCols/ResponsiveSplitCols";
+import { ResponsiveMediaSplit } from "@components/sections/ResponsiveMediaSplit/ResponsiveMediaSpit";
 import { SectionCodeBlock } from "@components/sections/SectionCodeBlock/SectionCodeBlock";
-import { SectionImage } from "@components/sections/SectionImage/SectionImage";
 import { SectionMainTitle } from "@components/sections/SectionMainTitle/SectionMainTitle";
 import { SectionTitle } from "@components/sections/SectionTitle/SectionTitle";
+import { SkeletonImage } from "@components/SkeletonImage/SkeletonImage";
 import { AUTOSCOUT24_EXAMPLE_SHORT } from "@lib/codeSnippets";
 
 export const WorksSection: React.FC = () => {
@@ -17,13 +18,16 @@ export const WorksSection: React.FC = () => {
           gap: "5rem",
         }}
       >
-        <SectionImage
-          image={{
-            src: "/gifs/scrapeout.gif",
-            alt: "scrapeout homepage website",
-            width: 1194,
-            height: 720,
-          }}
+        <ResponsiveMediaSplit
+          media={
+            <SkeletonImage
+              fill
+              src="/gifs/scrapeout.gif"
+              alt="scrapeout homepage website"
+            />
+          }
+          mediaWidth={1194}
+          mediaHeight={720}
           order={1}
           href="/works/scrapeout"
         >
@@ -61,14 +65,17 @@ export const WorksSection: React.FC = () => {
               Certified
             </Award>
           </ResponsiveSplitCols>
-        </SectionImage>
-        <SectionImage
-          image={{
-            src: "/images/amazoncaptcha.png",
-            alt: "ml captcha solves",
-            width: 1718,
-            height: 868,
-          }}
+        </ResponsiveMediaSplit>
+        <ResponsiveMediaSplit
+          media={
+            <SkeletonImage
+              fill
+              src="/images/amazoncaptcha.jpg"
+              alt="ml captcha solves"
+            />
+          }
+          mediaWidth={1211}
+          mediaHeight={612}
           order={0}
           href="/works/captcha"
         >
@@ -84,7 +91,7 @@ export const WorksSection: React.FC = () => {
             solve 6 character captchas from Amazon. I achieved an average
             accuracy of 93%.
           </p>
-        </SectionImage>
+        </ResponsiveMediaSplit>
         <SectionCodeBlock
           codeBlockProps={{
             ...AUTOSCOUT24_EXAMPLE_SHORT,
@@ -106,33 +113,40 @@ export const WorksSection: React.FC = () => {
             abstractions.
           </p>
         </SectionCodeBlock>
-
-        {/* <SectionImage
-        image={{
-          src: "/images/photop.png",
-          alt: "photography portfolio website",
-        }}
-        order={0}
-      >
-        <SectionTitle
-          title="Photography Portfolio"
-          subtitle="Works"
-          tags={["Typescript", "NextJS", "React", "SCSS", "UI/UX"]}
-          fade
-        />
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur
-          repellendus accusamus animi assumenda voluptate minus ipsa illo autem
-          cum eaque, error porro impedit vero et? Ipsum modi minima laboriosam
-        </p>
-      </SectionImage> */}
-        {/* <SectionImage
-          image={{
-            src: "/images/smarterhabits.png",
-            alt: "habit tracker app",
-            width: 3760,
-            height: 2688,
-          }}
+        <ResponsiveMediaSplit
+          media={
+            <video autoPlay loop>
+              <source src="/videos/SlitherIORL.mp4" />
+            </video>
+          }
+          mediaWidth={1255}
+          mediaHeight={1010}
+          order={0}
+        >
+          <SectionTitle
+            title="SlitherIO RL"
+            subtitle="Works"
+            tags={["Tensorflow", "Selenium", "OpenCV", "Python"]}
+            fade
+            href="/works/captcha"
+          />
+          <p>
+            The project was to create a neural network that could play the game
+            SlitherIO. The agent was trained using A2C (actor to critic)
+            reinforcement learning. The agent was able to collect food and avoid
+            other snakes.
+          </p>
+        </ResponsiveMediaSplit>
+        {/* <ResponsiveMediaSplit
+          media={
+            <SkeletonImage
+              fill
+              src="/images/smarterhabits.jpg"
+              alt="habit tracker app"
+            />
+          }
+          mediaWidth={3760}
+          mediaHeight={2688}
           order={0}
         >
           <SectionTitle
@@ -147,14 +161,17 @@ export const WorksSection: React.FC = () => {
             would find patterns and connections between your habits and
             activities.
           </p>
-        </SectionImage>
-        <SectionImage
-          image={{
-            src: "/gifs/mazeGeneration.gif",
-            alt: "maze generation gif",
-            width: 1151,
-            height: 676,
-          }}
+        </ResponsiveMediaSplit> */}
+        <ResponsiveMediaSplit
+          media={
+            <SkeletonImage
+              fill
+              src="/gifs/mazeGeneration.gif"
+              alt="maze generation gif"
+            />
+          }
+          mediaWidth={1151}
+          mediaHeight={676}
           order={1}
         >
           <SectionTitle
@@ -167,16 +184,13 @@ export const WorksSection: React.FC = () => {
             An ASCII renderer that can be used to create apps and games in the
             terminal. In addition to the engine, I implemented sorting
             algorithms, a maze generation algorithm and the classic Snake game.
-            This project pushed my limits with Java and OOP.
+            This was the first project that I did outside of EPFL.
           </p>
-        </SectionImage> */}
-        <SectionImage
-          image={{
-            src: "/gifs/pacman.gif",
-            alt: "pacman gif",
-            width: 748,
-            height: 720,
-          }}
+        </ResponsiveMediaSplit>
+        <ResponsiveMediaSplit
+          media={<SkeletonImage fill src="/gifs/pacman.gif" alt="pacman gif" />}
+          mediaWidth={748}
+          mediaHeight={720}
           order={0}
           href="/works/pacman"
         >
@@ -199,7 +213,7 @@ export const WorksSection: React.FC = () => {
             <br />
             Award
           </Award>
-        </SectionImage>
+        </ResponsiveMediaSplit>
       </div>
     </section>
   );

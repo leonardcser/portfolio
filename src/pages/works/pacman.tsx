@@ -6,7 +6,7 @@ import { MainLayout } from "@components/layouts/MainLayout/MainLayout";
 import { NavLink } from "@components/NavLink/NavLink";
 import { DesignSection } from "@components/pages/pacman/DesignSection/DesignSection";
 import { WorkTitleSection } from "@components/pages/works/WorkTitleSection/WorkTitleSection";
-import { SectionImage } from "@components/sections/SectionImage/SectionImage";
+import { ResponsiveMediaSplit } from "@components/sections/ResponsiveMediaSplit/ResponsiveMediaSpit";
 import { SectionMainTitle } from "@components/sections/SectionMainTitle/SectionMainTitle";
 import { SectionTitle } from "@components/sections/SectionTitle/SectionTitle";
 import GRADIENTS from "@lib/gradients";
@@ -55,7 +55,7 @@ export default function Pacman() {
           <br />
           Award
         </Award> */}
-        <SectionImage
+        <ResponsiveMediaSplit
           image={{
             src: "/gifs/pacman.gif",
             alt: "pacman gif",
@@ -86,7 +86,7 @@ export default function Pacman() {
             <br />
             Award
           </Award>
-        </SectionImage>
+        </ResponsiveMediaSplit>
       </section>
       <BackgroundLines makeGradient={GRADIENTS.pacman} height={100} />
       <section id="collaboration">

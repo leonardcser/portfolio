@@ -5,7 +5,7 @@ import { MainLayout } from "@components/layouts/MainLayout/MainLayout";
 import { NavLink } from "@components/NavLink/NavLink";
 import { WorkTitleSection } from "@components/pages/works/WorkTitleSection/WorkTitleSection";
 import { ResponsiveSplitCols } from "@components/ResponsiveSplitCols/ResponsiveSplitCols";
-import { SectionImage } from "@components/sections/SectionImage/SectionImage";
+import { ResponsiveMediaSplit } from "@components/sections/ResponsiveMediaSplit/ResponsiveMediaSpit";
 import { SectionMainTitle } from "@components/sections/SectionMainTitle/SectionMainTitle";
 import { SectionTitle } from "@components/sections/SectionTitle/SectionTitle";
 import GRADIENTS from "@lib/gradients";
@@ -33,7 +33,7 @@ export default function Scrapeout() {
     >
       <WorkTitleSection title="Scrapeout" />
       <section id="overview">
-        <SectionImage
+        <ResponsiveMediaSplit
           image={{
             src: "/gifs/scrapeout.gif",
             alt: "scrapeout homepage website",
@@ -77,7 +77,7 @@ export default function Scrapeout() {
               Certified
             </Award>
           </ResponsiveSplitCols>
-        </SectionImage>
+        </ResponsiveMediaSplit>
       </section>
       <BackgroundLines makeGradient={GRADIENTS.scrapeout} height={100} />
       <section id="technologies">
@@ -96,7 +96,7 @@ export default function Scrapeout() {
         </p>
       </section>
       <section id="infrastructure">
-        <SectionImage
+        <ResponsiveMediaSplit
           image={{
             src: "/images/ScrapeoutCloudInfrastructure.jpg",
             alt: "Scrapeout Infrastructure",
@@ -119,7 +119,7 @@ export default function Scrapeout() {
             everything. To ensure that the infrastructure was working properly,
             I went through the AWS Overdrive program to get a certification.
           </p>
-        </SectionImage>
+        </ResponsiveMediaSplit>
       </section>
       <section id="design">
         <SectionTitle title="Design" subtitle="Customizing the Frontend" fade />

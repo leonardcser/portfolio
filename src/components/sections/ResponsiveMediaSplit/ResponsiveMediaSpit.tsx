@@ -2,29 +2,24 @@ import { CSSProperties, useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { FadeIn } from "@components/FadeIn/FadeIn";
 import { ResponsiveSplitCols } from "@components/ResponsiveSplitCols/ResponsiveSplitCols";
-import { SkeletonImage } from "@components/SkeletonImage/SkeletonImage";
 
-import styles from "./SectionImage.module.scss";
-
-interface IImageProps {
-  src: string;
-  alt: string;
-  width: number;
-  height: number;
-}
+import styles from "./ResponsiveMediaSplit.module.scss";
 
 interface Props {
   children: React.ReactNode;
-  image: IImageProps;
+  media: React.ReactNode;
+  mediaWidth: number;
+  mediaHeight: number;
   order: 0 | 1;
   wrap?: boolean;
   href?: string;
 }
 
-// TODO: Add sizes prop to Image component
-export const SectionImage: React.FC<Props> = ({
+export const ResponsiveMediaSplit: React.FC<Props> = ({
   children,
-  image,
+  media,
+  mediaWidth,
+  mediaHeight,
   order,
   wrap = true,
   href,
@@ -34,11 +29,11 @@ export const SectionImage: React.FC<Props> = ({
 
   const updateImgContainerHeight = useCallback(() => {
     if (imgContainerRef.current) {
-      const aspectRatio = image.width / image.height;
+      const aspectRatio = mediaWidth / mediaHeight;
       const imgContainerWidth = imgContainerRef.current.clientWidth;
       setImgContainerHeight(imgContainerWidth / aspectRatio);
     }
-  }, [imgContainerRef, image.width, image.height]);
+  }, [imgContainerRef, mediaWidth, mediaHeight]);
 
   useEffect(() => {
     window.addEventListener("resize", updateImgContainerHeight);
@@ -48,7 +43,7 @@ export const SectionImage: React.FC<Props> = ({
     };
   }, [updateImgContainerHeight]);
 
-  const imageContainerStyle: CSSProperties = {
+  const mediaContainerStyle: CSSProperties = {
     height: imgContainerHeight,
     flexBasis: wrap ? undefined : "100%",
   };
@@ -59,18 +54,18 @@ export const SectionImage: React.FC<Props> = ({
         <Link
           href={href}
           ref={imgContainerRef as React.RefObject<HTMLAnchorElement>}
-          className={styles["image-container"]}
-          style={imageContainerStyle}
+          className={styles["media-container"]}
+          style={mediaContainerStyle}
         >
-          <SkeletonImage fill src={image.src} alt={image.alt} />
+          {media}
         </Link>
       ) : (
         <div
           ref={imgContainerRef as React.RefObject<HTMLDivElement>}
-          className={styles["image-container"]}
-          style={imageContainerStyle}
+          className={styles["media-container"]}
+          style={mediaContainerStyle}
         >
-          <SkeletonImage fill src={image.src} alt={image.alt} />
+          {media}
         </div>
       )}
       <FadeIn style={{ flex: 1, order: order, display: "block" }}>

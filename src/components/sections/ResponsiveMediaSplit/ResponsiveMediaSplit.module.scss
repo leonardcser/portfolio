@@ -4,7 +4,7 @@
   gap: 3rem;
 }
 
-.image-container {
+.media-container {
   position: relative;
   flex: 0 0 50%;
   order: 1;
@@ -16,10 +16,18 @@
     object-fit: contain;
     border-radius: 0.5rem;
   }
+
+  video {
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 @include screen-max-width(xl) {
-  .image-container {
+  .media-container {
     flex-basis: 100%;
     order: 2 !important;
   }
