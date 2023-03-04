@@ -1,3 +1,4 @@
+import { AutoPlayVideo } from "@components/AutoPlayVideo/AutoPlayVideo";
 import { Award } from "@components/Award/Award";
 import { BackgroundLines } from "@components/BackgroundLines/BackgroundLines";
 import { Header } from "@components/Header/Header";
@@ -35,13 +36,7 @@ export default function Scrapeout() {
       <WorkTitleSection title="Scrapeout" />
       <section id="overview">
         <ResponsiveMediaSplit
-          media={
-            <SkeletonImage
-              fill
-              src="/gifs/scrapeout.gif"
-              alt="scrapeout homepage website"
-            />
-          }
+          media={<AutoPlayVideo src="/videos/scrapeout.mp4" />}
           mediaWidth={1194}
           mediaHeight={720}
           order={0}

@@ -1,3 +1,4 @@
+import { AutoPlayVideo } from "@components/AutoPlayVideo/AutoPlayVideo";
 import { Award } from "@components/Award/Award";
 import { ResponsiveSplitCols } from "@components/ResponsiveSplitCols/ResponsiveSplitCols";
 import { ResponsiveMediaSplit } from "@components/sections/ResponsiveMediaSplit/ResponsiveMediaSpit";
@@ -19,13 +20,7 @@ export const WorksSection: React.FC = () => {
         }}
       >
         <ResponsiveMediaSplit
-          media={
-            <SkeletonImage
-              fill
-              src="/gifs/scrapeout.gif"
-              alt="scrapeout homepage website"
-            />
-          }
+          media={<AutoPlayVideo src="/videos/scrapeout.mp4" />}
           mediaWidth={1194}
           mediaHeight={720}
           order={1}
@@ -114,11 +109,7 @@ export const WorksSection: React.FC = () => {
           </p>
         </SectionCodeBlock>
         <ResponsiveMediaSplit
-          media={
-            <video autoPlay loop>
-              <source src="/videos/SlitherIORL.mp4" />
-            </video>
-          }
+          media={<AutoPlayVideo src="/videos/SlitherIORL.mp4" />}
           mediaWidth={1255}
           mediaHeight={1010}
           order={0}
@@ -188,7 +179,7 @@ export const WorksSection: React.FC = () => {
           </p>
         </ResponsiveMediaSplit>
         <ResponsiveMediaSplit
-          media={<SkeletonImage fill src="/gifs/pacman.gif" alt="pacman gif" />}
+          media={<AutoPlayVideo src="/videos/pacman.mp4" />}
           mediaWidth={748}
           mediaHeight={720}
           order={0}

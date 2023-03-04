@@ -1,0 +1,27 @@
+@import "@styles/variables.scss";
+
+$color-skeleton: rgba($color-text-dark, 0.7);
+$color-skeleton-light: rgba($color-text-dark, 0.5);
+$offset: 500px;
+
+.skeleton {
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  background-color: $color-skeleton;
+  animation: loading 1.5s ease-in-out infinite;
+}
+
+// skeleton loading animation with absolute position
+@keyframes loading {
+  0% {
+    background-color: $color-skeleton;
+  }
+  50% {
+    background-color: $color-skeleton-light;
+  }
+  100% {
+    background-color: $color-skeleton;
+  }
+}

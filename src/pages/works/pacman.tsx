@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { AutoPlayVideo } from "@components/AutoPlayVideo/AutoPlayVideo";
 import { Award } from "@components/Award/Award";
 import { BackgroundLines } from "@components/BackgroundLines/BackgroundLines";
 import { Header } from "@components/Header/Header";
@@ -9,7 +10,6 @@ import { WorkTitleSection } from "@components/pages/works/WorkTitleSection/WorkT
 import { ResponsiveMediaSplit } from "@components/sections/ResponsiveMediaSplit/ResponsiveMediaSpit";
 import { SectionMainTitle } from "@components/sections/SectionMainTitle/SectionMainTitle";
 import { SectionTitle } from "@components/sections/SectionTitle/SectionTitle";
-import { SkeletonImage } from "@components/SkeletonImage/SkeletonImage";
 import GRADIENTS from "@lib/gradients";
 
 export default function Pacman() {
@@ -57,7 +57,7 @@ export default function Pacman() {
           Award
         </Award> */}
         <ResponsiveMediaSplit
-          media={<SkeletonImage fill src="/gifs/pacman.gif" alt="pacman gif" />}
+          media={<AutoPlayVideo src="/videos/pacman.mp4" />}
           mediaWidth={748}
           mediaHeight={720}
           order={0}
