@@ -6,10 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "ts:lint": "tsc --noEmit --skipLibCheck"
   },
   "lint-staged": {
-    ".": "next lint",
+    ".": "npm run lint",
     "**/*.(ts|tsx|js|jsx)": [
       "npx eslint --fix",
       "npx prettier --write"
