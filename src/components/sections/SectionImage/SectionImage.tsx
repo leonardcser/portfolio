@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { CSSProperties, useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { FadeIn } from "@components/FadeIn/FadeIn";
 import { ResponsiveSplitCols } from "@components/ResponsiveSplitCols/ResponsiveSplitCols";
@@ -17,6 +17,7 @@ interface Props {
   children: React.ReactNode;
   image: IImageProps;
   order: 0 | 1;
+  wrap?: boolean;
   href?: string;
 }
 
@@ -25,6 +26,7 @@ export const SectionImage: React.FC<Props> = ({
   children,
   image,
   order,
+  wrap = true,
   href,
 }) => {
   const imgContainerRef = useRef<HTMLDivElement | HTMLAnchorElement>(null);
@@ -46,6 +48,11 @@ export const SectionImage: React.FC<Props> = ({
     };
   }, [updateImgContainerHeight]);
 
+  const imageContainerStyle: CSSProperties = {
+    height: imgContainerHeight,
+    flexBasis: wrap ? undefined : "100%",
+  };
+
   return (
     <ResponsiveSplitCols className={styles.content}>
       {href ? (
@@ -53,17 +60,17 @@ export const SectionImage: React.FC<Props> = ({
           href={href}
           ref={imgContainerRef as React.RefObject<HTMLAnchorElement>}
           className={styles["image-container"]}
-          style={{ height: imgContainerHeight }}
+          style={imageContainerStyle}
         >
-          <SkeletonImage src={image.src} alt={image.alt} />
+          <SkeletonImage fill src={image.src} alt={image.alt} />
         </Link>
       ) : (
         <div
           ref={imgContainerRef as React.RefObject<HTMLDivElement>}
           className={styles["image-container"]}
-          style={{ height: imgContainerHeight }}
+          style={imageContainerStyle}
         >
-          <SkeletonImage src={image.src} alt={image.alt} />
+          <SkeletonImage fill src={image.src} alt={image.alt} />
         </div>
       )}
       <FadeIn style={{ flex: 1, order: order, display: "block" }}>

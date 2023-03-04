@@ -32,7 +32,7 @@ export const WorksSection: React.FC = () => {
             subtitle="Works"
             tags={[
               "Typescript",
-              "SASS",
+              "SCSS",
               "UI/UX",
               "Django",
               "Terraform",
@@ -117,7 +117,7 @@ export const WorksSection: React.FC = () => {
         <SectionTitle
           title="Photography Portfolio"
           subtitle="Works"
-          tags={["Typescript", "NextJS", "React", "SASS", "UI/UX"]}
+          tags={["Typescript", "NextJS", "React", "SCSS", "UI/UX"]}
           fade
         />
         <p>

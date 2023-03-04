@@ -1,23 +1,18 @@
 import { useState } from "react";
-import Image from "next/image";
+import Image, { ImageProps } from "next/image";
 
 import styles from "./SkeletonImage.module.scss";
 
-interface Props {
-  src: string;
-  alt: string;
-}
-
-export const SkeletonImage: React.FC<Props> = ({ src, alt }) => {
+export const SkeletonImage: React.FC<ImageProps> = props => {
   const [loaded, setLoaded] = useState(false);
 
   return (
     <>
       {!loaded && <div className={styles.skeleton} />}
       <Image
-        fill
-        src={src}
-        alt={alt}
+        {...props}
+        // the alt attribute is provided separately to avoid linting errors
+        alt={props.alt}
         onLoadingComplete={() => setLoaded(true)}
       />
     </>

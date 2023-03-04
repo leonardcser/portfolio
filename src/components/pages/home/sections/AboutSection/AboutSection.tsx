@@ -34,9 +34,10 @@ export const AboutSection: React.FC = () => {
         <SectionTitle title="My Story" subtitle="About" fade />
         <p>
           As a data-driven entrepreneur with a passion for tech, I bring a
-          unique combination of skills to solve human problems. My knowledge in
-          UI/UX design, data analytics, software and web development combined
-          with business mindset, I bring to life unique ideas.
+          unique combination of skills to solve human problems. With my
+          knowledge in UI/UX design, data analytics, software and web
+          development combined with business mindset, I bring to life unique
+          ideas.
         </p>
         <Timeline items={data} />
       </section>

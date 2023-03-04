@@ -48,7 +48,7 @@ export default function Scrapeout() {
             subtitle="What is Scrapeout?"
             tags={[
               "Typescript",
-              "SASS",
+              "SCSS",
               "UI/UX",
               "Django",
               "Terraform",
@@ -60,9 +60,11 @@ export default function Scrapeout() {
             fade
           />
           <p>
-            Scrapeout is my most ambitious project to date. It has now become a
-            full web tool that helps companies identify conflict of interest in
-            their data in order to take more informed decisions.
+            Scrapeout is a powerful linkage analysis tool that identifies
+            connections between individuals up to 10 degrees of separation
+            across multiple data points. It ingests data from various sources to
+            identify linkages and undisclosed business interests, which could
+            pose operational risks to organizations.
           </p>
           <ResponsiveSplitCols>
             <Award>
@@ -95,19 +97,30 @@ export default function Scrapeout() {
         </p>
       </section>
       <section id="infrastructure">
-        <SectionTitle
-          title="Infrastructure"
-          subtitle="Setting up for Production"
-          fade
-        />
-        <p>
-          Setting up the infrastructure for production was the most complicated
-          part of the project. I chose AWS with Terraform for the backend
-          infrastructure and Vercel for the frontend. I also integrated a CI/CD
-          pipeline with GitLab in order to automate everything. To ensure that
-          the infrastructure was working properly, I went through the AWS
-          Overdrive program to get a certification.
-        </p>
+        <SectionImage
+          image={{
+            src: "/images/ScrapeoutCloudInfrastructure.jpg",
+            alt: "Scrapeout Infrastructure",
+            width: 2451,
+            height: 1379,
+          }}
+          wrap={false}
+          order={0}
+        >
+          <SectionTitle
+            title="Infrastructure"
+            subtitle="Setting up for Production"
+            fade
+          />
+          <p>
+            Setting up the infrastructure for production was the most
+            complicated part of the project. I chose AWS with Terraform for the
+            backend infrastructure and Vercel for the frontend. I also
+            integrated a CI/CD pipeline with GitLab in order to automate
+            everything. To ensure that the infrastructure was working properly,
+            I went through the AWS Overdrive program to get a certification.
+          </p>
+        </SectionImage>
       </section>
       <section id="design">
         <SectionTitle title="Design" subtitle="Customizing the Frontend" fade />
