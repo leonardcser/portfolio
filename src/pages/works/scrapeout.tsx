@@ -8,6 +8,7 @@ import { ResponsiveSplitCols } from "@components/ResponsiveSplitCols/ResponsiveS
 import { ResponsiveMediaSplit } from "@components/sections/ResponsiveMediaSplit/ResponsiveMediaSpit";
 import { SectionMainTitle } from "@components/sections/SectionMainTitle/SectionMainTitle";
 import { SectionTitle } from "@components/sections/SectionTitle/SectionTitle";
+import { SkeletonImage } from "@components/SkeletonImage/SkeletonImage";
 import GRADIENTS from "@lib/gradients";
 
 export default function Scrapeout() {
@@ -34,12 +35,15 @@ export default function Scrapeout() {
       <WorkTitleSection title="Scrapeout" />
       <section id="overview">
         <ResponsiveMediaSplit
-          image={{
-            src: "/gifs/scrapeout.gif",
-            alt: "scrapeout homepage website",
-            width: 1194,
-            height: 720,
-          }}
+          media={
+            <SkeletonImage
+              fill
+              src="/gifs/scrapeout.gif"
+              alt="scrapeout homepage website"
+            />
+          }
+          mediaWidth={1194}
+          mediaHeight={720}
           order={0}
         >
           <SectionTitle
@@ -97,12 +101,15 @@ export default function Scrapeout() {
       </section>
       <section id="infrastructure">
         <ResponsiveMediaSplit
-          image={{
-            src: "/images/ScrapeoutCloudInfrastructure.jpg",
-            alt: "Scrapeout Infrastructure",
-            width: 2451,
-            height: 1379,
-          }}
+          media={
+            <SkeletonImage
+              fill
+              src="/images/ScrapeoutCloudInfrastructure.jpg"
+              alt="Scrapeout Infrastructure"
+            />
+          }
+          mediaWidth={2451}
+          mediaHeight={1379}
           wrap={false}
           order={0}
         >

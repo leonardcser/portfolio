@@ -7,6 +7,7 @@ import { WorkTitleSection } from "@components/pages/works/WorkTitleSection/WorkT
 import { ResponsiveMediaSplit } from "@components/sections/ResponsiveMediaSplit/ResponsiveMediaSpit";
 import { SectionMainTitle } from "@components/sections/SectionMainTitle/SectionMainTitle";
 import { SectionTitle } from "@components/sections/SectionTitle/SectionTitle";
+import { SkeletonImage } from "@components/SkeletonImage/SkeletonImage";
 import GRADIENTS from "@lib/gradients";
 
 export default function CaptchaSolver() {
@@ -32,12 +33,15 @@ export default function CaptchaSolver() {
       <WorkTitleSection title="Captcha Solver" />
       <section id="overview">
         <ResponsiveMediaSplit
-          image={{
-            src: "/images/amazoncaptcha.jpg",
-            alt: "ml captcha solves",
-            width: 1718,
-            height: 868,
-          }}
+          media={
+            <SkeletonImage
+              fill
+              src="/images/amazoncaptcha.jpg"
+              alt="ml captcha solves"
+            />
+          }
+          mediaWidth={1211}
+          mediaHeight={612}
           order={0}
         >
           <SectionTitle

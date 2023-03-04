@@ -9,6 +9,7 @@ import { WorkTitleSection } from "@components/pages/works/WorkTitleSection/WorkT
 import { ResponsiveMediaSplit } from "@components/sections/ResponsiveMediaSplit/ResponsiveMediaSpit";
 import { SectionMainTitle } from "@components/sections/SectionMainTitle/SectionMainTitle";
 import { SectionTitle } from "@components/sections/SectionTitle/SectionTitle";
+import { SkeletonImage } from "@components/SkeletonImage/SkeletonImage";
 import GRADIENTS from "@lib/gradients";
 
 export default function Pacman() {
@@ -56,12 +57,9 @@ export default function Pacman() {
           Award
         </Award> */}
         <ResponsiveMediaSplit
-          image={{
-            src: "/gifs/pacman.gif",
-            alt: "pacman gif",
-            width: 748,
-            height: 720,
-          }}
+          media={<SkeletonImage fill src="/gifs/pacman.gif" alt="pacman gif" />}
+          mediaWidth={748}
+          mediaHeight={720}
           order={0}
         >
           <SectionTitle
