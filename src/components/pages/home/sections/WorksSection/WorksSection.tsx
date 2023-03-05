@@ -108,7 +108,7 @@ export const WorksSection: React.FC = () => {
             abstractions.
           </p>
         </SectionCodeBlock>
-        <ResponsiveMediaSplit
+        {/* <ResponsiveMediaSplit
           media={<AutoPlayVideo src="/videos/SlitherIORL.mp4" />}
           mediaWidth={1255}
           mediaHeight={1010}
@@ -127,7 +127,7 @@ export const WorksSection: React.FC = () => {
             reinforcement learning. The agent was able to collect food and avoid
             other snakes.
           </p>
-        </ResponsiveMediaSplit>
+        </ResponsiveMediaSplit> */}
         {/* <ResponsiveMediaSplit
           media={
             <SkeletonImage
@@ -153,7 +153,7 @@ export const WorksSection: React.FC = () => {
             activities.
           </p>
         </ResponsiveMediaSplit> */}
-        <ResponsiveMediaSplit
+        {/* <ResponsiveMediaSplit
           media={
             <SkeletonImage
               fill
@@ -177,7 +177,7 @@ export const WorksSection: React.FC = () => {
             algorithms, a maze generation algorithm and the classic Snake game.
             This was the first project that I did outside of EPFL.
           </p>
-        </ResponsiveMediaSplit>
+        </ResponsiveMediaSplit> */}
         <ResponsiveMediaSplit
           media={<AutoPlayVideo src="/videos/pacman.mp4" />}
           mediaWidth={748}
