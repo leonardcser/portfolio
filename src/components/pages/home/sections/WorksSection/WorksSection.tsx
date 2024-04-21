@@ -78,6 +78,40 @@ export const WorksSection: React.FC = () => {
           </ResponsiveSplitCols>
         </ResponsiveMediaSplit>
         <ResponsiveMediaSplit
+          media={
+            <SkeletonImage
+              fill
+              src="/images/license_plate.png"
+              alt="license plate detection"
+            />
+          }
+          mediaWidth={1154}
+          mediaHeight={1290}
+          order={order++ % 2}
+        >
+          <SectionTitle
+            title="Swiss License Plate Detection"
+            subtitle="Works"
+            tags={["MLOps", "PyTorch", "Kubernetes", "DVC"]}
+            extraTags={[
+              <ExternalLinkTag
+                key={0}
+                title="GitHub"
+                href="https://github.com/swiss-ai-center/pytorch-license-plate-with-mlops"
+                Icon={FaGithub}
+              />,
+            ]}
+            fade
+          />
+          <p>
+            This project was part of research into Machine Learning Operations
+            (MLOps) at <strong style={{ color: "red" }}>HEIG-VD</strong>. It is
+            comprised of two models: one for detecting the license plate and
+            another for recognizing the characters. The key feature is a custom
+            license plate generator in order to train on synthetic data.
+          </p>
+        </ResponsiveMediaSplit>
+        <ResponsiveMediaSplit
           media={<AutoPlayVideo src="/videos/scrapeout.mp4" />}
           mediaWidth={1194}
           mediaHeight={720}
