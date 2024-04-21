@@ -1,14 +1,16 @@
+import { FaGithub } from "react-icons/fa";
+import { IoIosPaper } from "react-icons/io";
 import { AutoPlayVideo } from "@components/AutoPlayVideo/AutoPlayVideo";
 import { Award } from "@components/Award/Award";
+import { ExternalLinkTag } from "@components/ExternalLinkTag/ExternalLinkTag";
 import { ResponsiveSplitCols } from "@components/ResponsiveSplitCols/ResponsiveSplitCols";
 import { ResponsiveMediaSplit } from "@components/sections/ResponsiveMediaSplit/ResponsiveMediaSpit";
-import { SectionCodeBlock } from "@components/sections/SectionCodeBlock/SectionCodeBlock";
 import { SectionMainTitle } from "@components/sections/SectionMainTitle/SectionMainTitle";
 import { SectionTitle } from "@components/sections/SectionTitle/SectionTitle";
 import { SkeletonImage } from "@components/SkeletonImage/SkeletonImage";
-import { AUTOSCOUT24_EXAMPLE_SHORT } from "@lib/codeSnippets";
 
 export const WorksSection: React.FC = () => {
+  let order = 1;
   return (
     <section id="works">
       <SectionMainTitle title="My Favorite Works" />
@@ -20,10 +22,66 @@ export const WorksSection: React.FC = () => {
         }}
       >
         <ResponsiveMediaSplit
+          media={
+            <SkeletonImage
+              fill
+              src="/images/lakes.png"
+              alt="greenland lake segmentation"
+            />
+          }
+          mediaWidth={683}
+          mediaHeight={717}
+          order={order++ % 2}
+        >
+          <SectionTitle
+            title="Greenland Supraglacial Lakes Detection"
+            subtitle="Works"
+            tags={["MLOps", "PyTorch", "DVC"]}
+            extraTags={[
+              <ExternalLinkTag
+                key={0}
+                title="GitHub"
+                href="https://github.com/swiss-ai-center/giscup2023-resnet-unet"
+                Icon={FaGithub}
+              />,
+              <ExternalLinkTag
+                key={1}
+                title="Read Paper"
+                href="https://dl.acm.org/doi/10.1145/3589132.3629970"
+                Icon={IoIosPaper}
+              />,
+            ]}
+            fade
+          />
+          <p>
+            This project was part of a ACM SIGSPATIAL competition. The goal was
+            to segment supraglacial lakes in Greenland using satellite images.
+            We worked in a team of 5 at{" "}
+            <strong style={{ color: "red" }}>HEIG-VD</strong> and submitted two
+            solutions, ranked 1st and 3rd.
+          </p>
+          <ResponsiveSplitCols style={{ gap: "1.5rem" }}>
+            <Award yOffset={-12}>
+              2023 ACM
+              <br />
+              SIGSPATIAL
+              <br />
+              1st Place
+            </Award>
+            <Award yOffset={-12}>
+              2023 ACM
+              <br />
+              SIGSPATIAL
+              <br />
+              3rd Place
+            </Award>
+          </ResponsiveSplitCols>
+        </ResponsiveMediaSplit>
+        <ResponsiveMediaSplit
           media={<AutoPlayVideo src="/videos/scrapeout.mp4" />}
           mediaWidth={1194}
           mediaHeight={720}
-          order={1}
+          order={order++ % 2}
           href="/works/scrapeout"
         >
           <SectionTitle
@@ -71,7 +129,7 @@ export const WorksSection: React.FC = () => {
           }
           mediaWidth={1211}
           mediaHeight={612}
-          order={0}
+          order={order++ % 2}
           href="/works/captcha"
         >
           <SectionTitle
@@ -87,12 +145,12 @@ export const WorksSection: React.FC = () => {
             accuracy of 93%.
           </p>
         </ResponsiveMediaSplit>
-        <SectionCodeBlock
+        {/* <SectionCodeBlock
           codeBlockProps={{
             ...AUTOSCOUT24_EXAMPLE_SHORT,
             style: { fontSize: "0.9rem" },
           }}
-          order={1}
+          order={order++ % 2}
           href="/works/autoscout24"
         >
           <SectionTitle
@@ -107,19 +165,18 @@ export const WorksSection: React.FC = () => {
             project was a great way to learn about Python factories and
             abstractions.
           </p>
-        </SectionCodeBlock>
-        {/* <ResponsiveMediaSplit
+        </SectionCodeBlock> */}
+        <ResponsiveMediaSplit
           media={<AutoPlayVideo src="/videos/SlitherIORL.mp4" />}
           mediaWidth={1255}
           mediaHeight={1010}
-          order={0}
+          order={order++ % 2}
         >
           <SectionTitle
             title="SlitherIO RL"
             subtitle="Works"
             tags={["Tensorflow", "Selenium", "OpenCV", "Python"]}
             fade
-            href="/works/captcha"
           />
           <p>
             The project was to create a neural network that could play the game
@@ -127,7 +184,7 @@ export const WorksSection: React.FC = () => {
             reinforcement learning. The agent was able to collect food and avoid
             other snakes.
           </p>
-        </ResponsiveMediaSplit> */}
+        </ResponsiveMediaSplit>
         {/* <ResponsiveMediaSplit
           media={
             <SkeletonImage
@@ -182,7 +239,7 @@ export const WorksSection: React.FC = () => {
           media={<AutoPlayVideo src="/videos/pacman.mp4" />}
           mediaWidth={748}
           mediaHeight={720}
-          order={0}
+          order={order++ % 2}
           href="/works/pacman"
         >
           <SectionTitle
@@ -194,7 +251,8 @@ export const WorksSection: React.FC = () => {
           />
           <p>
             Remake of the classic Pacman game. This project was done in a team
-            of 2 for the Introduction to Programming (CS-107) course at EPFL.
+            of 2 for the Introduction to Programming (CS-107) course at{" "}
+            <strong style={{ color: "red" }}>EPFL</strong>.
             <br />
             It includes all ghosts and their AI, a map editor, a leaderboard
             system, custom menu and more.

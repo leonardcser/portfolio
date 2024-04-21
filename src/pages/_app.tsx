@@ -1,6 +1,6 @@
 import type { AppProps } from "next/app";
+import { DM_Sans, DM_Serif_Display } from "next/font/google";
 import Head from "next/head";
-import { DM_Sans, DM_Serif_Display } from "@next/font/google";
 
 import "@styles/globals.scss";
 

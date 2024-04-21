@@ -4,9 +4,10 @@ import styles from "./Award.module.css";
 
 interface Props {
   children: React.ReactNode;
+  yOffset?: number;
 }
 
-export const Award: React.FC<Props> = ({ children }) => {
+export const Award: React.FC<Props> = ({ children, yOffset }) => {
   return (
     <div className={styles["award-container"]}>
       <div className={styles["award-leaves"]}>
@@ -30,7 +31,14 @@ export const Award: React.FC<Props> = ({ children }) => {
           height={75}
         />
       </div>
-      <h5 className={styles["award-text"]}>{children}</h5>
+      <h5
+        className={styles["award-text"]}
+        style={{
+          transform: `translateY(${yOffset ?? 0}px)`,
+        }}
+      >
+        {children}
+      </h5>
     </div>
   );
 };

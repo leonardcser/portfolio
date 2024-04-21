@@ -10,7 +10,7 @@ interface Props {
   media: React.ReactNode;
   mediaWidth: number;
   mediaHeight: number;
-  order: 0 | 1;
+  order: number;
   wrap?: boolean;
   href?: string;
 }

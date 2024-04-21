@@ -25,6 +25,13 @@ const data = [
       "With interest in data analytics, I founded Scrapeout. I was able to learn about real life entrepreneurship and manage challenges along the business growth.",
     date: "2021-2023",
   },
+  {
+    imagePath: "/images/logo_heig-vd.png",
+    title: "HEIG-VD",
+    description:
+      "I am currently studying at HEIG-VD in order to deepen my knowledge in software development. I am also working as a student assistant working on various ML and MLOps projects.",
+    date: "2023-now",
+  },
 ];
 
 export const AboutSection: React.FC = () => {
