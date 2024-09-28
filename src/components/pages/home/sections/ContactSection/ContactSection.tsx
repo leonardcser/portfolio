@@ -6,7 +6,7 @@ import GRADIENTS from "@lib/gradients";
 import styles from "./ContactSection.module.scss";
 
 export const ContactSection: React.FC = () => {
-  const email = "leocser632@gmail.com";
+  const email = "leonard.cseres@devleo.ch";
   return (
     <>
       <section id="contact">
