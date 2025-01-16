@@ -4,7 +4,7 @@
 	<nav class="mx-auto w-full max-w-[85rem] px-5 sm:flex sm:items-center sm:justify-between">
 		<div class="flex w-full items-center justify-between">
 			<!-- TODO: Create svg instead -->
-			<img src="/images/icon_profile_svg.png" width="50" height="50" />
+			<img src="/images/icon_profile_svg.png" width="40" height="40" />
 			<!-- 	<div class="sm:hidden"> -->
 			<!-- 		<button -->
 			<!-- 			type="button" -->

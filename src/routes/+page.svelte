@@ -14,6 +14,4 @@
 	<WorksSection />
 
 	<div class="mb-72"></div>
-	<hr />
-	<ThemeToggle />
 </MainLayout>

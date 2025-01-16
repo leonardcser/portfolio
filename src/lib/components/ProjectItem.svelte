@@ -7,6 +7,7 @@
 		title: string;
 		tags: string[];
 		linkTags?: LinkTagProps[];
+
 		class?: string;
 		demo: Snippet;
 		awards?: Snippet;
