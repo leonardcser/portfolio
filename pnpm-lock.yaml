@@ -8,9 +8,15 @@ importers:
 
   .:
     dependencies:
+      '@preline/theme-switch':
+        specifier: ^2.5.2
+        version: 2.5.2
       '@tailwindcss/typography':
         specifier: ^0.5.15
         version: 0.5.16(tailwindcss@3.4.17)
+      preline:
+        specifier: ^2.7.0
+        version: 2.7.0
     devDependencies:
       '@eslint/compat':
         specifier: ^1.2.3
@@ -324,6 +330,12 @@ packages:
 
   '@polka/url@1.0.0-next.28':
     resolution: {integrity: sha512-8LduaNlMZGwdZ6qWrKlfa+2M4gahzFkprZiAt2TF8uS0qQgBizKXpXURqvTJ4WtmupWxaLqjRb2UCTe72mu+Aw==}
+
+  '@popperjs/core@2.11.8':
+    resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
+
+  '@preline/theme-switch@2.5.2':
+    resolution: {integrity: sha512-mhy8JNwXe3D61Axp3w/Bi1Yk4IACtnP3PQ1VeLR8dxpL0XTjROL4yl/YcTO3qPE90cVKkNAEqANwysmp/WuH+w==}
 
   '@rollup/rollup-android-arm-eabi@4.30.1':
     resolution: {integrity: sha512-pSWY+EVt3rJ9fQ3IqlrEUtXh3cGqGtPDH1FQlNZehO2yYxCHEX1SPsz1M//NXwYfbTlcKr9WObLnJX9FsS9K1Q==}
@@ -1169,6 +1181,9 @@ packages:
     resolution: {integrity: sha512-6oz2beyjc5VMn/KV1pPw8fliQkhBXrVn1Z3TVyqZxU8kZpzEKhBdmCFqI6ZbmGtamQvQGuU1sgPTk8ZrXDD7jQ==}
     engines: {node: ^10 || ^12 || >=14}
 
+  preline@2.7.0:
+    resolution: {integrity: sha512-xMuMVZ7aftBT1/5/3Rb48i/t+LWQfsUjBX7bls4peqS6h5OZTbIgz0N6eMDzuDlOZF3DiSWLehl00oGlAkvovw==}
+
   prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
@@ -1688,6 +1703,10 @@ snapshots:
     optional: true
 
   '@polka/url@1.0.0-next.28': {}
+
+  '@popperjs/core@2.11.8': {}
+
+  '@preline/theme-switch@2.5.2': {}
 
   '@rollup/rollup-android-arm-eabi@4.30.1':
     optional: true
@@ -2498,6 +2517,10 @@ snapshots:
       nanoid: 3.3.8
       picocolors: 1.1.1
       source-map-js: 1.2.1
+
+  preline@2.7.0:
+    dependencies:
+      '@popperjs/core': 2.11.8
 
   prelude-ls@1.2.1: {}
 

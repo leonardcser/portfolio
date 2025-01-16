@@ -1,3 +1,31 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+@layer base {
+	@font-face {
+		font-family: 'Inter';
+		src: url('/fonts/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+		font-style: normal;
+		font-weight: 100 900;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Inter Italic';
+		src: url('/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype');
+		font-style: italic;
+		font-weight: 100 900;
+		font-display: swap;
+	}
+}
+
+body {
+	/* Light mode styles */
+	@apply bg-white text-black;
+}
+
+html.dark > body {
+	/* Dark mode styles */
+	@apply bg-black text-white;
+}
