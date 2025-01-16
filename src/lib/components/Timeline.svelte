@@ -8,10 +8,6 @@
 		date="2023 - Present"
 		title="HEIG-VD"
 		description="I am currently studying at HEIG-VD in order to deepen my knowledge in software development. I am also working as a student assistant working on various ML and MLOps projects."
-		points={[
-			'Help to create MLOPs guide',
-			'Detected solar panel installations from satellite images'
-		]}
 	>
 		{#snippet icon()}
 			<img src="/images/logo_heig-vd.png" alt="Heig-vd logo" />

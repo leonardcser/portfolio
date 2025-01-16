@@ -32,13 +32,11 @@
 
 	<!-- Right Content -->
 	<div class="grow pb-8 group-last:pb-0">
-		<h3 class="mb-1 text-xs text-stone-600 dark:text-stone-400">{date}</h3>
+		<small class="mb-1 text-xs text-stone-600 dark:text-stone-400">{date}</small>
 
-		<p class="text-sm font-semibold text-stone-800 dark:text-stone-200">
-			{title}
-		</p>
+		<h3>{title}</h3>
 
-		<p class="mt-1 text-sm">
+		<p class="text-sm">
 			{description}
 		</p>
 

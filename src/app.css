@@ -46,12 +46,20 @@ html.dark > body {
 	@apply bg-stone-950 text-white;
 }
 
+hr {
+	@apply dark:border-stone-600;
+}
+
 h1 {
 	@apply font-serif !font-semibold;
 }
 
 h2 {
 	@apply font-serif;
+}
+
+h3 {
+	@apply !mb-1 !text-sm !font-semibold;
 }
 
 p {
