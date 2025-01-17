@@ -1,11 +1,14 @@
+<script lang="ts">
+	import Brand from './Brand.svelte';
+</script>
+
 <header
 	class="fixed z-50 flex h-[60px] w-full flex-wrap items-center text-sm max-xl:backdrop-blur-lg sm:flex-nowrap sm:justify-start"
 >
 	<nav class="mx-auto w-full max-w-[85rem] px-5 sm:flex sm:items-center sm:justify-between">
 		<div class="flex w-full items-center justify-between">
-			<!-- TODO: Create svg instead -->
 			<a href="/">
-				<img src="/images/icon_profile_svg.png" width="40" height="40" alt="brand logo" />
+				<Brand />
 			</a>
 			<!-- 	<div class="sm:hidden"> -->
 			<!-- 		<button -->
