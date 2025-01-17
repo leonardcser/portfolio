@@ -56,8 +56,10 @@
 					href={card.url}
 				>
 					<div class="relative flex items-center overflow-hidden">
-						<img
+						<enhanced:img
 							class="absolute inset-0 h-full w-32 rounded-s-lg object-cover sm:w-48"
+							loading="lazy"
+							fetchpriority="low"
 							src={card.imageUrl}
 							alt={card.alt}
 						/>

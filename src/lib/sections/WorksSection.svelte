@@ -23,8 +23,10 @@
 		]}
 	>
 		{#snippet demo()}
-			<img
-				src="/images/lakes.png"
+			<enhanced:img
+				loading="lazy"
+				fetchpriority="low"
+				src="/static/images/lakes.png"
 				alt="lake segmentation"
 				class="m-0 aspect-video object-cover sm:aspect-square"
 			/>
@@ -63,7 +65,13 @@
 		]}
 	>
 		{#snippet demo()}
-			<img src="/images/license_plate.png" alt="chess game" class="m-0" />
+			<enhanced:img
+				loading="lazy"
+				fetchpriority="low"
+				src="/static/images/license_plate.png"
+				alt="chess game"
+				class="m-0"
+			/>
 		{/snippet}
 		This project was part of research into Machine Learning Operations (MLOps) at
 		<strong class="text-red-600">HEIG-VD</strong>. It is comprised of two models: one for detecting
@@ -88,7 +96,13 @@
 		]}
 	>
 		{#snippet demo()}
-			<img src="/images/guide_mlops.png" alt="mlops guide homepage" class="m-0" />
+			<enhanced:img
+				loading="lazy"
+				fetchpriority="low"
+				src="/static/images/guide_mlops.png"
+				alt="mlops guide homepage"
+				class="m-0"
+			/>
 		{/snippet}
 		Contributed in building a machine leaning operations guide for companies and Master students to apply.
 	</ProjectItem>
@@ -118,7 +132,13 @@
 
 	<ProjectItem title="Habit Tracker App" tags={['React Native', 'Expo']}>
 		{#snippet demo()}
-			<img src="/images/smarterhabits.jpg" alt="habits app" class="m-0" />
+			<enhanced:img
+				loading="lazy"
+				fetchpriority="low"
+				src="/static/images/smarterhabits.jpg"
+				alt="habits app"
+				class="m-0"
+			/>
 		{/snippet}
 		The inspiration was to create a habit tracker app that would be able to track your daily activities
 		and habits. Based on this data, it would find patterns and connections between your habits and activities.
@@ -127,7 +147,13 @@
 	<div class="grid-cols-2 max-sm:space-y-6 sm:grid sm:gap-6">
 		<ProjectItem title="Captcha Solver" tags={['Tensorflow', 'GCP', 'OpenCV']}>
 			{#snippet demo()}
-				<img src="/images/amazoncaptcha.jpg" alt="amazon captcha" class="m-0" />
+				<enhanced:img
+					loading="lazy"
+					fetchpriority="low"
+					src="/static/images/amazoncaptcha.jpg"
+					alt="amazon captcha"
+					class="m-0"
+				/>
 			{/snippet}
 			The goal of this project was to create a neural network that could solve 6 character captchas from
 			Amazon. I achieved an average accuracy of 93%.
@@ -140,7 +166,13 @@
 			]}
 		>
 			{#snippet demo()}
-				<img src="/images/chess.png" alt="chess game" class="m-0" />
+				<enhanced:img
+					loading="lazy"
+					fetchpriority="low"
+					src="/static/images/chess.png"
+					alt="chess game"
+					class="m-0"
+				/>
 			{/snippet}
 			A simple chess engine based on OOP principles
 		</ProjectItem>

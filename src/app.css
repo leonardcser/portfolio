@@ -73,3 +73,7 @@ a {
 a::before {
 	@apply bg-stone-700 dark:bg-stone-300;
 }
+
+picture {
+	@apply !m-0;
+}
