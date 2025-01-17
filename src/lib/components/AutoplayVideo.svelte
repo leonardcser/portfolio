@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount, onDestroy } from 'svelte';
+	import { onMount } from 'svelte';
 
 	interface Props {
 		src: string;
@@ -8,18 +8,42 @@
 	const { src }: Props = $props();
 	let videoElement: HTMLVideoElement;
 	let observer: IntersectionObserver;
+	let isLoaded = $state(false);
+	let isPlaying = $state(false);
 
 	onMount(() => {
 		observer = new IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					// Set the src and type only when the video is in view
-					if (!videoElement.src) {
-						videoElement.innerHTML = `<source src="${src}.webm" type="video/webm"  />
-											      <source src="${src}.ogg" type="video/ogg" />
-												  <source src="${src}.mp4" type="video/mp4" />`;
-						videoElement.load(); // Trigger loading
-					}
+				if (entry.isIntersecting && !isLoaded) {
+					// Create source elements programmatically
+					const formats = [
+						{ type: 'video/webm', ext: 'webm' },
+						{ type: 'video/ogg', ext: 'ogg' },
+						{ type: 'video/mp4', ext: 'mp4' }
+					];
+
+					formats.forEach((format) => {
+						const source = document.createElement('source');
+						source.src = `${src}.${format.ext}`;
+						source.type = format.type;
+						videoElement.appendChild(source);
+					});
+
+					// Add event listeners before loading
+					videoElement.addEventListener('canplay', () => {
+						isPlaying = true;
+					});
+
+					videoElement.addEventListener('error', (e) => {
+						console.error('Video loading error:', e);
+					});
+
+					// Load the video
+					videoElement.load();
+					isLoaded = true;
+
+					// Unobserve once loaded
+					observer.unobserve(videoElement);
 				}
 			});
 		});
@@ -27,17 +51,31 @@
 		if (videoElement) {
 			observer.observe(videoElement);
 		}
-	});
 
-	onDestroy(() => {
-		if (observer && videoElement) {
-			observer.unobserve(videoElement);
-			observer.disconnect();
-		}
+		return () => {
+			if (observer) {
+				observer.disconnect();
+			}
+		};
 	});
 </script>
 
-<video bind:this={videoElement} autoplay loop playsinline muted class="m-0 rounded border-none">
-	<!-- Empty initially; source will be dynamically set when in view -->
-	Your browser does not support the video tag.
-</video>
+<div class="relative">
+	<!-- Skeleton loader -->
+	{#if !isPlaying}
+		<div
+			class="absolute left-0 top-0 aspect-video h-full w-full animate-pulse bg-stone-300 dark:bg-stone-800"
+		></div>
+	{/if}
+
+	<!-- Video element -->
+	<video
+		bind:this={videoElement}
+		autoplay
+		loop
+		playsinline
+		muted
+		class="m-0 rounded border-none"
+		style="opacity: {isPlaying ? '1' : '0'}"
+	></video>
+</div>
