@@ -1,3 +1,7 @@
+<script>
+	import HeroLink from '$lib/components/HeroLink.svelte';
+</script>
+
 <div class="flex h-screen items-center">
 	<div>
 		<h1 class="mb-1 inline-block font-sans text-4xl">
@@ -13,9 +17,9 @@
 			I develop effective solutions that bring mesurable results.
 		</p>
 		<div class="font-xl not-prose flex gap-6 font-semibold">
-			<a>Github</a>
-			<a>Linkedin</a>
-			<a>Mail</a>
+			<HeroLink title="GitHub" href="https://github.com/leonardcser" />
+			<HeroLink title="Linkedin" href="https://www.linkedin.com/in/leonardcsrs/" />
+			<HeroLink title="Mail" href="mailto:leonard.cseres@devleo.ch" />
 		</div>
 	</div>
 </div>

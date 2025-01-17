@@ -65,3 +65,11 @@ h3 {
 p {
 	@apply leading-normal text-stone-600 dark:text-stone-400;
 }
+
+a {
+	@apply text-stone-700 dark:text-stone-300;
+}
+
+a::before {
+	@apply bg-stone-700 dark:bg-stone-300;
+}
