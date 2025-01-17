@@ -3,6 +3,7 @@
 	import Award from '$lib/components/Award.svelte';
 	import GithubIcon from '$lib/components/icons/GithubIcon.svelte';
 	import PaperIcon from '$lib/components/icons/PaperIcon.svelte';
+	import WebIcon from '$lib/components/icons/WebIcon.svelte';
 	import ProjectItem from '$lib/components/ProjectItem.svelte';
 </script>
 
@@ -61,6 +62,28 @@
 	</ProjectItem>
 
 	<ProjectItem
+		title="A Guide To MLOps"
+		tags={['DVC', 'GCP', 'BentoML', 'LabelStudio', 'Kubernetes']}
+		linkTags={[
+			{
+				tag: 'GitHub',
+				href: 'https://github.com/swiss-ai-center/a-guide-to-mlops',
+				Icon: GithubIcon
+			},
+			{
+				tag: 'Visit Site',
+				href: 'https://mlops.swiss-ai-center.ch',
+				Icon: WebIcon
+			}
+		]}
+	>
+		{#snippet demo()}
+			<img src="/images/guide_mlops.png" alt="mlops guide homepage" class="m-0" />
+		{/snippet}
+		Contributed in building a machine leaning operations guide for companies and Master students to apply.
+	</ProjectItem>
+
+	<ProjectItem
 		title="Scrapeout"
 		tags={['Typescript', 'SCSS', 'Django', 'Terraform', 'Docker', 'AWS', 'PostgreSQL', 'Neo4j']}
 	>
@@ -81,6 +104,14 @@
 		{/snippet}
 		Scrapeout is my most ambitious project to date. It has now become a full web tool that helps companies
 		identify conflict of interest in their data in order to take more informed decisions.
+	</ProjectItem>
+
+	<ProjectItem title="Habit Tracker App" tags={['React Native', 'Expo']}>
+		{#snippet demo()}
+			<img src="/images/smarterhabits.jpg" alt="habits app" class="m-0" />
+		{/snippet}
+		The inspiration was to create a habit tracker app that would be able to track your daily activities
+		and habits. Based on this data, it would find patterns and connections between your habits and activities.
 	</ProjectItem>
 
 	<div class="grid-cols-2 max-sm:space-y-6 sm:grid sm:gap-6">
