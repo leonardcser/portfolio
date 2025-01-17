@@ -15,7 +15,7 @@
 	});
 </script>
 
-<video bind:this={videoElement} autoplay loop playsinline muted class="m-0 border-none">
+<video bind:this={videoElement} autoplay loop playsinline muted class="m-0 rounded border-none">
 	<source {src} {type} />
 	Your browser does not support the video tag.
 </video>

@@ -14,8 +14,12 @@
 		title="Greenland Supraglacial Lakes Detection"
 		tags={['MLOps', 'PyTorch', 'DVC']}
 		linkTags={[
-			{ tag: 'GitHub', href: '', Icon: GithubIcon },
-			{ tag: 'Read Paper', href: '', Icon: PaperIcon }
+			{
+				tag: 'GitHub',
+				href: 'https://github.com/swiss-ai-center/giscup2023-resnet-unet',
+				Icon: GithubIcon
+			},
+			{ tag: 'Read Paper', href: 'https://dl.acm.org/doi/10.1145/3589132.3629970', Icon: PaperIcon }
 		]}
 	>
 		{#snippet demo()}
@@ -50,7 +54,13 @@
 		class="grid-cols-2 items-center gap-4 sm:grid"
 		title="Swiss License Plate Detection"
 		tags={['MLOps', 'PyTorch', 'Kubernetes', 'DVC']}
-		linkTags={[{ tag: 'GitHub', href: '', Icon: GithubIcon }]}
+		linkTags={[
+			{
+				tag: 'GitHub',
+				href: 'https://github.com/swiss-ai-center/pytorch-license-plate-with-mlops',
+				Icon: GithubIcon
+			}
+		]}
 	>
 		{#snippet demo()}
 			<img src="/images/license_plate.png" alt="chess game" class="m-0" />
@@ -125,7 +135,9 @@
 		<ProjectItem
 			title="Chess"
 			tags={['OOP', 'Java', 'HEIG-VD']}
-			linkTags={[{ tag: 'GitHub', href: '', Icon: GithubIcon }]}
+			linkTags={[
+				{ tag: 'GitHub', href: 'https://github.com/HEIG-VD-BA3-POO/labo08', Icon: GithubIcon }
+			]}
 		>
 			{#snippet demo()}
 				<img src="/images/chess.png" alt="chess game" class="m-0" />
@@ -146,7 +158,13 @@
 		<ProjectItem
 			title="Pac-Man"
 			tags={['OOP', 'Java', 'EPFL']}
-			linkTags={[{ tag: 'GitHub', href: '', Icon: GithubIcon }]}
+			linkTags={[
+				{
+					tag: 'GitHub',
+					href: 'https://github.com/leonardcser/CS107-MP2-2020-V2',
+					Icon: GithubIcon
+				}
+			]}
 		>
 			{#snippet demo()}
 				<AutoplayVideo src="/videos/pacman.mp4" />

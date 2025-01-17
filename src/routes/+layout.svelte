@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { afterNavigate } from '$app/navigation';
+	import MainLayout from '$lib/layouts/MainLayout.svelte';
 	import '../app.css';
 	let { children } = $props();
 
@@ -9,4 +10,6 @@
 	});
 </script>
 
-{@render children()}
+<MainLayout>
+	{@render children()}
+</MainLayout>

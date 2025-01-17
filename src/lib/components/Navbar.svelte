@@ -4,7 +4,9 @@
 	<nav class="mx-auto w-full max-w-[85rem] px-5 sm:flex sm:items-center sm:justify-between">
 		<div class="flex w-full items-center justify-between">
 			<!-- TODO: Create svg instead -->
-			<img src="/images/icon_profile_svg.png" width="40" height="40" />
+			<a href="/">
+				<img src="/images/icon_profile_svg.png" width="40" height="40" alt="brand logo" />
+			</a>
 			<!-- 	<div class="sm:hidden"> -->
 			<!-- 		<button -->
 			<!-- 			type="button" -->
@@ -49,9 +51,7 @@
 			<!-- 		</button> -->
 			<!-- 	</div> -->
 			<!-- </div> -->
-			<div
-				class="hs-collapse hidden grow basis-full overflow-hidden transition-all duration-300 sm:block"
-			>
+			<div class="hidden overflow-hidden sm:block">
 				<div
 					class="mt-5 flex flex-col gap-5 font-semibold sm:mt-0 sm:flex-row sm:items-center sm:justify-end sm:ps-5"
 				>
