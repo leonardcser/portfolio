@@ -118,7 +118,7 @@
 			tags={['Typescript', 'SCSS', 'Django', 'Terraform', 'Docker', 'AWS', 'PostgreSQL', 'Neo4j']}
 		>
 			{#snippet demo()}
-				<AutoplayVideo src="/videos/scrapeout.mp4" />
+				<AutoplayVideo src="/videos/scrapeout" />
 			{/snippet}
 			{#snippet awards()}
 				<Award>
@@ -188,7 +188,7 @@
 		<div class="grid-cols-2 max-sm:space-y-6 sm:grid sm:gap-6">
 			<ProjectItem title="SlitherIO RL" tags={['Tensorflow', 'Selenium', 'OpenCV']}>
 				{#snippet demo()}
-					<AutoplayVideo src="/videos/SlitherIORL.mp4" />
+					<AutoplayVideo src="/videos/SlitherIORL" />
 				{/snippet}
 				The project was to create a neural network that could play the game SlitherIO. The agent was
 				trained using A2C (actor to critic) reinforcement learning. The agent was able to collect food
@@ -206,7 +206,7 @@
 				]}
 			>
 				{#snippet demo()}
-					<AutoplayVideo src="/videos/pacman.mp4" />
+					<AutoplayVideo src="/videos/pacman" />
 				{/snippet}
 				{#snippet awards()}
 					<Award>
