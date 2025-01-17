@@ -17,9 +17,9 @@
 				if (entry.isIntersecting && !isLoaded) {
 					// Create source elements programmatically
 					const formats = [
-						{ type: 'video/webm', ext: 'webm' },
+						{ type: 'video/mp4', ext: 'mp4' },
 						{ type: 'video/ogg', ext: 'ogg' },
-						{ type: 'video/mp4', ext: 'mp4' }
+						{ type: 'video/webm', ext: 'webm' }
 					];
 
 					formats.forEach((format) => {
