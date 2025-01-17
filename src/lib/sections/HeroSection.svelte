@@ -2,7 +2,7 @@
 	import HeroLink from '$lib/components/HeroLink.svelte';
 </script>
 
-<div class="flex h-screen items-center">
+<section id="hero" class="flex h-screen items-center">
 	<div>
 		<h1 class="mb-1 inline-block font-sans text-4xl">
 			My name is Leonard Cseres,<br />I'm a ML and software student<br />based in Switzerland
@@ -22,4 +22,4 @@
 			<HeroLink title="Mail" href="mailto:leonard.cseres@devleo.ch" />
 		</div>
 	</div>
-</div>
+</section>

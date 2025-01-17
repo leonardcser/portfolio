@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Brand from './Brand.svelte';
+	import NavLink from './NavLink.svelte';
 </script>
 
 <header
@@ -7,7 +8,7 @@
 >
 	<nav class="mx-auto w-full max-w-[85rem] px-5 sm:flex sm:items-center sm:justify-between">
 		<div class="flex w-full items-center justify-between">
-			<a href="/">
+			<a href="#hero">
 				<Brand />
 			</a>
 			<!-- 	<div class="sm:hidden"> -->
@@ -58,19 +59,9 @@
 				<div
 					class="mt-5 flex flex-col gap-5 font-semibold sm:mt-0 sm:flex-row sm:items-center sm:justify-end sm:ps-5"
 				>
-					<a class="text-blue-400 focus:outline-none" href="#" aria-current="page">About</a>
-					<a
-						class="text-gray-600 hover:text-gray-400 focus:text-gray-400 focus:outline-none dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
-						href="#">Works</a
-					>
-					<a
-						class="text-gray-600 hover:text-gray-400 focus:text-gray-400 focus:outline-none dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
-						href="#">Contact</a
-					>
-					<a
-						class="text-gray-600 hover:text-gray-400 focus:text-gray-400 focus:outline-none dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
-						href="#">Blog</a
-					>
+					<NavLink href="#hero">Contact</NavLink>
+					<NavLink href="#about">About</NavLink>
+					<NavLink href="#works">Works</NavLink>
 				</div>
 			</div>
 		</div>
