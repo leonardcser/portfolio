@@ -3,22 +3,29 @@
 
 	interface Props {
 		toId: string;
-		yOffset: number;
+		yOffset?: number;
 		class?: string;
 		children: Snippet;
 	}
-	const { toId, yOffset, class: className = '', children }: Props = $props();
+	const { toId, yOffset = 0, class: className = '', children }: Props = $props();
 	const href = '#' + toId;
 
 	function handleOnClick(e: MouseEvent) {
 		e.preventDefault();
+		if (toId == 'hero') {
+			window.scrollTo({
+				top: 0,
+				behavior: 'smooth'
+			});
+			return;
+		}
 		const el = document.querySelector(href);
 		if (!el) return;
 		const elPos = el.getBoundingClientRect().top;
 		const offsetPos = elPos + window.scrollY - yOffset;
 
 		window.scrollTo({
-			top: offsetPos + 2, // +2 for good mesures
+			top: offsetPos + 2, // for good mesures
 			behavior: 'smooth'
 		});
 	}

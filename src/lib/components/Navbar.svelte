@@ -8,9 +8,7 @@
 >
 	<nav class="mx-auto w-full max-w-[85rem] px-5 sm:flex sm:items-center sm:justify-between">
 		<div class="flex w-full items-center justify-between">
-			<a href="#hero">
-				<Brand />
-			</a>
+			<Brand />
 			<!-- 	<div class="sm:hidden"> -->
 			<!-- 		<button -->
 			<!-- 			type="button" -->
