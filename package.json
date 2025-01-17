@@ -6,6 +6,7 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
+		"postbuild": "svelte-sitemap --domain https://devleo.ch --change-freq monthly -r -i /*.png",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
@@ -36,6 +37,7 @@
 		"svelte": "^5.0.0",
 		"svelte-check": "^4.0.0",
 		"svelte-seo": "^1.6.1",
+		"svelte-sitemap": "^2.7.0",
 		"tailwind-merge": "^2.6.0",
 		"tailwindcss": "^3.4.9",
 		"typescript": "^5.0.0",
