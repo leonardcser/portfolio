@@ -1,0 +1,79 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+	@font-face {
+		font-family: 'Inter';
+		src: url('/fonts/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+		font-style: normal;
+		font-weight: 100 900;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Inter Italic';
+		src: url('/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype');
+		font-style: italic;
+		font-weight: 100 900;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'EB Garamond';
+		src: url('/fonts/EB_Garamond/EBGaramond-VariableFont_wght.ttf') format('truetype');
+		font-style: normal;
+		font-weight: 400 800;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'EB Garamond Italic';
+		src: url('/fonts/EB_Garamond/EBGaramond-Italic-VariableFont_wght.ttf') format('truetype');
+		font-style: italic;
+		font-weight: 400 800;
+		font-display: swap;
+	}
+}
+
+body {
+	/* Light mode styles */
+	@apply bg-stone-50 text-black;
+}
+
+html.dark > body {
+	/* Dark mode styles */
+	@apply bg-stone-950 text-white;
+}
+
+hr {
+	@apply dark:border-stone-600;
+}
+
+h1 {
+	@apply font-serif !font-semibold;
+}
+
+h2 {
+	@apply font-serif;
+}
+
+h3 {
+	@apply !mb-1 !text-sm !font-semibold;
+}
+
+p {
+	@apply leading-normal text-stone-600 dark:text-stone-400;
+}
+
+a {
+	@apply text-stone-700 dark:text-stone-300;
+}
+
+a::before {
+	@apply bg-stone-700 dark:bg-stone-300;
+}
+
+picture {
+	@apply !m-0;
+}

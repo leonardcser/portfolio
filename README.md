@@ -1,18 +1,30 @@
 # Portfolio
 
+![homepage preview](static/opengraph-image.png)
+
+My personal portfolio. Visit at [devleo.ch](https://devleo.ch)
+
 ## Technologies
 
-- [Next.js](https://nextjs.org/)
-- [React](https://reactjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
-- Custom CSS/SCSS (no CSS frameworks)
-- Github Actions linting and deployment to Vercel
+- `Svelte`
+- `Typscript`
+- `Preline`
+- and keeping it simple
 
-## Features
+## Developing
 
-### Linting and Formatting
+Once you've created a project and installed dependencies with `pnpm install` (or `npm install` or `yarn`), start a development server:
 
-- [ESLint](https://eslint.org/) for linting
-- [Prettier](https://prettier.io/) for formatting
-- [Husky](https://typicode.github.io/husky) for pre-commit hooks
-- [Lint Staged](https://github.com/okonet/lint-staged) for running linters against staged git files
+```bash
+pnpm run dev
+```
+
+## Building
+
+To create a production version the app:
+
+```bash
+pnpm run build
+```
+
+You can preview the production build with `pnpm run preview`.
