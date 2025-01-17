@@ -20,11 +20,11 @@
 {/snippet}
 
 {#if page.url.pathname === '/'}
-	<ScrollLink toId="hero">
+	<ScrollLink toId="hero" ariaLabel="Scroll to top">
 		{@render brand()}
 	</ScrollLink>
 {:else}
-	<a href="/">
+	<a href="/" aria-label="Navigate to the homepage">
 		{@render brand()}
 	</a>
 {/if}

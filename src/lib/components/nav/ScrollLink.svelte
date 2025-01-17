@@ -5,9 +5,10 @@
 		toId: string;
 		yOffset?: number;
 		class?: string;
+		ariaLabel?: string;
 		children: Snippet;
 	}
-	const { toId, yOffset = 0, class: className = '', children }: Props = $props();
+	const { toId, yOffset = 0, class: className = '', ariaLabel = '', children }: Props = $props();
 	const href = '#' + toId;
 
 	function handleOnClick(e: MouseEvent) {
@@ -31,6 +32,6 @@
 	}
 </script>
 
-<a {href} class={className} onclick={handleOnClick}>
+<a {href} class={className} onclick={handleOnClick} aria-label={ariaLabel}>
 	{@render children()}
 </a>
