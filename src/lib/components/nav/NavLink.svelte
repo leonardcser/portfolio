@@ -38,7 +38,7 @@
 		{toId}
 		{yOffset}
 		class={cn(
-			'text-gray-600 transition-colors hover:text-gray-400 focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500',
+			'text-gray-600 transition-colors hover:text-gray-400 focus:text-gray-400 dark:text-stone-400 dark:hover:text-stone-500 dark:focus:text-stone-500',
 			active && 'text-blue-400 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-500'
 		)}
 	>
@@ -48,7 +48,7 @@
 	<a
 		{href}
 		class={cn(
-			'text-gray-600 transition-colors hover:text-gray-400 focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500',
+			'text-gray-600 transition-colors hover:text-gray-400 focus:text-gray-400 dark:text-stone-400 dark:hover:text-stone-500 dark:focus:text-stone-500',
 			active && 'text-blue-400 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-500'
 		)}
 	>

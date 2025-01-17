@@ -1,10 +1,13 @@
 <script lang="ts">
+	import BackgroundLines from './BackgroundLines.svelte';
+
 	interface Props {
-		gradient?: string;
+		gradient?: 'default' | 'scrapeout';
 	}
 	const { gradient = 'default' }: Props = $props();
 </script>
 
+<BackgroundLines />
 <div class="absolute left-0 top-0 -z-10 flex w-screen justify-center overflow-hidden">
 	<div class={'spotlight spotlight-' + gradient}></div>
 </div>

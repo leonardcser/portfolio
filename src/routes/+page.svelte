@@ -1,5 +1,4 @@
 <script lang="ts">
-	import BackgroundLines from '$lib/components/BackgroundLines.svelte';
 	import Spotlight from '$lib/components/Spotlight.svelte';
 	import HeroSection from '$lib/sections/HeroSection.svelte';
 	import StorySection from '$lib/sections/StorySection.svelte';
@@ -7,7 +6,6 @@
 </script>
 
 <Spotlight />
-<BackgroundLines />
 <HeroSection />
 <StorySection />
 <WorksSection />

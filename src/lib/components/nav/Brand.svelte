@@ -1,8 +1,9 @@
 <script lang="ts">
 	import ScrollLink from './ScrollLink.svelte';
+	import { page } from '$app/state';
 </script>
 
-<ScrollLink toId="hero">
+{#snippet brand()}
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		width="40"
@@ -16,4 +17,14 @@
 			stroke-linejoin="round"
 		/>
 	</svg>
-</ScrollLink>
+{/snippet}
+
+{#if page.url.pathname === '/'}
+	<ScrollLink toId="hero">
+		{@render brand()}
+	</ScrollLink>
+{:else}
+	<a href="/">
+		{@render brand()}
+	</a>
+{/if}
