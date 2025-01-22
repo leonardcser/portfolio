@@ -44,17 +44,10 @@
 					<br />
 					1st Place
 				</Award>
-				<Award yOffset={-8}>
-					2023 ACM
-					<br />
-					SIGSPATIAL
-					<br />
-					3st Place
-				</Award>
 			{/snippet}
 			This project was part of a ACM SIGSPATIAL competition. The goal was to segment supraglacial lakes
 			in Greenland using satellite images. We worked in a team of 5 at{' '}
-			<strong class="text-red-600">HEIG-VD</strong> and submitted two solutions, ranked 1st and 3rd.
+			<strong class="text-red-600">HEIG-VD</strong> and obtained 1st place.
 		</ProjectItem>
 
 		<ProjectItem
