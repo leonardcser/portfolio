@@ -39,6 +39,18 @@
 		imageAlt: 'Leonard Cseres - Personal Portfolio'
 	}}
 />
+
+<!-- Umami Web Analytics -->
+<svelte:head>
+	{#if import.meta.env.PROD}
+		<script
+			defer
+			src="https://cloud.umami.is/script.js"
+			data-website-id="2ba65529-9b41-416a-9983-6697888e6b50"
+		></script>
+	{/if}
+</svelte:head>
+
 <MainLayout>
 	{@render children()}
 </MainLayout>
