@@ -1,14 +1,14 @@
 <script lang="ts">
+	import type { HTMLAnchorAttributes } from 'svelte/elements';
 	import LinkArrowIcon from './icons/LinkArrowIcon.svelte';
 
-	interface Props {
+	interface Props extends HTMLAnchorAttributes {
 		title: string;
-		href: string;
 	}
-	const { title, href }: Props = $props();
+	const { title, ...other }: Props = $props();
 </script>
 
-<a {href} target="_blank" class="inline-flex items-center gap-1">
+<a {...other} target="_blank" class="inline-flex items-center gap-1">
 	{title}
 	<LinkArrowIcon />
 </a>

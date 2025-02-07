@@ -18,7 +18,7 @@
 	const { title, tags, linkTags, class: className = '', demo, awards, children }: Props = $props();
 </script>
 
-<div class={cn('h-fit ', className)}>
+<div class={cn('h-fit ', className)} itemscope itemtype="https://schema.org/CreativeWork">
 	<div class="overflow-hidden rounded">{@render demo()}</div>
 	<div class="mt-[-1px] w-full py-3">
 		<div class="mb-2 mt-1 flex flex-wrap gap-1">
@@ -29,8 +29,8 @@
 				<LinkTag {...props} />
 			{/each}
 		</div>
-		<h3 class="mt-1">{title}</h3>
-		<p class="mb-3 mt-0 text-sm">
+		<h3 class="mt-1" itemprop="name">{title}</h3>
+		<p class="mb-3 mt-0 text-sm" itemprop="abstract">
 			{@render children()}
 		</p>
 		<div class="flex gap-4">

@@ -56,5 +56,6 @@
 		muted
 		class="m-0 rounded border-none"
 		style="opacity: {isPlaying ? '1' : '0'}"
+		itemprop="video"
 	></video>
 </div>

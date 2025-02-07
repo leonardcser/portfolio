@@ -1,7 +1,8 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import type { HTMLAttributes } from 'svelte/elements';
 
-	interface Props {
+	interface Props extends HTMLAttributes<HTMLDivElement> {
 		icon: Snippet;
 		date: string;
 		title: string;
@@ -16,10 +17,10 @@
 		};
 	}
 
-	let { icon, date, title, description, points, card }: Props = $props();
+	let { icon, date, title, description, points, card, ...other }: Props = $props();
 </script>
 
-<div class="group relative flex gap-x-5">
+<div class="group relative flex gap-x-5" {...other}>
 	<!-- Icon -->
 	<div
 		class="relative after:absolute after:bottom-2 after:start-3 after:top-8 after:w-px after:-translate-x-[0.5px] after:bg-gray-200 group-last:after:hidden dark:after:bg-neutral-700"
@@ -34,7 +35,7 @@
 	<div class="grow pb-8 group-last:pb-0">
 		<small class="mb-1 text-xs text-stone-600 dark:text-stone-400">{date}</small>
 
-		<h3>{title}</h3>
+		<h3 itemprop="name">{title}</h3>
 
 		<p class="text-sm">
 			{description}

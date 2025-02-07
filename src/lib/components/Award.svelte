@@ -29,7 +29,8 @@
 	</div>
 	<small
 		class="award-text font-semibold leading-tight"
-		style={`transform: translateY(${yOffset ?? 0}px)`}>{@render children()}</small
+		style={`transform: translateY(${yOffset ?? 0}px)`}
+		itemprop="award">{@render children()}</small
 	>
 </div>
 

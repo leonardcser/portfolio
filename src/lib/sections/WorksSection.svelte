@@ -34,6 +34,7 @@
 					src="/static/images/lakes.png"
 					alt="lake segmentation"
 					class="m-0 aspect-video object-cover sm:aspect-square"
+					itemprop="image"
 				/>
 			{/snippet}
 			{#snippet awards()}
@@ -69,6 +70,7 @@
 					src="/static/images/license_plate.png"
 					alt="chess game"
 					class="m-0"
+					itemprop="image"
 				/>
 			{/snippet}
 			This project was part of research into Machine Learning Operations (MLOps) at
@@ -100,6 +102,7 @@
 					src="/static/images/guide_mlops.png"
 					alt="mlops guide homepage"
 					class="m-0"
+					itemprop="image"
 				/>
 			{/snippet}
 			Contributed in building a machine leaning operations guide for companies and Master students to
@@ -137,6 +140,7 @@
 					src="/static/images/smarterhabits.jpg"
 					alt="habits app"
 					class="m-0"
+					itemprop="image"
 				/>
 			{/snippet}
 			The inspiration was to create a habit tracker app that would be able to track your daily activities
@@ -153,6 +157,7 @@
 						src="/static/images/amazoncaptcha.jpg"
 						alt="amazon captcha"
 						class="m-0"
+						itemprop="image"
 					/>
 				{/snippet}
 				The goal of this project was to create a neural network that could solve 6 character captchas
@@ -172,6 +177,7 @@
 						src="/static/images/chess.png"
 						alt="chess game"
 						class="m-0"
+						itemprop="image"
 					/>
 				{/snippet}
 				A simple chess engine based on OOP principles
