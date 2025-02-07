@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
-		"postbuild": "svelte-sitemap --domain https://devleo.ch --change-freq monthly -r -i /*.png",
+		"postbuild": "svelte-sitemap --out-dir .vercel/output/static --domain https://devleo.ch --change-freq monthly -r -i /*.png",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
