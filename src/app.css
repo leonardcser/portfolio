@@ -1,79 +1,60 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import '@fontsource-variable/eb-garamond';
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/jetbrains-mono';
 
 @layer base {
-	@font-face {
-		font-family: 'Inter';
-		src: url('/fonts/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype');
-		font-style: normal;
-		font-weight: 100 900;
-		font-display: swap;
+	:root {
+		--font-sans: 'Inter Variable', sans-serif;
+		--font-serif: 'EB Garamond Variable', serif;
+		--font-mono: 'JetBrains Mono Variable', monospace;
 	}
 
-	@font-face {
-		font-family: 'Inter Italic';
-		src: url('/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype');
-		font-style: italic;
-		font-weight: 100 900;
-		font-display: swap;
+	body {
+		/* Light mode styles */
+		@apply bg-stone-50 text-black;
 	}
 
-	@font-face {
-		font-family: 'EB Garamond';
-		src: url('/fonts/EB_Garamond/EBGaramond-VariableFont_wght.ttf') format('truetype');
-		font-style: normal;
-		font-weight: 400 800;
-		font-display: swap;
+	html.dark > body {
+		/* Dark mode styles */
+		@apply bg-stone-950 text-white;
 	}
 
-	@font-face {
-		font-family: 'EB Garamond Italic';
-		src: url('/fonts/EB_Garamond/EBGaramond-Italic-VariableFont_wght.ttf') format('truetype');
-		font-style: italic;
-		font-weight: 400 800;
-		font-display: swap;
+	hr {
+		@apply dark:border-stone-600;
 	}
-}
 
-body {
-	/* Light mode styles */
-	@apply bg-stone-50 text-black;
-}
+	h1 {
+		@apply font-serif !font-semibold;
+	}
 
-html.dark > body {
-	/* Dark mode styles */
-	@apply bg-stone-950 text-white;
-}
+	h2 {
+		@apply font-serif;
+	}
 
-hr {
-	@apply dark:border-stone-600;
-}
+	h3 {
+		@apply !mb-1 !text-sm !font-semibold;
+	}
 
-h1 {
-	@apply font-serif !font-semibold;
-}
+	p {
+		@apply leading-normal text-stone-600 dark:text-stone-400;
+	}
 
-h2 {
-	@apply font-serif;
-}
+	a {
+		@apply text-stone-700 dark:text-stone-300;
+	}
 
-h3 {
-	@apply !mb-1 !text-sm !font-semibold;
-}
+	a::before {
+		@apply bg-stone-700 dark:bg-stone-300;
+	}
 
-p {
-	@apply leading-normal text-stone-600 dark:text-stone-400;
-}
+	picture {
+		@apply !m-0;
+	}
 
-a {
-	@apply text-stone-700 dark:text-stone-300;
-}
-
-a::before {
-	@apply bg-stone-700 dark:bg-stone-300;
-}
-
-picture {
-	@apply !m-0;
+	li {
+		@apply text-stone-600 dark:text-stone-400;
+	}
 }

@@ -12,8 +12,9 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Inter', ...defaultTheme.fontFamily.sans],
-				serif: ['EB Garamond', ...defaultTheme.fontFamily.serif]
+				sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
+				serif: ['var(--font-serif)', ...defaultTheme.fontFamily.serif],
+				mono: ['var(--font-mono)', ...defaultTheme.fontFamily.mono]
 			}
 		}
 	},
