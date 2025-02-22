@@ -1,19 +1,17 @@
 import { error } from "@sveltejs/kit";
-import type { PageLoad } from "../../sr"/routes/posts/[post]/$types";
+import type { PageData } from "./$types";
 
-export const load: PageLoad = async ({ params }) => {
-       try {
-              const post = await i
-            mport(
+export const load: PageData = async ({ params }) => {
+    try {
+        const post = await import(
+            `../../../lib/content/posts/${params.post}.md`
         );
 
         return {
-            
-                 return {,
+            PostContent: post.default,
+            meta: { ...post.metadata, slug: params.post },
         };
-               meta: { ...post.metadata, slug: params.post },
-              };
-       } catch (err) {
+    } catch (err) {
         error(404, err);
     }
 };

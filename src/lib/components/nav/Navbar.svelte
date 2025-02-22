@@ -13,9 +13,10 @@
 				<div
 					class="mt-5 flex flex-col gap-5 font-semibold sm:mt-0 sm:flex-row sm:items-center sm:justify-end sm:ps-5"
 				>
-					<NavLink href="#hero">Contact</NavLink>
-					<NavLink href="#about">About</NavLink>
-					<NavLink href="#works">Works</NavLink>
+					<NavLink href="/">Contact</NavLink>
+					<NavLink href="/#works">Works</NavLink>
+					<NavLink href="/certs">Certifications</NavLink>
+					<NavLink href="/posts">Posts</NavLink>
 				</div>
 			</div>
 		</div>

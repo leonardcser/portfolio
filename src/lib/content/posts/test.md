@@ -1,5 +1,6 @@
 ---
-title: Exploring SvelteKit and TypeScript.
+title: Exploring SvelteKit and TypeScript
+description: The post describes my initial thoughts on SvelteKit and TypeScript
 date: '2023-04-14'
 categories:
   - sveltekit
