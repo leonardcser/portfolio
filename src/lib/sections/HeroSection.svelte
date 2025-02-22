@@ -10,14 +10,14 @@
 >
 	<div>
 		<h1 class="mb-1 inline-block font-sans text-4xl">
-			My name is <span itemprop="name">Leonard Cseres</span>,<br />I'm a ML and software student<br
-			/>based in Switzerland
+			My name is <span class="text-blue-400" itemprop="name">Leonard Cseres</span>,<br />I'm a ML
+			and software student<br />based in Switzerland
 		</h1>
 		<small
 			class="block text-base font-bold uppercase tracking-wider text-stone-400/75"
 			itemprop="jobTitle"
 		>
-			Software Engineer
+			ML Engineer
 		</small>
 		<small
 			class="block text-base font-bold uppercase tracking-wider text-stone-400/75"
