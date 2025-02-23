@@ -23,7 +23,7 @@
 			class="block text-base font-bold uppercase tracking-wider text-stone-400/75"
 			itemprop="jobTitle"
 		>
-			Data Scientist
+			Software Engineer
 		</small>
 		<p class="text-3xl font-medium text-blue-400" itemprop="description">
 			I develop effective solutions that bring measurable results.

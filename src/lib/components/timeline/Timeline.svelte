@@ -7,7 +7,7 @@
 	<TimelineItem
 		date="2023 - Present"
 		title="HEIG-VD"
-		description="I am currently studying at HEIG-VD in order to deepen my knowledge in software development. I am also working as a student assistant working on various ML and MLOps projects."
+		description="I am currently studying at HEIG-VD in order to deepen my knowledge in machine learning. I am also working as a student assistant working on various ML and MLOps projects."
 		itemscope
 		itemtype="https://schema.org/EducationalOrganization"
 	>
@@ -19,7 +19,7 @@
 	<TimelineItem
 		date="2021 - 2023"
 		title="Scrapeout"
-		description="With interest in data analytics, I founded Scrapeout. I was able to learn about real life entrepreneurship and manage challenges along the business growth."
+		description="A data analytics company I founded focused on fraud prevention and detecting conflicts of interest. I was able to learn about real life entrepreneurship and manage challenges along the business growth."
 		itemscope
 		itemtype="https://schema.org/Organization"
 	>
@@ -48,7 +48,7 @@
 	<TimelineItem
 		date="2020 - 2023"
 		title="Ecole Polytechnique Fédérale de Lausanne"
-		description="My time at EPFL was instrumental in taking the right development path. My passion for computer science was ignited here."
+		description="I discoved my passion for computer science here at EPFL. I studied Java OOP programming and numerical analysis."
 		itemscope
 		itemtype="https://schema.org/EducationalOrganization"
 	>

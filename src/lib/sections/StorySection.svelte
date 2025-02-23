@@ -5,9 +5,8 @@
 <section id="about">
 	<h2>My Story</h2>
 	<p>
-		I'm a tech-savvy entrepreneur focused on solving real-world problems. With skills in UI/UX
-		design, data analytics, software, and web development, combined with a business mindset, I turn
-		ideas into practical solutions.
+		I'm passionate about machine learning, software engineering, and entrepreneurship. In my free
+		time, my curiousity drives me to explore new technologies and computer science topics.
 	</p>
 	<Timeline />
 </section>
