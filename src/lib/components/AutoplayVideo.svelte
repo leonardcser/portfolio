@@ -54,7 +54,7 @@
 		loop
 		playsinline
 		muted
-		class="m-0 rounded border-none"
+		class="m-0 scale-[1.01] border-none"
 		style="opacity: {isPlaying ? '1' : '0'}"
 		itemprop="video"
 	></video>

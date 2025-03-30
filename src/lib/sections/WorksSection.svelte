@@ -110,6 +110,24 @@
 		</ProjectItem>
 
 		<ProjectItem
+			title="MEMsched"
+			tags={['Typescript', 'Svelte & SvelteKit', 'Stripe', 'SQLite', 'Cloudflare']}
+			linkTags={[
+				{
+					tag: 'Visit Site',
+					href: 'https://memsched.com',
+					Icon: WebIcon
+				}
+			]}
+		>
+			{#snippet demo()}
+				<AutoplayVideo src="/videos/memsched" />
+			{/snippet}
+			MEMsched is an online platform that allows users to create widgets to share their progress with
+			the world.
+		</ProjectItem>
+
+		<ProjectItem
 			title="Scrapeout"
 			tags={['Typescript', 'SCSS', 'Django', 'Terraform', 'Docker', 'AWS', 'PostgreSQL', 'Neo4j']}
 		>
