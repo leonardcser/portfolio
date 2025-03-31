@@ -53,7 +53,7 @@
 			<div class="mt-3">
 				<!-- Card -->
 				<a
-					class="block rounded-lg border border-gray-200 hover:shadow-sm focus:outline-none dark:border-neutral-700"
+					class="block rounded-lg border border-stone-200 hover:shadow-sm focus:outline-none dark:border-stone-700"
 					href={card.url}
 				>
 					<div class="relative flex items-center overflow-hidden">

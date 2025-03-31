@@ -19,7 +19,7 @@
 </script>
 
 <div class={cn('h-fit ', className)} itemscope itemtype="https://schema.org/CreativeWork">
-	<div class="overflow-hidden rounded border">{@render demo()}</div>
+	<div class="overflow-hidden rounded border dark:border-stone-700">{@render demo()}</div>
 	<div class="mt-[-1px] w-full py-3">
 		<div class="mb-2 mt-1 flex flex-wrap gap-1">
 			{#each tags as tag}
