@@ -17,5 +17,13 @@
 				style="height: 75px;"
 			/>
 		</a>
+		<a href="https://github.com/leonardcser" target="_blank">
+			<img
+				class="m-0"
+				src="https://memsched.com/api/widgets/77178590-1aa8-4ab4-bfbf-2c6abe0c367f?svg"
+				alt="GitHub Commits - Public contributions"
+				style="height: 75px;"
+			/>
+		</a>
 	</div>
 </section>
