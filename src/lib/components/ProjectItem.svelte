@@ -26,7 +26,7 @@
 				<Tag {tag} />
 			{/each}
 			{#each linkTags || [] as props}
-				<LinkTag {...props} />
+				<LinkTag {...props} umamiEventPrefix={title.toLowerCase().replaceAll(' ', '-')} />
 			{/each}
 		</div>
 		<h3 class="mt-1" itemprop="name">{title}</h3>
