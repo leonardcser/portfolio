@@ -5,6 +5,7 @@
 			href="https://github.com/leonardcser/understanding-deep-learning"
 			target="_blank"
 			class="h-[80px] w-full"
+			data-umami-event="understanding-deep-learning-widget-link"
 		>
 			<img
 				class="m-0"
@@ -13,7 +14,12 @@
 				style="height: 80px;"
 			/>
 		</a>
-		<a href="https://github.com/leonardcser/leetcode" target="_blank" class="h-[75px] w-full">
+		<a
+			href="https://github.com/leonardcser/leetcode"
+			target="_blank"
+			class="h-[75px] w-full"
+			data-umami-event="leetcode-widget-link"
+		>
 			<img
 				class="m-0"
 				src="https://memsched.com/api/widgets/4fa0ef32-09d6-4038-94d8-e7caf8672c0f?svg"
@@ -21,7 +27,12 @@
 				style="height: 75px;"
 			/>
 		</a>
-		<a href="https://github.com/leonardcser" target="_blank" class="h-[75px] w-full">
+		<a
+			href="https://github.com/leonardcser"
+			target="_blank"
+			class="h-[75px] w-full"
+			data-umami-event="github-commits-widget-link"
+		>
 			<img
 				class="m-0"
 				src="https://memsched.com/api/widgets/77178590-1aa8-4ab4-bfbf-2c6abe0c367f?svg"
