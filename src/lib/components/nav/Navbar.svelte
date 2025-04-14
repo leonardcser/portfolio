@@ -1,4 +1,5 @@
 <script lang="ts">
+	import ThemeToggle from '../ThemeToggle.svelte';
 	import Brand from './Brand.svelte';
 	import NavLink from './NavLink.svelte';
 </script>
@@ -13,6 +14,8 @@
 				<div
 					class="mt-5 flex flex-col gap-5 font-semibold sm:mt-0 sm:flex-row sm:items-center sm:justify-end sm:ps-5"
 				>
+					<ThemeToggle />
+
 					<NavLink href="#hero">Contact</NavLink>
 					<NavLink href="#about">About</NavLink>
 					<NavLink href="#works">Works</NavLink>

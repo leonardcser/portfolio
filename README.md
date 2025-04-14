@@ -8,7 +8,6 @@ My personal portfolio. Visit at [devleo.ch](https://devleo.ch)
 
 - `Svelte`
 - `Typscript`
-- `Preline`
 - and keeping it simple
 
 ## Developing

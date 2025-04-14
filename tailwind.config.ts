@@ -1,10 +1,9 @@
 import typography from '@tailwindcss/typography';
 import type { Config } from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
-import preline from 'preline/plugin';
 
 export default {
-	content: ['./src/**/*.{html,js,svelte,ts}', './node_modules/preline/preline.js'],
+	content: ['./src/**/*.{html,js,svelte,ts}'],
 	darkMode: 'selector',
 	theme: {
 		container: {
@@ -18,5 +17,5 @@ export default {
 			}
 		}
 	},
-	plugins: [typography, preline]
+	plugins: [typography]
 } satisfies Config;

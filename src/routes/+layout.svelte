@@ -1,7 +1,8 @@
 <script lang="ts">
-	import MainLayout from '$lib/layouts/MainLayout.svelte';
 	import '../app.css';
 	import SvelteSeo from 'svelte-seo';
+	import { ModeWatcher } from 'mode-watcher';
+	import MainLayout from '$lib/layouts/MainLayout.svelte';
 	import { DOMAIN } from '$lib/constants';
 
 	let { children } = $props();
@@ -50,7 +51,7 @@
 		></script>
 	{/if}
 </svelte:head>
-
+<ModeWatcher />
 <MainLayout>
 	{@render children()}
 </MainLayout>

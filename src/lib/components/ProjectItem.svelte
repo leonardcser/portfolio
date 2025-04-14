@@ -7,7 +7,7 @@
 	interface Props {
 		title: string;
 		tags: string[];
-		linkTags?: LinkTagProps[];
+		linkTags?: Omit<LinkTagProps, 'umamiEventPrefix'>[];
 
 		class?: string;
 		demo: Snippet;
