@@ -25,6 +25,7 @@
 			const source = document.createElement('source');
 			source.src = `${src}.${format.ext}`;
 			source.type = format.type;
+			// eslint-disable-next-line svelte/no-dom-manipulating
 			videoElement.appendChild(source);
 		});
 

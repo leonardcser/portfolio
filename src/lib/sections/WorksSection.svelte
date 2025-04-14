@@ -47,7 +47,7 @@
 				</Award>
 			{/snippet}
 			This project was part of a ACM SIGSPATIAL competition. The goal was to segment supraglacial lakes
-			in Greenland using satellite images. We worked in a team of 5 at{' '}
+			in Greenland using satellite images. We worked in a team of 5 at
 			<strong class="text-red-600">HEIG-VD</strong> and obtained 1st place.
 		</ProjectItem>
 
@@ -233,7 +233,7 @@
 					</Award>
 				{/snippet}
 				Remake of the classic Pacman game. This project was done in a team of 2 for the Introduction
-				to Programming (CS-107) course at{' '}
+				to Programming (CS-107) course at
 				<strong class="text-red-600">EPFL</strong>.
 				<br />
 				It includes all ghosts and their AI, a map editor, a leaderboard system, custom menu and more.

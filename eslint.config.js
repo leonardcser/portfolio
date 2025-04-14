@@ -30,5 +30,10 @@ export default ts.config(
 				parser: ts.parser
 			}
 		}
+	},
+	{
+		rules: {
+			'svelte/require-each-key': 'off'
+		}
 	}
 );
