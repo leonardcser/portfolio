@@ -22,7 +22,7 @@
 
 	const origin = 'https://memsched.com';
 	const trueHref = $derived(href || `${origin}/widgets/${widget.id}`);
-	const imgSrc = $derived(`${origin}/api/widgets/${widget.id}?svg`);
+	const imgSrc = $derived(`${origin}/api/widgets/${widget.id}?f=svg`);
 	const imgAlt = $derived(`${widget.title} - ${widget.subtitle}`);
 
 	let loaded = $state(false);
