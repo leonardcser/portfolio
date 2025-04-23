@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { mode } from 'mode-watcher';
 
-	import { browser } from '$app/environment';
 	import { cn } from '$lib/utils';
 	import type { HTMLAnchorAttributes, HTMLImgAttributes } from 'svelte/elements';
 
@@ -35,7 +34,7 @@
 		style="height: {height}px;"
 		{...props}
 		class={cn(
-			'transition-opacity duration-200',
+			'transition-opacity duration-100',
 			loaded ? 'opacity-100' : 'opacity-0',
 			$mode === 'light' ? '' : 'hidden',
 			props.class
@@ -48,7 +47,7 @@
 		style="height: {height}px;"
 		{...props}
 		class={cn(
-			'transition-opacity duration-200',
+			'transition-opacity duration-100',
 			loaded ? 'opacity-100' : 'opacity-0',
 			$mode === 'dark' ? '' : 'hidden',
 			props.class
@@ -58,13 +57,11 @@
 {/snippet}
 
 <div style="height: {height}px" class={cn(!loaded && 'w-full')}>
-	{#if browser}
-		{#if url || href}
-			<a href={trueHref} {...rest}>
-				{@render widgetImage({})}
-			</a>
-		{:else}
-			{@render widgetImage(rest)}
-		{/if}
+	{#if url || href}
+		<a href={trueHref} {...rest}>
+			{@render widgetImage({})}
+		</a>
+	{:else}
+		{@render widgetImage(rest)}
 	{/if}
 </div>
