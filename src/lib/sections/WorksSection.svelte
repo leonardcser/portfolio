@@ -114,6 +114,11 @@
 			tags={['Typescript', 'Svelte & SvelteKit', 'Stripe', 'SQLite', 'Cloudflare']}
 			linkTags={[
 				{
+					tag: 'GitHub',
+					href: 'https://github.com/memsched/memsched',
+					Icon: GithubIcon
+				},
+				{
 					tag: 'Visit Site',
 					href: 'https://memsched.com',
 					Icon: WebIcon
