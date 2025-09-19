@@ -1,3 +1,9 @@
-# allow crawling everything by default
+# *
 User-agent: *
-Disallow:
+Allow: /
+
+# Host
+Host: https://devleo.ch
+
+# Sitemaps
+Sitemap: https://devleo.ch/sitemap.xml
