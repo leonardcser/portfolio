@@ -64,7 +64,10 @@
   let { this: element }: { this?: HTMLElement } = $props();
 </script>
 
-<div bind:this={element} class="grid grid-cols-[auto_1fr] gap-8 text-sm text-muted *:space-y-1">
+<div
+  bind:this={element}
+  class="grid grid-cols-[auto_1fr] gap-8 font-mono text-sm text-muted *:space-y-1"
+>
   <div>
     {#each Object.entries(frontmatterData) as [label, value]}
       <div class="flex items-center gap-2">
@@ -78,7 +81,7 @@
       {#if value.type === 'string'}
         <p>{value.value}</p>
       {:else if value.type === 'urls'}
-        <div class="flex-nowrap space-x-2">
+        <div class="flex-nowrap space-x-1">
           {#each value.value as url}
             <LinkTag href={url.url} label={url.label} icon={url.icon} />
           {/each}

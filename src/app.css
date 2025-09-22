@@ -1,21 +1,25 @@
 @import 'tailwindcss';
+@import '@fontsource-variable/inter';
 @import '@fontsource-variable/jetbrains-mono';
 @plugin '@tailwindcss/typography';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: 'JetBrains Mono Variable', monospace;
+  --font-sans: 'Inter Variable', sans-serif;
+  --font-mono: 'JetBrains Mono Variable', monospace;
 
   --color-primary: #000000;
-  --color-muted: #6e6e6e;
-  --color-background: #eeeeee;
-  --color-border: #6e6e6e;
+  --color-accent: #00a2dd;
+  --color-muted: #8e8e8e;
+  --color-background: #fefefe;
+  --color-border: #dfdfdf;
 }
 
 @layer theme {
   .dark {
     --color-primary: #ffffff;
+    --color-accent: #00a2dd;
     --color-muted: #909090;
     --color-background: #111111;
     --color-border: #333333;
@@ -27,7 +31,8 @@
     @apply bg-background;
   }
 
-  h1 {
-    @apply mb-4 text-3xl font-semibold;
+  h1,
+  h2 {
+    @apply !font-bold;
   }
 }

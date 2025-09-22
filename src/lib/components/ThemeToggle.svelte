@@ -16,7 +16,7 @@
     e.preventDefault();
     toggleMode();
   }}
-  class={cn(props.class, 'relative flex w-fit min-w-[32px] items-center px-2 py-1.5')}
+  class={cn(props.class, 'relative mb-1 flex w-fit min-w-[32px] items-center p-2')}
   aria-label="Toggle theme"
 >
   {#if mode.current === 'dark'}
