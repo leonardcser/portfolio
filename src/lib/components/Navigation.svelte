@@ -13,10 +13,16 @@
   {#if headerState.isCollapsed}
     {#each links as link, index}
       <div
+        class="max-md:hidden"
         in:fade|global={{ duration: 200, delay: index * 50 }}
         out:fade|global={{ duration: 200, delay: (linksCount - index - 1) * 50 }}
       >
-        <LinkTag href={link.url} label={link.label} icon={link.icon} />
+        <LinkTag
+          href={link.url}
+          label={link.label}
+          icon={link.icon}
+          umamiEventPrefix={'navigation-' + link.label}
+        />
       </div>
     {/each}
   {/if}

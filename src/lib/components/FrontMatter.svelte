@@ -83,7 +83,12 @@
       {:else if value.type === 'urls'}
         <div class="flex-nowrap space-x-1">
           {#each value.value as url}
-            <LinkTag href={url.url} label={url.label} icon={url.icon} />
+            <LinkTag
+              href={url.url}
+              label={url.label}
+              icon={url.icon}
+              umamiEventPrefix={'frontmatter-' + url.label}
+            />
           {/each}
         </div>
       {/if}

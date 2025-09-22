@@ -6,7 +6,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: 'Inter Variable', sans-serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Inter Variable', sans-serif;
   --font-mono: 'JetBrains Mono Variable', monospace;
 
   --color-primary: #000000;
@@ -29,10 +29,14 @@
 @layer base {
   body {
     @apply bg-background;
+    counter-reset: h2;
   }
 
-  h1,
   h2 {
-    @apply !font-bold;
+    counter-increment: h2;
+  }
+  h2::before {
+    content: counter(h2) '.';
+    @apply me-2 font-medium text-muted;
   }
 }

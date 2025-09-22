@@ -14,11 +14,19 @@
   <Block>
     <p>Welcome to my portfolio!</p>
     <p>
-      I'm a ML and software student based in Switzerland. <SwissFlag class="mb-1 inline size-3.5" />
+      I'm a ML and software student based in Switzerland <SwissFlag class="mb-1 inline size-3.5" />.
+      I love working problems and enjoy the process of learning.
     </p>
+    <p>I've organized this page into three sections:</p>
+    <ol>
+      <li>Journey - My journey into the world of ML and software</li>
+      <li>Proffessional Work - A selection of work projects</li>
+      <li>Personal Projects - A collection of personal projects</li>
+    </ol>
     <p>
-      I develop effective solutions that bring measurable results. I'm a fast learner and I'm always
-      looking for new challenges.
+      You can find more technical details of my projects on my <a
+        href="https://github.com/leonardcser">GitHub</a
+      >.
     </p>
   </Block>
   <Block>
@@ -28,12 +36,10 @@
       looking for new challenges.
     </p>
   </Block>
-  <section class="*:border-b">
+  <section class="*:not-last:border-b">
     <Block>
       <h2>Proffessional Work</h2>
       <p>The following are a selection of works/projects that I acomplished over time.</p>
-    </Block>
-    <Block>
       <ProjectItem
         title="Greenland Supraglacial Lakes Detection"
         tags={['MLOps', 'PyTorch', 'DVC']}
@@ -130,12 +136,10 @@
     </Block>
   </section>
 
-  <section class="*:border-b">
-    <Block>
+  <section class="*:not-last:border-b">
+    <Block class="pt-12">
       <h2>Projects</h2>
       <p>The following are a selection of works/projects that I acomplished over time.</p>
-    </Block>
-    <Block>
       <ProjectItem
         title="MEMsched"
         tags={['Typescript', 'Svelte & SvelteKit', 'Stripe', 'SQLite', 'Cloudflare']}
@@ -251,11 +255,3 @@
     </Block>
   </section>
 </div>
-
-<style lang="postcss">
-  @reference "tailwindcss";
-
-  h2 {
-    @apply mt-10;
-  }
-</style>
