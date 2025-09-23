@@ -15,12 +15,12 @@
     <p>Welcome to my portfolio!</p>
     <p>
       I'm a ML and software student based in Switzerland <SwissFlag class="mb-1 inline size-3.5" />.
-      I love working problems and enjoy the process of learning.
+      I love working problems and I am a curious learner.
     </p>
     <p>I've organized this page into three sections:</p>
     <ol>
       <li>Journey - My journey into the world of ML and software</li>
-      <li>Proffessional Work - A selection of work projects</li>
+      <li>Professional Work - A selection of work projects</li>
       <li>Personal Projects - A collection of personal projects</li>
     </ol>
     <p>
@@ -38,7 +38,7 @@
   </Block>
   <section class="*:not-last:border-b">
     <Block>
-      <h2>Proffessional Work</h2>
+      <h2>Professional Work</h2>
       <p>The following are a selection of works/projects that I acomplished over time.</p>
       <ProjectItem
         title="Greenland Supraglacial Lakes Detection"
@@ -142,7 +142,7 @@
       <p>The following are a selection of works/projects that I acomplished over time.</p>
       <ProjectItem
         title="MEMsched"
-        tags={['Typescript', 'Svelte & SvelteKit', 'Stripe', 'SQLite', 'Cloudflare']}
+        tags={['Typescript', 'SvelteKit', 'Stripe', 'SQLite', 'Cloudflare']}
         linkTags={[
           {
             label: 'GitHub',
@@ -201,7 +201,7 @@
         <ProjectItem
           class="col-span-2"
           title="Chess Engine"
-          tags={['OOP', 'Java', 'HEIG-VD']}
+          tags={['Java', 'HEIG-VD']}
           linkTags={[
             { label: 'GitHub', href: 'https://github.com/HEIG-VD-BA3-POO/labo08', icon: BsGithub },
           ]}
@@ -232,7 +232,7 @@
         </ProjectItem>
         <ProjectItem
           title="Pac-Man"
-          tags={['OOP', 'Java', 'EPFL']}
+          tags={['Java', 'EPFL']}
           linkTags={[
             {
               label: 'GitHub',
