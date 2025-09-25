@@ -1,0 +1,1 @@
+export const GIT_LAST_MODIFIED: string = '23.09.2025';

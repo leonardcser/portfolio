@@ -7,6 +7,8 @@
   import AutoplayVideo from '$lib/components/AutoplayVideo.svelte';
   import { LuGlobe } from 'svelte-icons-pack/lu';
   import SwissFlag from '$lib/components/SwissFlag.svelte';
+  import { Icon } from 'svelte-icons-pack';
+  import WidgetImage from '$lib/components/WidgetImage.svelte';
 </script>
 
 <Header />
@@ -14,32 +16,61 @@
   <Block>
     <p>Welcome to my portfolio!</p>
     <p>
-      I'm a ML and software student based in Switzerland <SwissFlag class="mb-1 inline size-3.5" />.
-      I love working problems and I am a curious learner.
+      I'm a ML and software student based in Switzerland <SwissFlag
+        class="me-1 mb-1 inline size-3.5"
+      />. I love working problems and I am a curious learner.
     </p>
-    <p>I've organized this page into three sections:</p>
-    <ol>
-      <li>Journey - My journey into the world of ML and software</li>
-      <li>Professional Work - A selection of work projects</li>
-      <li>Personal Projects - A collection of personal projects</li>
-    </ol>
+    <p>I've built these live widgets to share my current goals:</p>
+    <div class="not-prose flex flex-col gap-2">
+      <!-- <WidgetImage -->
+      <!--   widget={{ -->
+      <!--     id: '02d23572-ad59-4ea2-8a97-ed209251f83b', -->
+      <!--     title: 'Understanding Deep Learning', -->
+      <!--     subtitle: 'Machine learning book', -->
+      <!--   }} -->
+      <!--   href="https://github.com/leonardcser/understanding-deep-learning" -->
+      <!--   data-umami-event="understanding-deep-learning-widget-link" -->
+      <!-- /> -->
+      <WidgetImage
+        widget={{
+          id: '4fa0ef32-09d6-4038-94d8-e7caf8672c0f',
+          title: 'LeetCode - Problems Solved',
+          subtitle: 'Problems solved',
+        }}
+        height={75}
+        href="https://github.com/leonardcser/leetcode"
+        data-umami-event="leetcode-widget-link"
+      />
+      <WidgetImage
+        widget={{
+          id: '77178590-1aa8-4ab4-bfbf-2c6abe0c367f',
+          title: 'GitHub Commits - Public contributions',
+          subtitle: 'Public contributions',
+        }}
+        height={75}
+        href="https://github.com/leonardcser"
+        data-umami-event="github-commits-widget-link"
+      />
+    </div>
     <p>
-      You can find more technical details of my projects on my <a
-        href="https://github.com/leonardcser">GitHub</a
-      >.
+      You can find more technical details of my projects on my
+      <a href="https://github.com/leonardcser" class="inline-flex items-center gap-1">
+        GitHub
+        <Icon src={BsGithub} />
+      </a>
+      .
     </p>
   </Block>
   <Block>
-    <h2>Journey</h2>
-    <p>
-      I develop effective solutions that bring measurable results. I'm a fast learner and I'm always
-      looking for new challenges.
-    </p>
+    <h2 id="journey">Journey</h2>
+    <p></p>
   </Block>
-  <section class="*:not-last:border-b">
+  <section class="*:border-b">
     <Block>
-      <h2>Professional Work</h2>
-      <p>The following are a selection of works/projects that I acomplished over time.</p>
+      <h2 id="professional-work">Professional Work</h2>
+      <p>
+        This section showcases selected projects and achievements from my professional experience.
+      </p>
       <ProjectItem
         title="Greenland Supraglacial Lakes Detection"
         tags={['MLOps', 'PyTorch', 'DVC']}
@@ -67,23 +98,25 @@
             itemprop="image"
           />
         {/snippet}
-        This project was part of a ACM SIGSPATIAL competition. The goal was to segment supraglacial lakes
-        in Greenland using satellite images. We worked in a team of 5 at
+        This project was part of a ACM SIGSPATIAL competition. We segmented supraglacial lakes in Greenland
+        using satellite images. We worked in a team of 5 at
         <strong class="text-red-600">HEIG-VD</strong> and obtained 1st place.
       </ProjectItem>
     </Block>
     <Block>
       <ProjectItem
-        class="grid grid-cols-5 items-center gap-10"
-        demoClass="col-span-2"
-        contentClass="col-span-3"
-        title="Swiss License Plate Detection"
-        tags={['MLOps', 'PyTorch', 'Kubernetes', 'DVC']}
+        title="Dafthunk"
+        tags={['React', 'Hono', 'Cloudflare']}
         linkTags={[
           {
             label: 'GitHub',
-            href: 'https://github.com/swiss-ai-center/pytorch-license-plate-with-mlops',
+            href: 'https://github.com/dafthunk-com/dafthunk',
             icon: BsGithub,
+          },
+          {
+            label: 'Vist Site',
+            href: 'https://dafthunk.com',
+            icon: LuGlobe,
           },
         ]}
       >
@@ -91,18 +124,16 @@
           <enhanced:img
             loading="lazy"
             fetchpriority="low"
-            src="/static/images/license_plate.png"
-            alt="chess game"
+            src="/static/images/dafthunk.png"
+            alt="dafthunk"
             class="m-0"
             itemprop="image"
           />
         {/snippet}
-        This project was part of research into Machine Learning Operations (MLOps) at
-        <strong class="text-red-600">HEIG-VD</strong>. It is comprised of two models: one for
-        detecting the license plate and another for recognizing the characters. The key feature is a
-        custom license plate generator in order to train on synthetic data.
+        Contributed in building a workflow execution platform on top of Cloudflare's infrastructure.
       </ProjectItem>
     </Block>
+
     <Block>
       <ProjectItem
         title="A Guide To MLOps"
@@ -130,16 +161,65 @@
             itemprop="image"
           />
         {/snippet}
-        Contributed in building a machine leaning operations guide for companies and Master students
-        to apply.
+        Collaborated on authoring a machine learning operations guide for companies and Master students.
+        The guide covers training a model locally, creating a pipline to evalute, reproduce and deploy,
+        and labelling new data with assisted predictions (Human-in-the-loop).
+      </ProjectItem>
+    </Block>
+    <Block>
+      <ProjectItem
+        class="grid-cols-5 items-center gap-10 sm:grid"
+        demoClass="col-span-2"
+        contentClass="col-span-3"
+        title="Swiss License Plate Detection"
+        tags={['MLOps', 'PyTorch', 'Kubernetes', 'DVC']}
+        linkTags={[
+          {
+            label: 'GitHub',
+            href: 'https://github.com/swiss-ai-center/pytorch-license-plate-with-mlops',
+            icon: BsGithub,
+          },
+        ]}
+      >
+        {#snippet demo()}
+          <enhanced:img
+            loading="lazy"
+            fetchpriority="low"
+            src="/static/images/license_plate.png"
+            alt="license plate DVC dag"
+            class="m-0"
+            itemprop="image"
+          />
+        {/snippet}
+        This project was part of research into Machine Learning Operations (MLOps) at
+        <strong class="text-red-600">HEIG-VD</strong>. It is comprised of two models: one for
+        detecting the license plate and another for recognizing the characters. The key feature is a
+        custom license plate generator in order to train on synthetic data.
+      </ProjectItem>
+    </Block>
+    <Block>
+      <ProjectItem
+        title="mdwrap"
+        tags={['Python']}
+        linkTags={[
+          {
+            label: 'GitHub',
+            href: 'https://github.com/swiss-ai-center/mdwrap',
+            icon: BsGithub,
+          },
+        ]}
+      >
+        Implemented a Python markdown formatter and line wrapper without any dependencies. It uses a
+        simple state machine, tokenization and regex... (though I'd approach it differently now).
+        This was used for the 'A Guide To MLOps'.
       </ProjectItem>
     </Block>
   </section>
 
   <section class="*:not-last:border-b">
     <Block class="pt-12">
-      <h2>Projects</h2>
-      <p>The following are a selection of works/projects that I acomplished over time.</p>
+      <h2 id="projects">Projects</h2>
+      <p>The following are a selection of works/projects that I have accomplished over time.</p>
       <ProjectItem
         title="MEMsched"
         tags={['Typescript', 'SvelteKit', 'Stripe', 'SQLite', 'Cloudflare']}
@@ -159,10 +239,34 @@
         {#snippet demo()}
           <AutoplayVideo src="/videos/memsched" />
         {/snippet}
-        MEMsched is an online platform that allows users to create widgets to share their progress with
-        the world.
-      </ProjectItem></Block
-    >
+        Built an online platform to create live widgets for users to share their progress with the world.
+      </ProjectItem>
+    </Block>
+    <Block>
+      <ProjectItem
+        title="commit."
+        tags={['Figma', 'Expo', 'Hono', 'Stripe', 'Cloudflare']}
+        linkTags={[
+          {
+            label: 'GitHub',
+            href: 'https://github.com/getcommitapp/commit',
+            icon: BsGithub,
+          },
+          {
+            label: 'Visit Site',
+            href: 'https://commit.leo-c50.workers.dev',
+            icon: LuGlobe,
+          },
+        ]}
+      >
+        {#snippet demo()}
+          <AutoplayVideo src="/videos/commit" />
+        {/snippet}
+        Developed an application for creating goals with money on the line. We built the project in 3
+        weeks during the PDG (projet de group) class at
+        <strong class="text-red-600">HEIG-VD</strong> in a group of 4.
+      </ProjectItem>
+    </Block>
 
     <Block>
       <ProjectItem
@@ -173,8 +277,8 @@
         {#snippet demo()}
           <AutoplayVideo src="/videos/scrapeout" />
         {/snippet}
-        Scrapeout is my most ambitious project to date. It has now become a full web tool that helps
-        companies identify conflict of interest in their data in order to take more informed decisions.
+        Built a platform for businesses to identify conflict of interest in their data in order to take
+        more informed decisions. Neo4j was used extensively to model complex graph relations.
       </ProjectItem>
     </Block>
 
@@ -195,8 +299,9 @@
               itemprop="image"
             />
           {/snippet}
-          The goal of this project was to create a neural network that could solve 6 character captchas
-          from Amazon. I achieved an average accuracy of 93%.
+          Built a neural network to solve 6 character captchas from Amazon along with a synthetic data
+          generation using computer graphics techniques. I achieved an average accuracy of 93% on the
+          test set.
         </ProjectItem>
         <ProjectItem
           class="col-span-2"
@@ -216,19 +321,19 @@
               itemprop="image"
             />
           {/snippet}
-          A simple chess engine based on OOP principles
+          Developed a chess engine during OOP Java course at
+          <strong class="text-red-600">HEIG-VD</strong>.
         </ProjectItem>
       </div>
     </Block>
     <Block>
       <div class="grid-cols-2 max-sm:space-y-6 sm:grid sm:gap-6">
-        <ProjectItem title="SlitherIO RL" tags={['Tensorflow', 'Selenium', 'OpenCV']}>
+        <ProjectItem title="Slither.io RL" tags={['Tensorflow', 'Selenium', 'OpenCV']}>
           {#snippet demo()}
             <AutoplayVideo src="/videos/SlitherIORL" />
           {/snippet}
-          The project was to create a neural network that could play the game SlitherIO. The agent was
-          trained using A2C (actor to critic) reinforcement learning. The agent was able to collect food
-          and avoid other snakes.
+          Created a neural network to play the game Slither.io. The agent was trained using A2C (actor
+          to critic) reinforcement learning. The agent was able to collect food and avoid other snakes.
         </ProjectItem>
         <ProjectItem
           title="Pac-Man"
@@ -252,6 +357,37 @@
           It includes all ghosts and their AI, a map editor, a leaderboard system, custom menu and more.
         </ProjectItem>
       </div>
+    </Block>
+    <Block>
+      <ProjectItem
+        title="MCP Nvim LSP"
+        tags={['Lua', 'Go']}
+        linkTags={[
+          {
+            label: 'GitHub',
+            href: 'https://github.com/leonardcser/nvim-lsp-mcp',
+            icon: BsGithub,
+          },
+        ]}
+      >
+        Created a MCP (Model Context Protocol) server for fetching Nvim LSP diagnostics through RPC.
+      </ProjectItem>
+    </Block>
+    <Block>
+      <ProjectItem
+        title="Vite React Head SSR"
+        tags={['React', 'Vite']}
+        linkTags={[
+          {
+            label: 'GitHub',
+            href: 'https://github.com/leonardcser/vite-react-head-ssr',
+            icon: BsGithub,
+          },
+        ]}
+      >
+        Built a custom server with vite to SSR (server side rendered) the HTML Head of the page and
+        CSR (client side rendering) for the HTML body.
+      </ProjectItem>
     </Block>
   </section>
 </div>

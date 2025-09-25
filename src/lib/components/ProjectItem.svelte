@@ -12,7 +12,7 @@
 
     class?: string;
     contentClass?: string;
-    demo: Snippet;
+    demo?: Snippet;
     demoClass?: string;
     awards?: string[];
     children: Snippet;
@@ -32,9 +32,11 @@
 </script>
 
 <div class={cn('not-prose', className)} itemscope itemtype="https://schema.org/CreativeWork">
-  <div class={cn('mb-4 w-fit overflow-hidden rounded', demoClass)}>
-    {@render demo()}
-  </div>
+  {#if demo}
+    <div class={cn('mb-4 w-fit overflow-hidden rounded', demoClass)}>
+      {@render demo()}
+    </div>
+  {/if}
   <div class={contentClass}>
     <div class="flex flex-wrap gap-1">
       {#each tags as tag}

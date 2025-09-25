@@ -7,6 +7,7 @@
   import FrontMatter, { frontmatterHeight } from './FrontMatter.svelte';
   import Navigation from './Navigation.svelte';
   import { headerState } from '$lib/state.svelte';
+  import { scrollToTop } from '$lib/utils';
 
   let scrollY = $state(0);
 
@@ -37,7 +38,20 @@
 >
   <div class="w-full max-w-screen-lg border-x border-border p-6 pt-0">
     <div class="flex items-center justify-between py-4" style={`height${headerCollapsedHeight}px`}>
-      <h1 class="mb-0 text-3xl font-bold whitespace-nowrap">Leonard Cseres</h1>
+      <button
+        type="button"
+        class="cursor-pointer"
+        onclick={() => scrollToTop()}
+        onkeydown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            scrollToTop();
+          }
+        }}
+        style="background: none; border: none; padding: 0;"
+      >
+        <h1 class="mb-0 text-3xl font-bold whitespace-nowrap">Leonard Cseres</h1>
+      </button>
       <Navigation />
     </div>
     <FrontMatter />

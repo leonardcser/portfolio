@@ -21,15 +21,20 @@
     links: FrontmatterUrlsValue;
   }
 
+  import { GIT_LAST_MODIFIED } from '$lib/gitDate';
   export const frontmatterData: FrontmatterData = {
     today: {
       type: 'string',
-      value: new Date().toLocaleDateString('de-DE'),
+      value: new Date().toLocaleDateString('de-DE', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+      }),
       icon: VscListSelection,
     },
     last_modified: {
       type: 'string',
-      value: new Date().toLocaleDateString('de-DE'),
+      value: GIT_LAST_MODIFIED,
       icon: VscListSelection,
     },
     links: {
@@ -37,13 +42,18 @@
       value: [
         {
           label: 'GitHub',
-          url: 'https://github.com/leonardcseres',
+          url: 'https://github.com/leonardcser',
           icon: BsGithub,
         },
         {
           label: 'LinkedIn',
-          url: 'https://www.linkedin.com/in/leonard-cseres/',
+          url: 'https://www.linkedin.com/in/leonardcsrs/',
           icon: BsLinkedin,
+        },
+        {
+          label: 'Contact',
+          url: 'mailto:leonard.cseres@devleo.ch',
+          icon: IoMail,
         },
       ],
       icon: TrOutlineList,
@@ -60,6 +70,7 @@
   import { TrOutlineList } from 'svelte-icons-pack/tr';
   import { BsGithub, BsLinkedin } from 'svelte-icons-pack/bs';
   import LinkTag from './LinkTag.svelte';
+  import { IoMail } from 'svelte-icons-pack/io';
 
   let { this: element }: { this?: HTMLElement } = $props();
 </script>
