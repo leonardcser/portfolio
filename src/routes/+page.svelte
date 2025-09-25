@@ -9,6 +9,37 @@
   import SwissFlag from '$lib/components/SwissFlag.svelte';
   import { Icon } from 'svelte-icons-pack';
   import WidgetImage from '$lib/components/WidgetImage.svelte';
+  import Timeline from '$lib/components/Timeline.svelte';
+
+  const journeyItems = [
+    {
+      logo: '/images/logo_epfl.png',
+      title: 'École Polytechnique Fédérale de Lausanne (EPFL)',
+      description:
+        'Bachelor in Computer Science. Courses included algorithms, data structures, machine learning, and software engineering.',
+      date: '2019 - 2023',
+    },
+    {
+      logo: '/images/logo_heig-vd.png',
+      title: 'HEIG-VD',
+      description:
+        'Master in Artificial Intelligence. Focusing on machine learning operations and advanced AI techniques.',
+      date: '2023 - Present',
+    },
+    {
+      logo: '/images/logo_epflentrepreneurclub.png',
+      title: 'EPFL Entrepreneur Club',
+      description: 'Active member promoting entrepreneurship and innovation among students.',
+      date: '2020 - 2023',
+    },
+    {
+      logo: '/images/logo_scrapeout.png',
+      title: 'Scrapeout',
+      description:
+        'Led development of a platform for conflict of interest detection using graph databases.',
+      date: '2023',
+    },
+  ];
 </script>
 
 <Header />
@@ -22,15 +53,15 @@
     </p>
     <p>I've built these live widgets to share my current goals:</p>
     <div class="not-prose flex flex-col gap-2">
-      <!-- <WidgetImage -->
-      <!--   widget={{ -->
-      <!--     id: '02d23572-ad59-4ea2-8a97-ed209251f83b', -->
-      <!--     title: 'Understanding Deep Learning', -->
-      <!--     subtitle: 'Machine learning book', -->
-      <!--   }} -->
-      <!--   href="https://github.com/leonardcser/understanding-deep-learning" -->
-      <!--   data-umami-event="understanding-deep-learning-widget-link" -->
-      <!-- /> -->
+      <!-- <WidgetImage
+        widget={{
+          id: '02d23572-ad59-4ea2-8a97-ed209251f83b',
+          title: 'Understanding Deep Learning',
+          subtitle: 'Machine learning book',
+        }}
+        href="https://github.com/leonardcser/understanding-deep-learning"
+        data-umami-event="understanding-deep-learning-widget-link"
+      /> -->
       <WidgetImage
         widget={{
           id: '4fa0ef32-09d6-4038-94d8-e7caf8672c0f',
@@ -63,7 +94,7 @@
   </Block>
   <Block>
     <h2 id="journey">Journey</h2>
-    <p></p>
+    <Timeline items={journeyItems} />
   </Block>
   <section class="*:border-b">
     <Block>
@@ -216,10 +247,10 @@
     </Block>
   </section>
 
-  <section class="*:not-last:border-b">
+  <section class="*:border-b">
     <Block class="pt-12">
       <h2 id="projects">Projects</h2>
-      <p>The following are a selection of works/projects that I have accomplished over time.</p>
+      <p>The following are a selection of projects that I have accomplished over time.</p>
       <ProjectItem
         title="MEMsched"
         tags={['Typescript', 'SvelteKit', 'Stripe', 'SQLite', 'Cloudflare']}
@@ -245,7 +276,7 @@
     <Block>
       <ProjectItem
         title="commit."
-        tags={['Figma', 'Expo', 'Hono', 'Stripe', 'Cloudflare']}
+        tags={['Figma', 'Expo', 'Hono', 'Stripe', 'Cloudflare', 'HEIG-VD']}
         linkTags={[
           {
             label: 'GitHub',
@@ -263,7 +294,7 @@
           <AutoplayVideo src="/videos/commit" />
         {/snippet}
         Developed an application for creating goals with money on the line. We built the project in 3
-        weeks during the PDG (projet de group) class at
+        weeks during the PDG (projet de groupe) class at
         <strong class="text-red-600">HEIG-VD</strong> in a group of 4.
       </ProjectItem>
     </Block>
@@ -390,4 +421,7 @@
       </ProjectItem>
     </Block>
   </section>
+  <Block class="pb-20">
+    {' '}
+  </Block>
 </div>

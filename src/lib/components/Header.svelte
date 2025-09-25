@@ -33,7 +33,7 @@
 </script>
 
 <div
-  class="fixed top-0 right-0 left-0 z-10 flex justify-center overflow-hidden border-b border-border bg-background"
+  class="fixed top-0 right-0 left-0 z-20 flex justify-center overflow-hidden border-b border-border bg-background"
   style={`height:${Math.max(headerCollapsedHeight, headerHeight - scrollY)}px`}
 >
   <div class="w-full max-w-screen-lg border-x border-border p-6 pt-0">
