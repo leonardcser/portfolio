@@ -16,28 +16,29 @@
       logo: '/images/logo_epfl.png',
       title: 'École Polytechnique Fédérale de Lausanne (EPFL)',
       description:
-        'Bachelor in Computer Science. Courses included algorithms, data structures, machine learning, and software engineering.',
-      date: '2019 - 2023',
-    },
-    {
-      logo: '/images/logo_heig-vd.png',
-      title: 'HEIG-VD',
-      description:
-        'Master in Artificial Intelligence. Focusing on machine learning operations and advanced AI techniques.',
-      date: '2023 - Present',
+        'I discoved my passion for computer science here at EPFL. I studied OOP in Java and Numerical Computation.',
+      date: '2020 - 2023',
     },
     {
       logo: '/images/logo_epflentrepreneurclub.png',
       title: 'EPFL Entrepreneur Club',
-      description: 'Active member promoting entrepreneurship and innovation among students.',
-      date: '2020 - 2023',
+      description:
+        'During my studies, I was a member of the EPFL Entrepreneur Club where I was able to learn from and collaborate with other entrepreneurs.',
+      date: '2021 - 2023',
     },
     {
       logo: '/images/logo_scrapeout.png',
       title: 'Scrapeout',
       description:
-        'Led development of a platform for conflict of interest detection using graph databases.',
-      date: '2023',
+        'I founded a data analytics company tackling fraud prevention and detection of conflicts of interest. I was able to learn about real life entrepreneurship and manage challenges along the business growth.',
+      date: '2021 - 2023',
+    },
+    {
+      logo: '/images/logo_heig-vd.png',
+      title: 'HEIG-VD',
+      description:
+        'I am currently studying at HEIG-VD in order to deepen my knowledge in machine learning. I am also working as a student assistant working on various ML and MLOps projects.',
+      date: '2023 - Present',
     },
   ];
 </script>
@@ -47,30 +48,33 @@
   <Block>
     <p>Welcome to my portfolio!</p>
     <p>
-      I'm a ML and software student based in Switzerland <SwissFlag
+      I'm a <span class="font-semibold">ML and software</span> student based in Switzerland <SwissFlag
         class="me-1 mb-1 inline size-3.5"
       />. I love working problems and I am a curious learner.
     </p>
     <p>I've built these live widgets to share my current goals:</p>
-    <div class="not-prose flex flex-col gap-2">
-      <!-- <WidgetImage
+    <div class="not-prose flex flex-wrap gap-2">
+      <WidgetImage
         widget={{
           id: '02d23572-ad59-4ea2-8a97-ed209251f83b',
           title: 'Understanding Deep Learning',
           subtitle: 'Machine learning book',
         }}
+        width={430}
+        height={75}
         href="https://github.com/leonardcser/understanding-deep-learning"
         data-umami-event="understanding-deep-learning-widget-link"
-      /> -->
+      />
       <WidgetImage
         widget={{
-          id: '4fa0ef32-09d6-4038-94d8-e7caf8672c0f',
-          title: 'LeetCode - Problems Solved',
-          subtitle: 'Problems solved',
+          id: '7f24d256-c9df-4f6d-9094-37811e56e0a7',
+          title: 'Introduction to Deep Learning - MIT 6.S191',
+          subtitle: 'MIT 6.S191',
         }}
+        width={360}
         height={75}
-        href="https://github.com/leonardcser/leetcode"
-        data-umami-event="leetcode-widget-link"
+        href="https://github.com/leonardcser/introtodeeplearning"
+        data-umami-event="github-commits-widget-link"
       />
       <WidgetImage
         widget={{
@@ -78,14 +82,31 @@
           title: 'GitHub Commits - Public contributions',
           subtitle: 'Public contributions',
         }}
+        width={327}
         height={75}
         href="https://github.com/leonardcser"
         data-umami-event="github-commits-widget-link"
       />
+      <WidgetImage
+        widget={{
+          id: '4fa0ef32-09d6-4038-94d8-e7caf8672c0f',
+          title: 'LeetCode - Problems Solved',
+          subtitle: 'Problems solved',
+        }}
+        width={333}
+        height={75}
+        href="https://github.com/leonardcser/leetcode"
+        data-umami-event="leetcode-widget-link"
+      />
     </div>
     <p>
       You can find more technical details of my projects on my
-      <a href="https://github.com/leonardcser" class="inline-flex items-center gap-1">
+      <a
+        href="https://github.com/leonardcser"
+        class="inline-flex items-center gap-1"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         GitHub
         <Icon src={BsGithub} />
       </a>

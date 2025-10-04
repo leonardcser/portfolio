@@ -12,19 +12,24 @@
       title: string;
       subtitle: string;
     };
+    width?: number;
     height?: number;
     url?: boolean;
     href?: string;
   }
 
-  const { widget, height = 85, url = false, href, ...rest }: Props = $props();
+  const { widget, width, height = 75, url = false, href, ...rest }: Props = $props();
 
   const origin = 'https://memsched.com';
   const trueHref = $derived(href || `${origin}/widgets/${widget.id}`);
   const imgSrc = $derived(`${origin}/api/widgets/${widget.id}?f=svg`);
   const imgAlt = $derived(`${widget.title} - ${widget.subtitle}`);
 
-  let loaded = $state(false);
+  let loadedLight = $state(false);
+  let loadedDark = $state(false);
+  let loaded = $derived(
+    (mode.current == 'dark' && loadedDark) || (mode.current == 'light' && loadedLight)
+  );
 </script>
 
 {#snippet widgetImage(props: HTMLImgAttributes)}
@@ -35,11 +40,11 @@
     {...props}
     class={cn(
       'transition-opacity duration-100',
-      loaded ? 'opacity-100' : 'opacity-0',
+      loadedLight ? 'opacity-100' : 'opacity-0',
       mode.current === 'light' ? '' : 'hidden',
       props.class
     )}
-    onload={() => (loaded = true)}
+    onload={() => (loadedLight = true)}
   />
   <img
     src={imgSrc + '&dark'}
@@ -48,15 +53,19 @@
     {...props}
     class={cn(
       'transition-opacity duration-100',
-      loaded ? 'opacity-100' : 'opacity-0',
+      loadedDark ? 'opacity-100' : 'opacity-0',
       mode.current === 'dark' ? '' : 'hidden',
       props.class
     )}
-    onload={() => (loaded = true)}
+    onload={() => (loadedDark = true)}
   />
 {/snippet}
 
-<div style="height: {height}px" class={cn(!loaded && 'w-full')}>
+<div
+  style:height="{height}px"
+  style:width={width ? width + 'px' : '33%'}
+  class={cn(loaded ? 'w-fit' : 'animate-pulse bg-border/50')}
+>
   {#if url || href}
     <a href={trueHref} {...rest}>
       {@render widgetImage({})}
