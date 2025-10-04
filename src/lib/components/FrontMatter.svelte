@@ -87,12 +87,12 @@
       </div>
     {/each}
   </div>
-  <div>
+  <div class="overflow-x-auto">
     {#each Object.values(frontmatterData) as value}
       {#if value.type === 'string'}
         <p>{value.value}</p>
       {:else if value.type === 'urls'}
-        <div class="flex-nowrap space-x-1">
+        <div class="flex flex-row flex-nowrap gap-1 overflow-x-auto">
           {#each value.value as url}
             <LinkTag
               href={url.url}

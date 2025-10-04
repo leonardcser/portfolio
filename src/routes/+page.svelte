@@ -10,6 +10,7 @@
   import { Icon } from 'svelte-icons-pack';
   import WidgetImage from '$lib/components/WidgetImage.svelte';
   import Timeline from '$lib/components/Timeline.svelte';
+  import Footer from '$lib/components/Footer.svelte';
 
   const journeyItems = [
     {
@@ -139,6 +140,7 @@
           },
         ]}
         awards={['1st Place ACM SIGSPATIAL 2023']}
+        demoClass="w-full"
       >
         {#snippet demo()}
           <enhanced:img
@@ -442,7 +444,7 @@
       </ProjectItem>
     </Block>
   </section>
-  <Block class="pb-20">
-    {' '}
+  <Block class="pt-20 pb-10">
+    <Footer />
   </Block>
 </div>

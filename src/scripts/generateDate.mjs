@@ -14,4 +14,8 @@ try {
   // fallback to current date
 }
 
-fs.writeFileSync('src/lib/gitDate.ts', `export const GIT_LAST_MODIFIED: string = '${gitDate}';`);
+fs.writeFileSync(
+  'src/lib/gitDate.ts',
+  `export const GIT_LAST_MODIFIED: string = '${gitDate}';
+`
+);
