@@ -47,7 +47,6 @@
         >
           <button
             type="button"
-            class="cursor-pointer"
             onclick={() => scrollToTop()}
             onkeydown={(e) => {
               if (e.key === 'Enter' || e.key === ' ') {

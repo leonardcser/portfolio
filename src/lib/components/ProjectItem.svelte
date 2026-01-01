@@ -35,7 +35,7 @@
 
 <div {id} class={cn('not-prose', className)} itemscope itemtype="https://schema.org/CreativeWork">
   {#if demo}
-    <div class={cn('mb-4 w-fit overflow-hidden rounded', demoClass)}>
+    <div class={cn('mb-4 w-fit overflow-hidden rounded border border-border/50', demoClass)}>
       {@render demo()}
     </div>
   {/if}

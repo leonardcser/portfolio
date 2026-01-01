@@ -1,17 +1,15 @@
 <script lang="ts">
-  import { frontmatterData } from './FrontMatter.svelte';
-  import LinkTag from './LinkTag.svelte';
-
-  const links = frontmatterData.links.value;
+  import { scrollToTop } from '$lib/utils';
+  import { Icon } from 'svelte-icons-pack';
+  import { FiArrowUp } from 'svelte-icons-pack/fi';
 </script>
 
 <footer class="flex flex-nowrap justify-center gap-2">
-  {#each links as link}
-    <LinkTag
-      href={link.url}
-      label={link.label}
-      icon={link.icon}
-      umamiEventPrefix={'footer-' + link.label}
-    />
-  {/each}
+  <button
+    on:click={scrollToTop}
+    class="flex items-center gap-1 text-sm text-muted transition-colors hover:text-primary"
+  >
+    Back to top
+    <Icon src={FiArrowUp} />
+  </button>
 </footer>

@@ -12,6 +12,7 @@
   import Timeline from '$lib/components/Timeline.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import TableOfContents from '$lib/components/TableOfContents.svelte';
+  import Image from '$lib/components/Image.svelte';
 
   const journeyItems = [
     {
@@ -149,13 +150,10 @@
           demoClass="w-full"
         >
           {#snippet demo()}
-            <enhanced:img
-              loading="lazy"
-              fetchpriority="low"
-              src="/static/images/lakes.png"
+            <Image
+              src="/images/lakes.png"
               alt="lake segmentation"
               class="h-40 w-full object-cover"
-              itemprop="image"
             />
           {/snippet}
           This project was part of a ACM SIGSPATIAL competition. We segmented supraglacial lakes in Greenland
@@ -182,14 +180,7 @@
           ]}
         >
           {#snippet demo()}
-            <enhanced:img
-              loading="lazy"
-              fetchpriority="low"
-              src="/static/images/dafthunk.png"
-              alt="dafthunk"
-              class="m-0"
-              itemprop="image"
-            />
+            <Image src="/images/dafthunk.png" alt="dafthunk" />
           {/snippet}
           Contributed in building a workflow execution platform on top of Cloudflare's infrastructure.
         </ProjectItem>
@@ -214,14 +205,7 @@
           ]}
         >
           {#snippet demo()}
-            <enhanced:img
-              loading="lazy"
-              fetchpriority="low"
-              src="/static/images/guide_mlops.png"
-              alt="mlops guide homepage"
-              class="m-0"
-              itemprop="image"
-            />
+            <Image src="/images/guide_mlops.png" alt="mlops guide homepage" />
           {/snippet}
           Collaborated on authoring a machine learning operations guide for companies and Master students.
           The guide covers training a model locally, creating a pipline to evalute, reproduce and deploy,
@@ -245,14 +229,7 @@
           ]}
         >
           {#snippet demo()}
-            <enhanced:img
-              loading="lazy"
-              fetchpriority="low"
-              src="/static/images/license_plate.png"
-              alt="license plate DVC dag"
-              class="m-0"
-              itemprop="image"
-            />
+            <Image src="/images/license_plate.png" alt="license plate DVC dag" />
           {/snippet}
           This project was part of research into Machine Learning Operations (MLOps) at
           <strong class="text-red-600">HEIG-VD</strong>. It is comprised of two models: one for
@@ -368,14 +345,7 @@
             tags={['Tensorflow', 'GCP', 'OpenCV']}
           >
             {#snippet demo()}
-              <enhanced:img
-                loading="lazy"
-                fetchpriority="low"
-                src="/static/images/amazoncaptcha.jpg"
-                alt="amazon captcha"
-                class="m-0"
-                itemprop="image"
-              />
+              <Image src="/images/amazoncaptcha.jpg" alt="amazon captcha" />
             {/snippet}
             Built a neural network to solve 6 character captchas from Amazon along with a synthetic data
             generation using computer graphics techniques. I achieved an average accuracy of 93% on the
@@ -395,14 +365,7 @@
             ]}
           >
             {#snippet demo()}
-              <enhanced:img
-                loading="lazy"
-                fetchpriority="low"
-                src="/static/images/chess.png"
-                alt="chess game"
-                class="m-0"
-                itemprop="image"
-              />
+              <Image src="/images/chess.png" alt="chess game" />
             {/snippet}
             Developed a chess engine during OOP Java course at
             <strong class="text-red-600">HEIG-VD</strong>.

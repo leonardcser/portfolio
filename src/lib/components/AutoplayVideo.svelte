@@ -45,9 +45,7 @@
 <div class="relative">
   <!-- Skeleton loader -->
   {#if !isPlaying}
-    <div
-      class="absolute top-0 left-0 h-full w-full animate-pulse bg-stone-300 dark:bg-stone-800"
-    ></div>
+    <div class="absolute top-0 left-0 h-full w-full animate-pulse bg-background"></div>
   {/if}
 
   <!-- Video element -->
@@ -57,7 +55,7 @@
     loop
     playsinline
     muted
-    class={cn('!m-0 scale-[1.01] border-none', className)}
+    class={cn('m-0! scale-[1.01] border-none', className)}
     style="opacity: {isPlaying ? '1' : '0'}"
     itemprop="video"
   ></video>
