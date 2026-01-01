@@ -44,7 +44,7 @@
 <div bind:this={container} class="not-prose relative mx-auto max-w-4xl py-8">
   <div
     bind:this={line}
-    class="absolute top-16 left-8 z-0 w-0.5 bg-primary/15"
+    class="absolute top-16 left-8 z-0 w-0.5 bg-primary/15 mask-b-from-80%"
     style="height: 0px;"
   ></div>
   <div class="space-y-12">

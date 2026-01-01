@@ -34,7 +34,7 @@
 </script>
 
 <div
-  class="fixed top-0 right-0 left-0 z-20 overflow-hidden border-b border-border bg-background"
+  class="bg-dotted fixed top-0 right-0 left-0 z-20 overflow-hidden border-b border-border bg-background"
   style={`height:${Math.max(headerCollapsedHeight, headerHeight - scrollY)}px`}
 >
   <div class="flex h-full">

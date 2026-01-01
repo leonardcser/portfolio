@@ -281,8 +281,7 @@
           {#snippet demo()}
             <AutoplayVideo src="/videos/memsched" />
           {/snippet}
-          Built an online platform to create live widgets for users to share their progress with the
-          world.
+          Built an online platform to create live widgets for users to share their progress with the world.
         </ProjectItem>
       </Block>
       <Block>
@@ -331,8 +330,8 @@
           {#snippet demo()}
             <AutoplayVideo src="/videos/scrapeout" />
           {/snippet}
-          Built a platform for businesses to identify conflict of interest in their data in order to
-          take more informed decisions. Neo4j was used extensively to model complex graph relations.
+          Built a platform for businesses to identify conflict of interest in their data in order to take
+          more informed decisions. Neo4j was used extensively to model complex graph relations.
         </ProjectItem>
       </Block>
 
@@ -405,8 +404,7 @@
             to Programming (CS-107) course at
             <strong class="text-red-600">EPFL</strong>.
             <br />
-            It includes all ghosts and their AI, a map editor, a leaderboard system, custom menu and
-            more.
+            It includes all ghosts and their AI, a map editor, a leaderboard system, custom menu and more.
           </ProjectItem>
         </div>
       </Block>
@@ -445,7 +443,7 @@
         </ProjectItem>
       </Block>
     </section>
-    <Block class="pt-20 pb-10">
+    <Block class="mask-b-from-50% pt-20 pb-12">
       <Footer />
     </Block>
   </main>
