@@ -33,10 +33,13 @@
 </script>
 
 <div
-  class="fixed top-0 right-0 left-0 z-20 flex justify-center overflow-hidden border-b border-border bg-background"
+  class="fixed top-0 right-0 left-0 z-20 overflow-hidden border-b border-border bg-background"
   style={`height:${Math.max(headerCollapsedHeight, headerHeight - scrollY)}px`}
 >
-  <div class="w-full max-w-screen-lg border-x border-border p-6 pt-0">
+  <div class="flex h-full">
+    <div class="hidden lg:block w-[280px] shrink-0"></div>
+    <div class="flex flex-1 justify-center lg:justify-start">
+      <div class="w-full max-w-screen-lg border-x border-border p-6 pt-0">
     <div class="flex items-center justify-between py-4" style={`height${headerCollapsedHeight}px`}>
       <button
         type="button"
@@ -55,5 +58,7 @@
       <Navigation />
     </div>
     <FrontMatter />
+      </div>
+    </div>
   </div>
 </div>

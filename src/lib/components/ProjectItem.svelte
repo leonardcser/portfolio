@@ -10,6 +10,7 @@
     tags: string[];
     linkTags?: Omit<LinkTagProps, 'umamiEventPrefix'>[];
 
+    id?: string;
     class?: string;
     contentClass?: string;
     demo?: Snippet;
@@ -22,6 +23,7 @@
     title,
     tags,
     linkTags,
+    id,
     class: className = '',
     contentClass = '',
     demo,
@@ -31,7 +33,7 @@
   }: Props = $props();
 </script>
 
-<div class={cn('not-prose', className)} itemscope itemtype="https://schema.org/CreativeWork">
+<div {id} class={cn('not-prose', className)} itemscope itemtype="https://schema.org/CreativeWork">
   {#if demo}
     <div class={cn('mb-4 w-fit overflow-hidden rounded', demoClass)}>
       {@render demo()}

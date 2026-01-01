@@ -11,6 +11,7 @@
   import WidgetImage from '$lib/components/WidgetImage.svelte';
   import Timeline from '$lib/components/Timeline.svelte';
   import Footer from '$lib/components/Footer.svelte';
+  import TableOfContents from '$lib/components/TableOfContents.svelte';
 
   const journeyItems = [
     {
@@ -45,7 +46,11 @@
 </script>
 
 <Header />
-<div class="relative flex min-h-screen flex-col items-center" style:padding-top="{headerHeight}px">
+<div class="flex" style:padding-top="{headerHeight}px">
+  <aside class="hidden lg:block w-[280px] shrink-0">
+    <TableOfContents />
+  </aside>
+  <main class="relative flex min-h-screen flex-1 flex-col items-center lg:items-start">
   <Block>
     <p>Welcome to my portfolio!</p>
     <p>
@@ -125,6 +130,7 @@
         This section showcases selected projects and achievements from my professional experience.
       </p>
       <ProjectItem
+        id="greenland-lakes"
         title="Greenland Supraglacial Lakes Detection"
         tags={['MLOps', 'PyTorch', 'DVC']}
         linkTags={[
@@ -159,6 +165,7 @@
     </Block>
     <Block>
       <ProjectItem
+        id="dafthunk"
         title="Dafthunk"
         tags={['React', 'Hono', 'Cloudflare']}
         linkTags={[
@@ -190,6 +197,7 @@
 
     <Block>
       <ProjectItem
+        id="mlops-guide"
         title="A Guide To MLOps"
         tags={['DVC', 'GCP', 'BentoML', 'LabelStudio', 'Kubernetes']}
         linkTags={[
@@ -222,6 +230,7 @@
     </Block>
     <Block>
       <ProjectItem
+        id="license-plate"
         class="grid-cols-5 items-center gap-10 sm:grid"
         demoClass="col-span-2"
         contentClass="col-span-3"
@@ -253,6 +262,7 @@
     </Block>
     <Block>
       <ProjectItem
+        id="mdwrap"
         title="mdwrap"
         tags={['Python']}
         linkTags={[
@@ -275,6 +285,7 @@
       <h2 id="projects">Projects</h2>
       <p>The following are a selection of projects that I have accomplished over time.</p>
       <ProjectItem
+        id="memsched"
         title="MEMsched"
         tags={['Typescript', 'SvelteKit', 'Stripe', 'SQLite', 'Cloudflare']}
         linkTags={[
@@ -298,6 +309,7 @@
     </Block>
     <Block>
       <ProjectItem
+        id="commit"
         title="commit."
         tags={['Figma', 'Expo', 'Hono', 'Stripe', 'Cloudflare', 'HEIG-VD']}
         linkTags={[
@@ -324,6 +336,7 @@
 
     <Block>
       <ProjectItem
+        id="scrapeout"
         title="Scrapeout"
         tags={['Typescript', 'SCSS', 'Django', 'Terraform', 'Docker', 'AWS', 'PostgreSQL', 'Neo4j']}
         awards={['1st Place Hackathon', 'AWS Certified']}
@@ -339,6 +352,7 @@
     <Block>
       <div class="grid-cols-5 max-sm:space-y-6 sm:grid sm:gap-6">
         <ProjectItem
+          id="captcha-solver"
           class="col-span-3"
           title="Captcha Solver"
           tags={['Tensorflow', 'GCP', 'OpenCV']}
@@ -358,6 +372,7 @@
           test set.
         </ProjectItem>
         <ProjectItem
+          id="chess-engine"
           class="col-span-2"
           title="Chess Engine"
           tags={['Java', 'HEIG-VD']}
@@ -382,7 +397,7 @@
     </Block>
     <Block>
       <div class="grid-cols-2 max-sm:space-y-6 sm:grid sm:gap-6">
-        <ProjectItem title="Slither.io RL" tags={['Tensorflow', 'Selenium', 'OpenCV']}>
+        <ProjectItem id="slither-rl" title="Slither.io RL" tags={['Tensorflow', 'Selenium', 'OpenCV']}>
           {#snippet demo()}
             <AutoplayVideo src="/videos/SlitherIORL" />
           {/snippet}
@@ -390,6 +405,7 @@
           to critic) reinforcement learning. The agent was able to collect food and avoid other snakes.
         </ProjectItem>
         <ProjectItem
+          id="pacman"
           title="Pac-Man"
           tags={['Java', 'EPFL']}
           linkTags={[
@@ -414,6 +430,7 @@
     </Block>
     <Block>
       <ProjectItem
+        id="mcp-nvim-lsp"
         title="MCP Nvim LSP"
         tags={['Lua', 'Go']}
         linkTags={[
@@ -429,6 +446,7 @@
     </Block>
     <Block>
       <ProjectItem
+        id="vite-react-ssr"
         title="Vite React Head SSR"
         tags={['React', 'Vite']}
         linkTags={[
@@ -447,4 +465,5 @@
   <Block class="pt-20 pb-10">
     <Footer />
   </Block>
+  </main>
 </div>
