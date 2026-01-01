@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+# Generate date before commit
+node scripts/generateDate.mjs
+
+# Add the generated file to the commit if it changed
+git add src/lib/gitDate.ts
