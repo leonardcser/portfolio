@@ -1,4 +1,5 @@
 <script lang="ts" module>
+  export const headerLeftPadding = 256;
   export const headerCollapsedHeight = 68;
   export const headerHeight = headerCollapsedHeight + 24 + frontmatterHeight;
 </script>
@@ -37,27 +38,30 @@
   style={`height:${Math.max(headerCollapsedHeight, headerHeight - scrollY)}px`}
 >
   <div class="flex h-full">
-    <div class="hidden lg:block w-[280px] shrink-0"></div>
+    <div class="hidden shrink-0 lg:block" style={`width:${headerLeftPadding}px`}></div>
     <div class="flex flex-1 justify-center lg:justify-start">
-      <div class="w-full max-w-screen-lg border-x border-border p-6 pt-0">
-    <div class="flex items-center justify-between py-4" style={`height${headerCollapsedHeight}px`}>
-      <button
-        type="button"
-        class="cursor-pointer"
-        onclick={() => scrollToTop()}
-        onkeydown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            scrollToTop();
-          }
-        }}
-        style="background: none; border: none; padding: 0;"
-      >
-        <h1 class="mb-0 text-3xl font-bold whitespace-nowrap">Leonard Cseres</h1>
-      </button>
-      <Navigation />
-    </div>
-    <FrontMatter />
+      <div class="w-full max-w-5xl border-x border-border p-6 pt-0">
+        <div
+          class="flex items-center justify-between py-4"
+          style={`height${headerCollapsedHeight}px`}
+        >
+          <button
+            type="button"
+            class="cursor-pointer"
+            onclick={() => scrollToTop()}
+            onkeydown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                scrollToTop();
+              }
+            }}
+            style="background: none; border: none; padding: 0;"
+          >
+            <h1 class="mb-0 text-3xl font-bold whitespace-nowrap">Leonard Cseres</h1>
+          </button>
+          <Navigation />
+        </div>
+        <FrontMatter />
       </div>
     </div>
   </div>

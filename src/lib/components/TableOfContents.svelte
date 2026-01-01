@@ -121,7 +121,7 @@
               : 'text-muted'}"
           >
             {#if activeSection === section.id}
-              <div class="absolute top-0 bottom-0 left-0 w-[1px] bg-primary"></div>
+              <div class="absolute top-0 bottom-0 left-0 w-px bg-primary"></div>
             {/if}
             {section.label}
           </button>
@@ -135,7 +135,7 @@
                     style="padding-left: 1.5rem;"
                   >
                     {subsection.label}
-                    <div class="absolute top-1/2 left-0 h-[1px] w-[16px] bg-border"></div>
+                    <div class="absolute top-1/2 left-0 h-px w-4 bg-border"></div>
                   </button>
                 </li>
               {/each}
