@@ -5,11 +5,15 @@
 </script>
 
 <footer class="flex flex-nowrap justify-center gap-2">
-  <button
-    on:click={scrollToTop}
-    class="flex items-center gap-1 text-sm text-muted transition-colors hover:text-primary"
+  <a
+    href="#top"
+    onclick={(e) => {
+      e.preventDefault();
+      scrollToTop();
+    }}
+    class="flex items-center gap-1 text-sm text-muted no-underline! transition-colors hover:text-primary"
   >
     Back to top
     <Icon src={FiArrowUp} />
-  </button>
+  </a>
 </footer>

@@ -9,7 +9,39 @@
   const linksCount = links.length;
 </script>
 
+<noscript>
+  <style>
+    .noscript-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .noscript-nav-item {
+      display: none;
+    }
+    @media (min-width: 768px) {
+      .noscript-nav-item {
+        display: block;
+      }
+    }
+  </style>
+</noscript>
+
 <nav class="flex items-center gap-2">
+  <noscript>
+    <div class="noscript-nav">
+      {#each links as link}
+        <div class="noscript-nav-item">
+          <LinkTag
+            href={link.url}
+            label={link.label}
+            icon={link.icon}
+            umamiEventPrefix={'navigation-' + link.label}
+          />
+        </div>
+      {/each}
+    </div>
+  </noscript>
   {#if headerState.isCollapsed}
     {#each links as link, index}
       <div

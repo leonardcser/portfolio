@@ -33,8 +33,19 @@
   });
 </script>
 
+<noscript>
+  <style>
+    .header-container {
+      height: 68px !important;
+    }
+    .main-container {
+      padding-top: 68px !important;
+    }
+  </style>
+</noscript>
+
 <div
-  class="bg-dotted fixed top-0 right-0 left-0 z-20 overflow-hidden border-b border-border bg-background"
+  class="header-container bg-dotted fixed top-0 right-0 left-0 z-20 overflow-hidden border-b border-border bg-background"
   style={`height:${Math.max(headerCollapsedHeight, headerHeight - scrollY)}px`}
 >
   <div class="flex h-full">
@@ -45,19 +56,15 @@
           class="flex items-center justify-between py-4"
           style={`height${headerCollapsedHeight}px`}
         >
-          <button
-            type="button"
-            onclick={() => scrollToTop()}
-            onkeydown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                scrollToTop();
-              }
+          <a
+            href="#top"
+            onclick={(e) => {
+              e.preventDefault();
+              scrollToTop();
             }}
-            style="background: none; border: none; padding: 0;"
           >
             <h1 class="mb-0 text-3xl font-bold whitespace-nowrap">Leonard Cseres</h1>
-          </button>
+          </a>
           <Navigation />
         </div>
         <FrontMatter />

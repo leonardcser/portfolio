@@ -9,43 +9,40 @@
 
   const { src, class: className = '' }: Props = $props();
   let videoElement: HTMLVideoElement;
-  let isLoaded = $state(false);
   let isPlaying = $state(false);
 
   onMount(() => {
-    if (isLoaded) {
-      return;
-    }
-    // Create source elements programmatically
-    const formats = [
-      { type: 'video/mp4', ext: 'mp4' },
-      { type: 'video/ogg', ext: 'ogg' },
-      { type: 'video/webm', ext: 'webm' },
-    ];
-
-    formats.forEach((format) => {
-      const source = document.createElement('source');
-      source.src = `${src}.${format.ext}`;
-      source.type = format.type;
-      // eslint-disable-next-line svelte/no-dom-manipulating
-      videoElement.appendChild(source);
-    });
-
-    // Add event listeners before loading
-    videoElement.addEventListener('canplay', () => {
+    // Add event listeners for progressive enhancement
+    const handleCanPlay = () => {
       isPlaying = true;
-    });
+    };
 
-    // Load the video
-    videoElement.load();
-    isLoaded = true;
+    videoElement.addEventListener('canplay', handleCanPlay);
+
+    // Check if video is already ready to play
+    if (videoElement.readyState >= 3) {
+      isPlaying = true;
+    }
   });
 </script>
+
+<noscript>
+  <style>
+    .autoplay-video-fallback {
+      opacity: 1 !important;
+    }
+    .autoplay-skeleton-fallback {
+      display: none !important;
+    }
+  </style>
+</noscript>
 
 <div class="relative">
   <!-- Skeleton loader -->
   {#if !isPlaying}
-    <div class="absolute top-0 left-0 h-full w-full animate-pulse bg-background"></div>
+    <div
+      class="autoplay-skeleton-fallback absolute top-0 left-0 h-full w-full animate-pulse bg-background"
+    ></div>
   {/if}
 
   <!-- Video element -->
@@ -55,8 +52,12 @@
     loop
     playsinline
     muted
-    class={cn('m-0! scale-[1.01] border-none', className)}
+    class={cn('autoplay-video-fallback m-0! scale-[1.01] border-none', className)}
     style="opacity: {isPlaying ? '1' : '0'}"
     itemprop="video"
-  ></video>
+  >
+    <source src="{src}.mp4" type="video/mp4" />
+    <source src="{src}.ogg" type="video/ogg" />
+    <source src="{src}.webm" type="video/webm" />
+  </video>
 </div>

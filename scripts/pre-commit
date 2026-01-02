@@ -1,7 +1,12 @@
 #!/usr/bin/env sh
 
-# Generate date before commit
-node scripts/generateDate.mjs
+# Generate current date in DD.MM.YYYY format
+GIT_DATE=$(date +"%d.%m.%Y")
+
+# Write to gitDate.ts
+cat > src/lib/gitDate.ts <<EOF
+export const GIT_LAST_MODIFIED: string = '${GIT_DATE}';
+EOF
 
 # Add the generated file to the commit if it changed
 git add src/lib/gitDate.ts

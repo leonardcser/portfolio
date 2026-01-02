@@ -32,6 +32,27 @@
   );
 </script>
 
+<noscript>
+  <style>
+    /* Default to light theme when JS is disabled */
+    .widget-image-light,
+    .widget-image-dark {
+      opacity: 1 !important;
+    }
+    .widget-image-light {
+      display: block !important;
+    }
+    .widget-image-dark {
+      display: none !important;
+    }
+    .widget-container-fallback {
+      width: fit-content !important;
+      animation: none !important;
+      background: transparent !important;
+    }
+  </style>
+</noscript>
+
 {#snippet widgetImage(props: HTMLImgAttributes)}
   <img
     src={imgSrc}
@@ -39,7 +60,7 @@
     style="height: {height}px;"
     {...props}
     class={cn(
-      'transition-opacity duration-100',
+      'widget-image-light transition-opacity duration-100',
       loadedLight ? 'opacity-100' : 'opacity-0',
       mode.current === 'light' ? '' : 'hidden',
       props.class
@@ -52,7 +73,7 @@
     style="height: {height}px;"
     {...props}
     class={cn(
-      'transition-opacity duration-100',
+      'widget-image-dark transition-opacity duration-100',
       loadedDark ? 'opacity-100' : 'opacity-0',
       mode.current === 'dark' ? '' : 'hidden',
       props.class
@@ -64,7 +85,7 @@
 <div
   style:height="{height}px"
   style:width={width ? width + 'px' : '33%'}
-  class={cn(loaded ? 'w-fit' : 'animate-pulse bg-border/50')}
+  class={cn('widget-container-fallback', loaded ? 'w-fit' : 'animate-pulse bg-border/50')}
 >
   {#if url || href}
     <a href={trueHref} {...rest}>

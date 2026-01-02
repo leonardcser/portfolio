@@ -1,5 +1,9 @@
 <script lang="ts">
-  import Header, { headerHeight, headerLeftPadding } from '$lib/components/Header.svelte';
+  import Header, {
+    headerCollapsedHeight,
+    headerHeight,
+    headerLeftPadding,
+  } from '$lib/components/Header.svelte';
   import Block from '$lib/components/Block.svelte';
   import ProjectItem from '$lib/components/ProjectItem.svelte';
   import { BsGithub } from 'svelte-icons-pack/bs';
@@ -47,7 +51,7 @@
 </script>
 
 <Header />
-<div class="flex" style:padding-top="{headerHeight}px">
+<div class="main-container flex" style:padding-top="{headerHeight}px">
   <aside class="hidden shrink-0 lg:block" style={`width:${headerLeftPadding}px`}>
     <TableOfContents />
   </aside>

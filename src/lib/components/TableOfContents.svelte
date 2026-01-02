@@ -113,8 +113,12 @@
     <ul class="flex flex-col space-y-1.5 text-sm">
       {#each sections as section}
         <li class="flex flex-col">
-          <button
-            onclick={() => scrollToSection(section.id)}
+          <a
+            href="#{section.id}"
+            onclick={(e) => {
+              e.preventDefault();
+              scrollToSection(section.id);
+            }}
             class="hover:text-foreground relative w-full pl-3 text-left transition-colors {activeSection ===
             section.id
               ? 'text-foreground font-semibold'
@@ -124,19 +128,23 @@
               <div class="absolute top-0 bottom-0 left-0 w-px bg-primary"></div>
             {/if}
             {section.label}
-          </button>
+          </a>
           {#if section.subsections && activeParentSection === section.id}
             <ul class="relative flex flex-col space-y-0.5 pt-1 text-sm" id="toc-subsections">
               {#each section.subsections as subsection}
                 <li>
-                  <button
-                    onclick={() => scrollToSection(subsection.id)}
-                    class="relative w-full px-2 py-1 text-left transition-colors"
+                  <a
+                    href="#{subsection.id}"
+                    onclick={(e) => {
+                      e.preventDefault();
+                      scrollToSection(subsection.id);
+                    }}
+                    class="relative block w-full px-2 py-1 text-left transition-colors"
                     style="padding-left: 1.5rem;"
                   >
                     {subsection.label}
                     <div class="absolute top-1/2 left-0 h-px w-4 bg-border"></div>
-                  </button>
+                  </a>
                 </li>
               {/each}
             </ul>
