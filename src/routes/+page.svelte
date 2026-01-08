@@ -266,6 +266,31 @@
         <h2 id="projects">Projects</h2>
         <p>The following are a selection of projects that I have accomplished over time.</p>
         <ProjectItem
+          id="code-llm"
+          title="CodeLLM"
+          tags={['PyTorch', 'C++', 'Transformers', 'Lightning', 'DVC']}
+          linkTags={[
+            {
+              label: 'GitHub',
+              href: 'https://github.com/leonardcser/code-llm',
+              icon: BsGithub,
+            },
+          ]}
+        >
+          {#snippet demo()}
+            <Image
+              src="/images/code-llm-perplexity.png"
+              alt="Training perplexity graph"
+              class="h-40 w-full object-cover"
+            />
+          {/snippet}
+          Training a code completion language model from scratch based on Qwen3 architecture using a custom
+          BPE tokenizer implemented in C++. The model achieves 496 tokens/second inference on NVIDIA RTX
+          5070 Ti and converges to under 10 perplexity on Python code.
+        </ProjectItem>
+      </Block>
+      <Block>
+        <ProjectItem
           id="memsched"
           title="MEMsched"
           tags={['Typescript', 'SvelteKit', 'Stripe', 'SQLite', 'Cloudflare']}
