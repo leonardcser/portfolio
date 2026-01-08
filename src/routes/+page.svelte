@@ -274,30 +274,55 @@
       <Block class="pt-12">
         <h2 id="projects">Projects</h2>
         <p>The following are a selection of projects that I have accomplished over time.</p>
-        <ProjectItem
-          id="code-llm"
-          title="CodeLLM"
-          tags={['PyTorch', 'C++', 'Transformers', 'Lightning', 'DVC']}
-          linkTags={[
-            {
-              label: 'GitHub',
-              href: 'https://github.com/leonardcser/code-llm',
-              icon: BsGithub,
-            },
-          ]}
-        >
-          {#snippet demo()}
-            <Image
-              src="/images/code-llm-perplexity.png"
-              description="Training metrics showing model perplexity converging below 10 on Python code dataset"
-              figureNumber={5}
-              class="h-40 w-full object-cover"
-            />
-          {/snippet}
-          Training a code completion language model from scratch based on Qwen3 architecture using a custom
-          BPE tokenizer implemented in C++. The model achieves 496 tokens/second inference on NVIDIA RTX
-          5070 Ti and converges to under 10 perplexity on Python code.
-        </ProjectItem>
+        <div class="grid-cols-2 max-sm:space-y-6 sm:grid sm:gap-6">
+          <ProjectItem
+            id="code-llm"
+            title="CodeLLM"
+            tags={['PyTorch', 'C++', 'Transformers', 'Lightning', 'DVC']}
+            linkTags={[
+              {
+                label: 'GitHub',
+                href: 'https://github.com/leonardcser/code-llm',
+                icon: BsGithub,
+              },
+            ]}
+          >
+            {#snippet demo()}
+              <Image
+                src="/images/code-llm-perplexity.png"
+                description="Training metrics showing model perplexity converging below 10 on Python code dataset"
+                figureNumber={5}
+                class="h-40 w-full object-cover"
+              />
+            {/snippet}
+            Training a code completion language model from scratch based on Qwen3 architecture using a
+            custom BPE tokenizer implemented in C++. The model achieves 496 tokens/second inference on
+            NVIDIA RTX 5070 Ti and converges to under 10 perplexity on Python code.
+          </ProjectItem>
+          <ProjectItem
+            id="mathsnip"
+            title="MathSnip"
+            tags={['Swift', 'SwiftUI', 'CoreML', 'PyTorch']}
+            linkTags={[
+              {
+                label: 'GitHub',
+                href: 'https://github.com/leonardcser/mathsnip',
+                icon: BsGithub,
+              },
+            ]}
+          >
+            {#snippet demo()}
+              <Image
+                src="/images/mathsnip.png"
+                description="MathSnip macOS menu bar app for converting mathematical equations to LaTeX"
+                figureNumber={6}
+                class="h-40 w-full object-cover"
+              />
+            {/snippet}
+            A macOS menu bar app for converting mathematical equations into LaTeX and Typst formats. Uses
+            on-device CoreML inference.
+          </ProjectItem>
+        </div>
       </Block>
       <Block>
         <ProjectItem
@@ -321,7 +346,7 @@
             <AutoplayVideo
               src="/videos/memsched"
               description="MEMsched platform demo showing live widget creation and progress tracking"
-              figureNumber={6}
+              figureNumber={7}
             />
           {/snippet}
           Built an online platform to create live widgets for users to share their progress with the world.
@@ -349,7 +374,7 @@
             <AutoplayVideo
               src="/videos/commit"
               description="commit. app demo showing goal creation with financial accountability feature"
-              figureNumber={7}
+              figureNumber={8}
             />
           {/snippet}
           Developed an application for creating goals with money on the line. We built the project in
@@ -378,7 +403,7 @@
             <AutoplayVideo
               src="/videos/scrapeout"
               description="Scrapeout platform demo displaying conflict of interest graph visualization with Neo4j"
-              figureNumber={8}
+              figureNumber={9}
             />
           {/snippet}
           Built a platform for businesses to identify conflict of interest in their data in order to take
@@ -398,7 +423,7 @@
               <Image
                 src="/images/amazoncaptcha.jpg"
                 description="Amazon CAPTCHA example with 6 distorted characters used for neural network training"
-                figureNumber={9}
+                figureNumber={10}
               />
             {/snippet}
             Built a neural network to solve 6 character captchas from Amazon along with a synthetic data
@@ -422,7 +447,7 @@
               <Image
                 src="/images/chess.png"
                 description="Chess engine GUI showing an active game with piece movement and board state"
-                figureNumber={10}
+                figureNumber={11}
               />
             {/snippet}
             Developed a chess engine during OOP Java course at
@@ -441,7 +466,7 @@
               <AutoplayVideo
                 src="/videos/SlitherIORL"
                 description="Reinforcement learning agent playing Slither.io, collecting food and avoiding collisions"
-                figureNumber={11}
+                figureNumber={12}
               />
             {/snippet}
             Created a neural network to play the game Slither.io. The agent was trained using A2C (actor
@@ -464,7 +489,7 @@
               <AutoplayVideo
                 src="/videos/pacman"
                 description="Pac-Man remake gameplay showing ghost AI behavior and custom level design"
-                figureNumber={12}
+                figureNumber={13}
               />
             {/snippet}
             Remake of the classic Pacman game. This project was done in a team of 2 for the Introduction

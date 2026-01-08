@@ -33,6 +33,7 @@
       label: 'Projects',
       subsections: [
         { id: 'code-llm', label: 'CodeLLM' },
+        { id: 'mathsnip', label: 'MathSnip' },
         { id: 'memsched', label: 'MEMsched' },
         { id: 'commit', label: 'commit.' },
         { id: 'scrapeout', label: 'Scrapeout' },
