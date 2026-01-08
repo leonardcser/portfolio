@@ -1,9 +1,5 @@
 <script lang="ts">
-  import Header, {
-    headerCollapsedHeight,
-    headerHeight,
-    headerLeftPadding,
-  } from '$lib/components/Header.svelte';
+  import Header, { headerHeight, headerLeftPadding } from '$lib/components/Header.svelte';
   import Block from '$lib/components/Block.svelte';
   import ProjectItem from '$lib/components/ProjectItem.svelte';
   import { BsGithub } from 'svelte-icons-pack/bs';
@@ -156,7 +152,8 @@
           {#snippet demo()}
             <Image
               src="/images/lakes.png"
-              alt="lake segmentation"
+              description="Satellite imagery showing supraglacial lake segmentation results on Greenland ice sheet"
+              figureNumber={1}
               class="h-40 w-full object-cover"
             />
           {/snippet}
@@ -184,7 +181,11 @@
           ]}
         >
           {#snippet demo()}
-            <Image src="/images/dafthunk.png" alt="dafthunk" />
+            <Image
+              src="/images/dafthunk.png"
+              description="Dafthunk workflow execution platform interface"
+              figureNumber={2}
+            />
           {/snippet}
           Contributed in building a workflow execution platform on top of Cloudflare's infrastructure.
         </ProjectItem>
@@ -209,7 +210,11 @@
           ]}
         >
           {#snippet demo()}
-            <Image src="/images/guide_mlops.png" alt="mlops guide homepage" />
+            <Image
+              src="/images/guide_mlops.png"
+              description="A Guide to MLOps documentation homepage showcasing the complete ML pipeline"
+              figureNumber={3}
+            />
           {/snippet}
           Collaborated on authoring a machine learning operations guide for companies and Master students.
           The guide covers training a model locally, creating a pipline to evalute, reproduce and deploy,
@@ -233,7 +238,11 @@
           ]}
         >
           {#snippet demo()}
-            <Image src="/images/license_plate.png" alt="license plate DVC dag" />
+            <Image
+              src="/images/license_plate.png"
+              description="DVC pipeline DAG for Swiss license plate detection and OCR model training"
+              figureNumber={4}
+            />
           {/snippet}
           This project was part of research into Machine Learning Operations (MLOps) at
           <strong class="text-red-600">HEIG-VD</strong>. It is comprised of two models: one for
@@ -280,7 +289,8 @@
           {#snippet demo()}
             <Image
               src="/images/code-llm-perplexity.png"
-              alt="Training perplexity graph"
+              description="Training metrics showing model perplexity converging below 10 on Python code dataset"
+              figureNumber={5}
               class="h-40 w-full object-cover"
             />
           {/snippet}
@@ -308,7 +318,11 @@
           ]}
         >
           {#snippet demo()}
-            <AutoplayVideo src="/videos/memsched" />
+            <AutoplayVideo
+              src="/videos/memsched"
+              description="MEMsched platform demo showing live widget creation and progress tracking"
+              figureNumber={6}
+            />
           {/snippet}
           Built an online platform to create live widgets for users to share their progress with the world.
         </ProjectItem>
@@ -332,7 +346,11 @@
           ]}
         >
           {#snippet demo()}
-            <AutoplayVideo src="/videos/commit" />
+            <AutoplayVideo
+              src="/videos/commit"
+              description="commit. app demo showing goal creation with financial accountability feature"
+              figureNumber={7}
+            />
           {/snippet}
           Developed an application for creating goals with money on the line. We built the project in
           3 weeks during the PDG (projet de groupe) class at
@@ -357,7 +375,11 @@
           awards={['1st Place Hackathon', 'AWS Certified']}
         >
           {#snippet demo()}
-            <AutoplayVideo src="/videos/scrapeout" />
+            <AutoplayVideo
+              src="/videos/scrapeout"
+              description="Scrapeout platform demo displaying conflict of interest graph visualization with Neo4j"
+              figureNumber={8}
+            />
           {/snippet}
           Built a platform for businesses to identify conflict of interest in their data in order to take
           more informed decisions. Neo4j was used extensively to model complex graph relations.
@@ -373,7 +395,11 @@
             tags={['Tensorflow', 'GCP', 'OpenCV']}
           >
             {#snippet demo()}
-              <Image src="/images/amazoncaptcha.jpg" alt="amazon captcha" />
+              <Image
+                src="/images/amazoncaptcha.jpg"
+                description="Amazon CAPTCHA example with 6 distorted characters used for neural network training"
+                figureNumber={9}
+              />
             {/snippet}
             Built a neural network to solve 6 character captchas from Amazon along with a synthetic data
             generation using computer graphics techniques. I achieved an average accuracy of 93% on the
@@ -393,7 +419,11 @@
             ]}
           >
             {#snippet demo()}
-              <Image src="/images/chess.png" alt="chess game" />
+              <Image
+                src="/images/chess.png"
+                description="Chess engine GUI showing an active game with piece movement and board state"
+                figureNumber={10}
+              />
             {/snippet}
             Developed a chess engine during OOP Java course at
             <strong class="text-red-600">HEIG-VD</strong>.
@@ -408,7 +438,11 @@
             tags={['Tensorflow', 'Selenium', 'OpenCV']}
           >
             {#snippet demo()}
-              <AutoplayVideo src="/videos/SlitherIORL" />
+              <AutoplayVideo
+                src="/videos/SlitherIORL"
+                description="Reinforcement learning agent playing Slither.io, collecting food and avoiding collisions"
+                figureNumber={11}
+              />
             {/snippet}
             Created a neural network to play the game Slither.io. The agent was trained using A2C (actor
             to critic) reinforcement learning. The agent was able to collect food and avoid other snakes.
@@ -427,7 +461,11 @@
             awards={['1st Place EPFL']}
           >
             {#snippet demo()}
-              <AutoplayVideo src="/videos/pacman" />
+              <AutoplayVideo
+                src="/videos/pacman"
+                description="Pac-Man remake gameplay showing ghost AI behavior and custom level design"
+                figureNumber={12}
+              />
             {/snippet}
             Remake of the classic Pacman game. This project was done in a team of 2 for the Introduction
             to Programming (CS-107) course at

@@ -2,6 +2,7 @@
   import '../app.css';
   import favicon from '$lib/assets/favicon.ico';
   import { ModeWatcher } from 'mode-watcher';
+  import MediaPreview from '$lib/components/MediaPreview.svelte';
 
   let { children } = $props();
 </script>
@@ -24,4 +25,5 @@
 </svelte:head>
 
 <ModeWatcher />
+<MediaPreview />
 {@render children?.()}
