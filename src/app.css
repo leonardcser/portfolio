@@ -6,14 +6,15 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Inter Variable', sans-serif;
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono Variable', monospace;
 
   --color-primary: #000000;
   --color-accent: #00a2dd;
   --color-muted: #8e8e8e;
-  --color-background: #fefefe;
+  --color-background: #f6f6f6;
   --color-border: #dfdfdf;
+  --color-card: #ffffff;
 }
 
 @layer theme {
@@ -21,24 +22,25 @@
     --color-primary: #ffffff;
     --color-accent: #00a2dd;
     --color-muted: #909090;
-    --color-background: #111111;
+    --color-background: #000000;
     --color-border: #333333;
+    --color-card: #111111;
   }
 }
 
 @layer base {
   body {
     @apply bg-background;
-    counter-reset: h2;
+    /* counter-reset: h2; */
   }
 
-  h2 {
-    counter-increment: h2;
-  }
-  h2::before {
-    content: counter(h2) '.';
-    @apply me-2 font-medium text-muted;
-  }
+  /* h2 { */
+  /*   counter-increment: h2; */
+  /* } */
+  /* h2::before { */
+  /*   content: counter(h2) '.'; */
+  /*   @apply me-2 font-medium text-muted; */
+  /* } */
 }
 
 .bg-dotted {

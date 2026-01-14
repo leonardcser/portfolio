@@ -40,7 +40,7 @@ pnpm generate-date
 ```
 /src
   /lib
-    /components     - 18+ reusable Svelte components
+    /components     - 18 reusable Svelte components
     /app.css        - Global Tailwind + custom CSS variables
     state.svelte.ts - Global reactive state (Svelte 5 format)
     utils.ts        - Helper functions (cn, scrollTo, etc.)
@@ -78,13 +78,38 @@ import { cn } from '$lib/utils';
 class={cn('base-class', props.class)}
 ```
 
-**Exported module constants:**
-Components like `Header.svelte` export constants at module level for cross-component coordination:
+**Exported module constants and types:**
+Components export constants and types at module level for cross-component coordination:
 
 ```typescript
-export const headerHeight = 100;
-export const headerCollapsedHeight = 50;
+// Constants for layout coordination (Header.svelte)
+export const headerHeight = 80;
+
+// Type exports for reusability (NavItem.svelte, LinkTag.svelte)
+export type NavItemProps = Props;
+export type LinkTagProps = Props;
 ```
+
+**Navigation components pattern:**
+
+- `NavItem.svelte` - Handles navigation links with active state and conditional icon rendering
+- `NavMenu.svelte` - Full-screen mobile navigation menu that uses `NavItem` components
+- `LinkTag.svelte` - Project/content link tags with arrow icons for external references
+- `Header.svelte` - Top navigation bar that coordinates `NavItem` and `NavMenu`
+
+Keep these components separate - they serve different purposes and share minimal logic.
+
+**Table of Contents pattern:**
+
+`TableOfContents.svelte` tracks scroll position to highlight the active section:
+
+- Uses `onMount` with scroll event listener for active section detection
+- Maintains a `sections` array with main sections and optional `subsections`
+- Only tracks main section IDs (not subsections) in `activeSection` state
+- Shows subsections only when their parent section is active
+- Uses `scrollToSection()` helper with header offset calculation
+
+When adding new sections, update the `sections` array in both `TableOfContents.svelte` and add corresponding IDs to elements in `+page.svelte`.
 
 ### Media Handling
 
@@ -125,6 +150,17 @@ Automatically wires up click-to-preview functionality.
 - Module resolution: "bundler"
 - Keep `app.d.ts` minimal (SvelteKit handles most type generation)
 
+### Component Design Principles
+
+When refactoring or creating components:
+
+- **Don't over-abstract** - Keep components focused on their specific purpose
+- **Prefer composition** - Use snippets and component reuse over complex abstractions
+- **Export types** - Export prop interfaces as types for reuse across components
+- **Consistent naming** - Component prop types should match component name (e.g., `NavItemProps` for `NavItem`)
+- **Separate concerns** - Navigation, content links, and layout components serve different purposes
+- **Maintain styles** - Refactoring should not change visual appearance unless explicitly requested
+
 ## Important Workflows
 
 ### Adding Projects
@@ -147,9 +183,10 @@ pnpm generate-date
 
 Components with JavaScript functionality should have `<noscript>` fallbacks:
 
-- Header, Navigation, ThemeToggle, AutoplayVideo all include noscript blocks
+- Header, ThemeToggle, and AutoplayVideo include noscript blocks
 - Videos load without autoplay in noscript mode
 - Theme toggle hidden in noscript (requires localStorage)
+- NavMenu requires JavaScript (full-screen mobile menu)
 
 ## Linting Configuration
 

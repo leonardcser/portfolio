@@ -13,7 +13,7 @@
 
 <div
   class={cn(
-    'prose w-full max-w-5xl! border-x border-border bg-background p-6 sm:prose dark:prose-invert',
+    'prose w-full max-w-5xl! min-w-0 border-border py-3 sm:py-4 lg:py-6 dark:prose-invert',
     className
   )}
   style="border-bottom-style: dashed; {style}"

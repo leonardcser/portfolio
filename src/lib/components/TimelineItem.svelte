@@ -12,7 +12,7 @@
 </script>
 
 <div class="relative flex gap-4">
-  <div class="z-10 flex h-fit justify-center bg-background px-3 py-2">
+  <div class="z-10 flex h-fit justify-center bg-card px-3 py-2">
     <img src={logo} alt={title} class="size-10 object-contain" />
   </div>
   <div class="flex-1">

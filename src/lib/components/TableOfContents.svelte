@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { headerCollapsedHeight } from '$lib/components/Header.svelte';
+  import { headerHeight } from '$lib/components/Header.svelte';
   import { onMount } from 'svelte';
 
   interface TOCSubItem {
@@ -47,9 +47,6 @@
     },
   ];
 
-  // activeSection now only contains main section IDs, so we can use it directly
-  let activeParentSection = $derived(activeSection);
-
   onMount(() => {
     const handleScroll = () => {
       updateActiveSection();
@@ -57,7 +54,7 @@
 
     const updateActiveSection = () => {
       // Get the offset to account for the header
-      const offset = headerCollapsedHeight + 50;
+      const offset = headerHeight + 50;
 
       // Find all main section elements with their positions (only main sections, not subsections)
       const sectionPositions = sections
@@ -102,14 +99,14 @@
   function scrollToSection(id: string) {
     const element = document.getElementById(id);
     if (element) {
-      const yOffset = -headerCollapsedHeight - 20;
+      const yOffset = -headerHeight - 20;
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
   }
 </script>
 
-<nav class="sticky z-10 mt-5 ml-5" style="top: calc({headerCollapsedHeight}px + 1.25rem);">
+<nav class="sticky z-10" style="top: calc({headerHeight}px + 3rem);">
   <div class="flex flex-col space-y-2">
     <h3 class="text-muted-foreground mb-2 text-sm font-semibold">On this page</h3>
     <ul class="flex flex-col space-y-1.5 text-sm">
@@ -131,7 +128,7 @@
             {/if}
             {section.label}
           </a>
-          {#if section.subsections && activeParentSection === section.id}
+          {#if section.subsections && activeSection === section.id}
             <ul class="relative flex flex-col space-y-0.5 pt-1 text-sm" id="toc-subsections">
               {#each section.subsections as subsection}
                 <li>

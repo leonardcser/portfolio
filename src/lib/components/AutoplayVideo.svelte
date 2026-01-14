@@ -45,7 +45,7 @@
 <button
   type="button"
   onclick={handleClick}
-  class="relative w-full cursor-zoom-in border-none bg-transparent p-0"
+  class="relative block w-full cursor-zoom-in border-none bg-transparent p-0"
   aria-label="Open video in preview"
 >
   {#if !isPlaying}

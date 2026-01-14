@@ -55,7 +55,7 @@
         />
       {/each}
     </div>
-    <div class="mt-1.5 mb-1">
+    <div class="mt-1.5">
       <h3 class="inline text-base font-semibold" itemprop="name">{title}</h3>
       <span class="m-0 ms-1 text-muted" itemprop="abstract">
         {@render children()}

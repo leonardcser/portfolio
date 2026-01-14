@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Header, { headerHeight, headerLeftPadding } from '$lib/components/Header.svelte';
+  import Header, { headerHeight } from '$lib/components/Header.svelte';
   import Block from '$lib/components/Block.svelte';
   import ProjectItem from '$lib/components/ProjectItem.svelte';
   import { BsGithub } from 'svelte-icons-pack/bs';
@@ -47,12 +47,17 @@
 </script>
 
 <Header />
-<div class="main-container flex" style:padding-top="{headerHeight}px">
-  <aside class="hidden shrink-0 lg:block" style={`width:${headerLeftPadding}px`}>
+<div class="flex" style:padding-top="{headerHeight}px">
+  <aside
+    class="hidden w-66.5 shrink-0 border-s border-border/50 bg-card lg:ms-12 lg:block lg:ps-12 lg:pe-4 lg:pt-34"
+  >
     <TableOfContents />
   </aside>
-  <main class="relative flex min-h-screen flex-1 flex-col items-center lg:items-start">
+  <main
+    class="relative mx-0 flex min-h-screen flex-1 flex-col items-start overflow-x-hidden border-x border-b border-border/50 bg-card px-6 py-8 sm:mx-12 sm:px-10 sm:py-10 lg:ms-0 lg:me-12 lg:border-s-0 lg:px-20 lg:py-26 lg:ps-6"
+  >
     <Block>
+      <h2 class="text-6xl!">Hello.</h2>
       <p>Welcome to my portfolio!</p>
       <p>
         I'm a <span class="font-semibold">ML and software</span> student based in Switzerland <SwissFlag
@@ -535,7 +540,7 @@
         </ProjectItem>
       </Block>
     </section>
-    <Block class="mask-b-from-50% pt-20 pb-12">
+    <Block class="pt-20! pb-0!">
       <Footer />
     </Block>
   </main>
