@@ -16,6 +16,7 @@
   const journeyItems = [
     {
       logo: '/images/logo_epfl.png',
+      logoClass: 'w-18',
       title: 'École Polytechnique Fédérale de Lausanne (EPFL)',
       description:
         'I discoved my passion for computer science here at EPFL. I studied OOP in Java and Numerical Computation.',
@@ -30,6 +31,7 @@
     },
     {
       logo: '/images/logo_scrapeout.png',
+      logoClass: 'w-8',
       title: 'Scrapeout',
       description:
         'I founded a data analytics company tackling fraud prevention and detection of conflicts of interest. I was able to learn about real life entrepreneurship and manage challenges along the business growth.',
