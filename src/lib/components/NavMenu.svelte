@@ -5,18 +5,19 @@
   import { IoClose } from 'svelte-icons-pack/io';
 
   interface Link {
-    url: string;
+    href: string;
     label: string;
   }
 
   interface Props {
     open: boolean;
     onClose: () => void;
+    nav: Link[];
     links: Link[];
     currentPath: string;
   }
 
-  let { open = $bindable(false), onClose, links, currentPath }: Props = $props();
+  let { open = $bindable(false), onClose, nav, links, currentPath }: Props = $props();
 
   // Handle escape key
   $effect(() => {
@@ -53,30 +54,26 @@
 >
   <div class="flex h-full flex-col items-center justify-center p-8">
     <!-- Close button -->
-    <button onclick={onClose} class="absolute top-6 right-6 p-2" aria-label="Close menu">
-      <Icon src={IoClose} size={28} />
+    <button onclick={onClose} class="absolute top-5 right-6 p-2" aria-label="Close menu">
+      <Icon src={IoClose} size={24} />
     </button>
 
     <!-- Navigation items -->
     <nav class="flex flex-col items-center gap-8">
-      <NavItem
-        href="/"
-        label="Home"
-        active={currentPath === '/'}
-        onclick={onClose}
-        class="text-2xl!"
-      />
-      <NavItem
-        href="/blog"
-        label="Blog"
-        active={currentPath.startsWith('/blog')}
-        onclick={onClose}
-        class="text-2xl!"
-      />
+      {#each nav as item (item.label)}
+        <NavItem
+          href={item.href}
+          label={item.label}
+          umamiEventPrefix={'navigation-' + item.label.toLowerCase()}
+          active={item.href === '/' ? currentPath === '/' : currentPath.startsWith(item.href)}
+          onclick={onClose}
+          class="text-2xl!"
+        />
+      {/each}
 
       {#each links as link (link.label)}
         <NavItem
-          href={link.url}
+          href={link.href}
           label={link.label}
           umamiEventPrefix={'navigation-' + link.label}
           onclick={onClose}

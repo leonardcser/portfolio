@@ -8,7 +8,7 @@
     icon?: IconType;
     target?: string;
     rel?: string;
-    umamiEventPrefix?: string;
+    umamiEventPrefix: string;
     active?: boolean;
     onclick?: () => void;
   }

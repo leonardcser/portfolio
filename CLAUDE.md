@@ -53,7 +53,7 @@ pnpm generate-date
 Uses **Svelte 5 runes** exclusively - no external state libraries:
 
 - Global state in `src/lib/state.svelte.ts`
-- Exports reactive state objects (`headerState`, `mediaPreviewState`)
+- Exports reactive state objects (`mediaPreviewState`)
 - Pure functions to update state (`openMediaPreview()`, `closeMediaPreview()`)
 
 ### Component Patterns

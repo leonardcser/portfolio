@@ -16,7 +16,6 @@
 <script lang="ts">
   import { cn } from '$lib/utils';
   import type { Snippet } from 'svelte';
-  import Header, { headerHeight } from './Header.svelte';
   import TableOfContents from './TableOfContents.svelte';
 
   interface Props {
@@ -30,8 +29,7 @@
   const showToc = $derived(tocItems !== undefined && tocItems.length > 0);
 </script>
 
-<Header />
-<div class={cn('flex', className)} style:padding-top="{headerHeight}px">
+<div class={cn('flex', className)}>
   {#if showToc}
     <aside
       class="hidden w-66.5 shrink-0 border-s border-border/50 bg-card lg:ms-12 lg:block lg:ps-12 lg:pe-4 lg:pt-34"

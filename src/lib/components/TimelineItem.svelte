@@ -13,7 +13,7 @@
 
 <div class="relative flex gap-4">
   <div class="z-10 flex h-fit justify-center bg-card px-3 py-2">
-    <img src={logo} alt={title} class="size-10 object-contain" />
+    <img src={logo} alt={title} class="size-10 object-contain" loading="lazy" />
   </div>
   <div class="flex-1">
     {#if date}

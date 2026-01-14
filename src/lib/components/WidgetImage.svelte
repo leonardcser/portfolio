@@ -25,25 +25,17 @@
   const imgSrc = $derived(`${origin}/api/widgets/${widget.id}?f=svg`);
   const imgAlt = $derived(`${widget.title} - ${widget.subtitle}`);
 
-  let loadedLight = $state(false);
-  let loadedDark = $state(false);
-  let loaded = $derived(
-    (mode.current == 'dark' && loadedDark) || (mode.current == 'light' && loadedLight)
-  );
+  let loadedStatus = $state({ light: false, dark: false });
+  let currentImgSrc = $derived(mode.current === 'dark' ? imgSrc + '&dark' : imgSrc);
+  let isLoaded = $derived(mode.current === 'dark' ? loadedStatus.dark : loadedStatus.light);
 </script>
 
 <noscript>
   <style>
     /* Default to light theme when JS is disabled */
-    .widget-image-light,
-    .widget-image-dark {
+    .widget-image-fallback {
       opacity: 1 !important;
-    }
-    .widget-image-light {
       display: block !important;
-    }
-    .widget-image-dark {
-      display: none !important;
     }
     .widget-container-fallback {
       width: fit-content !important;
@@ -55,37 +47,26 @@
 
 {#snippet widgetImage(props: HTMLImgAttributes)}
   <img
-    src={imgSrc}
+    src={currentImgSrc}
     alt={imgAlt}
     style="height: {height}px;"
     {...props}
     class={cn(
-      'widget-image-light transition-opacity duration-100',
-      loadedLight ? 'opacity-100' : 'opacity-0',
-      mode.current === 'light' ? '' : 'hidden',
+      'transition-opacity duration-100',
+      isLoaded ? 'opacity-100' : 'opacity-0',
       props.class
     )}
-    onload={() => (loadedLight = true)}
-  />
-  <img
-    src={imgSrc + '&dark'}
-    alt={imgAlt}
-    style="height: {height}px;"
-    {...props}
-    class={cn(
-      'widget-image-dark transition-opacity duration-100',
-      loadedDark ? 'opacity-100' : 'opacity-0',
-      mode.current === 'dark' ? '' : 'hidden',
-      props.class
-    )}
-    onload={() => (loadedDark = true)}
+    onload={() => {
+      if (mode.current === 'dark') loadedStatus.dark = true;
+      else loadedStatus.light = true;
+    }}
   />
 {/snippet}
 
 <div
   style:height="{height}px"
   style:width={width ? width + 'px' : '33%'}
-  class={cn('widget-container-fallback', loaded ? 'w-fit' : 'animate-pulse bg-border/50')}
+  class={cn('widget-container-fallback', isLoaded ? 'w-fit' : 'animate-pulse bg-border/50')}
 >
   {#if url || href}
     <a href={trueHref} {...rest}>
