@@ -41,13 +41,13 @@
   {/if}
   <div class={contentClass}>
     <div class="flex flex-wrap gap-1">
-      {#each tags as tag}
+      {#each tags as tag, index (index)}
         <Tag {tag} />
       {/each}
-      {#each linkTags || [] as props}
+      {#each linkTags || [] as props, index (index)}
         <LinkTag {...props} umamiEventPrefix={title.toLowerCase().replaceAll(' ', '-')} />
       {/each}
-      {#each awards || [] as award}
+      {#each awards || [] as award, index (index)}
         <Tag
           tag={award}
           icon={RiBusinessAwardFill}

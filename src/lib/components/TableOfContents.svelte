@@ -1,51 +1,24 @@
+<script lang="ts" module>
+  import type { TOCItem } from './Layout.svelte';
+
+  interface Props {
+    items: TOCItem[];
+  }
+
+  export type TableOfContentsProps = Props;
+</script>
+
 <script lang="ts">
   import { headerHeight } from '$lib/components/Header.svelte';
   import { onMount } from 'svelte';
 
-  interface TOCSubItem {
-    id: string;
-    label: string;
+  interface Props {
+    items?: TOCItem[];
   }
 
-  interface TOCItem {
-    id: string;
-    label: string;
-    subsections?: TOCSubItem[];
-  }
+  let { items = [] }: Props = $props();
 
   let activeSection = $state('');
-
-  const sections: TOCItem[] = [
-    { id: 'journey', label: 'Journey' },
-    {
-      id: 'professional-work',
-      label: 'Professional Work',
-      subsections: [
-        { id: 'greenland-lakes', label: 'Greenland Lakes Detection' },
-        { id: 'dafthunk', label: 'Dafthunk' },
-        { id: 'mlops-guide', label: 'A Guide To MLOps' },
-        { id: 'license-plate', label: 'License Plate Detection' },
-        { id: 'mdwrap', label: 'mdwrap' },
-      ],
-    },
-    {
-      id: 'projects',
-      label: 'Projects',
-      subsections: [
-        { id: 'code-llm', label: 'CodeLLM' },
-        { id: 'mathsnip', label: 'MathSnip' },
-        { id: 'memsched', label: 'MEMsched' },
-        { id: 'commit', label: 'commit.' },
-        { id: 'scrapeout', label: 'Scrapeout' },
-        { id: 'captcha-solver', label: 'Captcha Solver' },
-        { id: 'chess-engine', label: 'Chess Engine' },
-        { id: 'slither-rl', label: 'Slither.io RL' },
-        { id: 'pacman', label: 'Pac-Man' },
-        { id: 'mcp-nvim-lsp', label: 'MCP Nvim LSP' },
-        { id: 'vite-react-ssr', label: 'Vite React Head SSR' },
-      ],
-    },
-  ];
 
   onMount(() => {
     const handleScroll = () => {
@@ -57,7 +30,7 @@
       const offset = headerHeight + 50;
 
       // Find all main section elements with their positions (only main sections, not subsections)
-      const sectionPositions = sections
+      const sectionPositions = items
         .map((section) => {
           const element = document.getElementById(section.id);
           if (!element) return null;
@@ -110,7 +83,7 @@
   <div class="flex flex-col space-y-2">
     <h3 class="text-muted-foreground mb-2 text-sm font-semibold">On this page</h3>
     <ul class="flex flex-col space-y-1.5 text-sm">
-      {#each sections as section}
+      {#each items as section, index (index)}
         <li class="flex flex-col">
           <a
             href="#{section.id}"
@@ -130,7 +103,7 @@
           </a>
           {#if section.subsections && activeSection === section.id}
             <ul class="relative flex flex-col space-y-0.5 pt-1 text-sm" id="toc-subsections">
-              {#each section.subsections as subsection}
+              {#each section.subsections as subsection, index (index)}
                 <li>
                   <a
                     href="#{subsection.id}"
