@@ -64,7 +64,7 @@
         <img
           src={mediaPreviewState.src}
           alt={mediaPreviewState.description ?? ''}
-          class="max-h-[calc(90vh-3rem)] rounded-lg object-contain"
+          class="max-h-[calc(90vh-3rem)] rounded object-contain"
         />
       {:else if mediaPreviewState.type === 'video' && mediaPreviewState.src}
         <video
@@ -73,7 +73,7 @@
           loop
           muted
           playsinline
-          class="max-h-[calc(90vh-3rem)] rounded-lg object-contain"
+          class="max-h-[calc(90vh-3rem)] rounded object-contain"
         >
           <source src="{mediaPreviewState.src}.mp4" type="video/mp4" />
           <source src="{mediaPreviewState.src}.ogg" type="video/ogg" />

@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type { TOCItem } from './Layout.svelte';
+  import type { TOCItem } from '$lib/types';
 
   interface Props {
     items: TOCItem[];

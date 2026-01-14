@@ -1,5 +1,6 @@
 <script lang="ts">
-  import Layout, { type TOCItem } from '$lib/components/Layout.svelte';
+  import Layout from '$lib/components/Layout.svelte';
+  import type { TOCItem } from '$lib/types';
   import Block from '$lib/components/Block.svelte';
   import ProjectItem from '$lib/components/ProjectItem.svelte';
   import { BsGithub } from 'svelte-icons-pack/bs';
@@ -10,7 +11,6 @@
   import { Icon } from 'svelte-icons-pack';
   import WidgetImage from '$lib/components/WidgetImage.svelte';
   import Timeline from '$lib/components/Timeline.svelte';
-  import Footer from '$lib/components/Footer.svelte';
   import Image from '$lib/components/Image.svelte';
 
   const journeyItems = [
@@ -79,7 +79,7 @@
 
 <Layout {tocItems}>
   <Block>
-    <h2 class="text-6xl!">Hello.</h2>
+    <h1>Hello.</h1>
     <p>Welcome to my portfolio!</p>
     <p>
       I'm a <span class="font-semibold">ML and software</span> student based in Switzerland <SwissFlag
@@ -552,7 +552,4 @@
       </ProjectItem>
     </Block>
   </section>
-  <Block class="pt-20! pb-0!">
-    <Footer />
-  </Block>
 </Layout>

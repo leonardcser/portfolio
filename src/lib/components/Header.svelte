@@ -39,13 +39,17 @@
   style={`height: ${headerHeight}px`}
 >
   <a
-    href="#top"
+    href="/"
+    class="text-sm font-bold whitespace-nowrap"
     onclick={(e) => {
-      e.preventDefault();
-      scrollToTop();
+      if (page.url.pathname === '/') {
+        e.preventDefault();
+        scrollToTop();
+      }
+      // Otherwise, let default navigation to "/" happen
     }}
   >
-    <h1 class="text-sm font-bold whitespace-nowrap">Leonard Cseres</h1>
+    Leonard Cseres
   </a>
 
   <!-- Desktop Navigation -->
