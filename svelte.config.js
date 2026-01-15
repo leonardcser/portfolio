@@ -52,7 +52,12 @@ const config = {
   ],
 
   extensions: ['.svelte', '.md'],
-  kit: { adapter: adapter() },
+  kit: {
+    adapter: adapter(),
+    prerender: {
+      handleUnseenRoutes: 'ignore',
+    },
+  },
 };
 
 export default config;
