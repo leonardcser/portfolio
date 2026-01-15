@@ -3,6 +3,7 @@
   import favicon from '$lib/assets/favicon.ico';
   import { ModeWatcher } from 'mode-watcher';
   import MediaPreview from '$lib/components/MediaPreview.svelte';
+  import Header, { headerHeight } from '$lib/components/Header.svelte';
 
   let { children } = $props();
 </script>
@@ -26,4 +27,7 @@
 
 <ModeWatcher />
 <MediaPreview />
-{@render children?.()}
+<Header />
+<div style:padding-top="{headerHeight}px">
+  {@render children?.()}
+</div>

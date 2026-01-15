@@ -41,13 +41,13 @@
   {/if}
   <div class={contentClass}>
     <div class="flex flex-wrap gap-1">
-      {#each tags as tag}
+      {#each tags as tag, index (index)}
         <Tag {tag} />
       {/each}
-      {#each linkTags || [] as props}
+      {#each linkTags || [] as props, index (index)}
         <LinkTag {...props} umamiEventPrefix={title.toLowerCase().replaceAll(' ', '-')} />
       {/each}
-      {#each awards || [] as award}
+      {#each awards || [] as award, index (index)}
         <Tag
           tag={award}
           icon={RiBusinessAwardFill}
@@ -55,7 +55,7 @@
         />
       {/each}
     </div>
-    <div class="mt-1.5 mb-1">
+    <div class="mt-1.5">
       <h3 class="inline text-base font-semibold" itemprop="name">{title}</h3>
       <span class="m-0 ms-1 text-muted" itemprop="abstract">
         {@render children()}

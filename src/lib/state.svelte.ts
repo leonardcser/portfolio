@@ -1,7 +1,3 @@
-export const headerState = $state({
-  isCollapsed: false,
-});
-
 export type MediaPreviewType = 'image' | 'video';
 
 export interface MediaPreviewState {

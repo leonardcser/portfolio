@@ -4,22 +4,24 @@
     title: string;
     description: string;
     date: string;
+    logoClass?: string;
   }
 </script>
 
 <script lang="ts">
-  let { logo, title, description, date }: TimelineItemProps = $props();
+  import { cn } from '$lib/utils';
+
+  let { logo, title, description, date, logoClass }: TimelineItemProps = $props();
 </script>
 
-<div class="relative flex gap-4">
-  <div class="z-10 flex h-fit justify-center bg-background px-3 py-2">
-    <img src={logo} alt={title} class="size-10 object-contain" />
-  </div>
-  <div class="flex-1">
+<div class="grid grid-cols-[3rem_1fr] items-start gap-x-6">
+  <img src={logo} alt={title} class={cn('size-12 object-contain', logoClass)} loading="lazy" />
+  <div>
     {#if date}
-      <div class="mb-1 text-sm text-muted/50">{date}</div>
+      <div class="text-sm text-muted/50">{date}</div>
     {/if}
-    <h3 class="text-lg font-semibold">{title}</h3>
-    <p class="text-muted">{description}</p>
+    <h3 class="text-base font-semibold">{title}</h3>
   </div>
+  <div></div>
+  <p class="text-muted">{description}</p>
 </div>

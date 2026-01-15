@@ -24,6 +24,7 @@
     icon,
     target = '_blank',
     rel = 'noopener noreferrer',
+    umamiEventPrefix,
   }: LinkTagProps = $props();
 </script>
 
@@ -31,6 +32,7 @@
   {href}
   {target}
   {rel}
+  data-umami-event={umamiEventPrefix}
   class={cn(
     'not-prose inline-flex items-center gap-1 bg-muted/25 px-2 text-sm text-muted',
     className
