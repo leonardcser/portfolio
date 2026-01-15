@@ -28,9 +28,6 @@ pnpm format         # Auto-format with Prettier
 # Building
 pnpm build          # Production build
 pnpm preview        # Preview production build
-
-# Git date generation (auto-runs via pre-commit hook)
-pnpm generate-date
 ```
 
 ## Architecture Overview
@@ -170,14 +167,6 @@ When refactoring or creating components:
 3. Update `figureNumber` props sequentially for all subsequent media
 4. Add entry to `src/lib/components/TableOfContents.svelte` subsections array
 5. Run `pnpm lint` to check formatting
-
-### Pre-commit Hook
-
-A pre-commit hook automatically runs `generate-date` to update `src/lib/gitDate.ts` with the last modified timestamp. If it fails, run manually:
-
-```bash
-pnpm generate-date
-```
 
 ### Progressive Enhancement
 
