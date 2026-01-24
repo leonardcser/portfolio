@@ -10,6 +10,7 @@
   import SwissFlag from '$lib/components/SwissFlag.svelte';
   import { Icon } from 'svelte-icons-pack';
   import WidgetImage from '$lib/components/WidgetImage.svelte';
+  import GitHubActivity from '$lib/components/GitHubActivity.svelte';
   import Timeline from '$lib/components/Timeline.svelte';
   import Image from '$lib/components/Image.svelte';
 
@@ -148,6 +149,7 @@
       </a>
       .
     </p>
+    <GitHubActivity username="leonardcser" class="mt-4" />
   </Block>
   <Block>
     <h2 id="journey">Journey</h2>

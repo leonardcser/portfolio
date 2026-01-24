@@ -10,7 +10,7 @@
   --font-mono: 'JetBrains Mono Variable', monospace;
 
   --color-primary: #000000;
-  --color-accent: #00a2dd;
+  --color-accent: #4361ee;
   --color-muted: #8e8e8e;
   --color-background: #f6f6f6;
   --color-border: #dfdfdf;
@@ -20,7 +20,7 @@
 @layer theme {
   .dark {
     --color-primary: #ffffff;
-    --color-accent: #00a2dd;
+    --color-accent: #4361ee;
     --color-muted: #909090;
     --color-background: #000000;
     --color-border: #333333;
