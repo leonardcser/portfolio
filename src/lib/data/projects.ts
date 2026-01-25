@@ -371,7 +371,7 @@ export const allProjects: Project[] = [
   },
   {
     id: 'mcp-nvim-lsp',
-    title: 'MCP Nvim LSP',
+    title: 'mcp-nvim-lsp',
     tags: ['Lua', 'Go'],
     linkTags: [
       {
@@ -385,8 +385,52 @@ export const allProjects: Project[] = [
     category: 'personal',
   },
   {
+    id: 'wpm-tracker',
+    title: 'wpm-tracker.nvim',
+    tags: ['Lua', 'Neovim'],
+    linkTags: [
+      {
+        label: 'GitHub',
+        href: 'https://github.com/leonardcser/wpm-tracker.nvim',
+        icon: BsGithub,
+      },
+    ],
+    description:
+      'A Neovim plugin for measuring typing speed with granular tracking. Distinguishes between unassisted keystrokes and AI-enhanced input, exports session data to CSV, and provides lualine integration.',
+    category: 'personal',
+  },
+  {
+    id: 'nvim-tree-crossclip',
+    title: 'nvim-tree-crossclip.nvim',
+    tags: ['Lua', 'Neovim'],
+    linkTags: [
+      {
+        label: 'GitHub',
+        href: 'https://github.com/leonardcser/nvim-tree-crossclip.nvim',
+        icon: BsGithub,
+      },
+    ],
+    description:
+      'A persistent clipboard plugin for nvim-tree.lua. Allows file copy/cut/paste operations to survive across Neovim sessions by storing selections to disk.',
+    category: 'personal',
+  },
+  {
+    id: 'web-mcp',
+    title: 'web-mcp',
+    tags: ['Go', 'MCP'],
+    linkTags: [
+      {
+        label: 'GitHub',
+        href: 'https://github.com/leonardcser/web-mcp',
+        icon: BsGithub,
+      },
+    ],
+    description: 'A Model Context Protocol server providing web search and content retrieval.',
+    category: 'personal',
+  },
+  {
     id: 'vite-react-ssr',
-    title: 'Vite React Head SSR',
+    title: 'vite-react-head-ssr',
     tags: ['React', 'Vite'],
     linkTags: [
       {
@@ -456,12 +500,12 @@ export const projectCategories: { name: string; projectIds: string[] }[] = [
     projectIds: ['chess-engine', 'pacman', 'slither-rl'],
   },
   {
-    name: 'Dev Tools',
-    projectIds: ['mdwrap', 'cursortab', 'mcp-nvim-lsp', 'vite-react-ssr'],
+    name: 'MCP',
+    projectIds: ['mcp-nvim-lsp', 'web-mcp'],
   },
   {
     name: 'Neovim',
-    projectIds: ['cursortab', 'mcp-nvim-lsp'],
+    projectIds: ['cursortab', 'mcp-nvim-lsp', 'wpm-tracker', 'nvim-tree-crossclip'],
   },
 ];
 
