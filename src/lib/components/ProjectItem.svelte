@@ -1,7 +1,9 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
+  import type { ProjectDemo } from '$lib/data/projects';
   import Tag from './Tag.svelte';
   import LinkTag, { type LinkTagProps } from './LinkTag.svelte';
+  import ProjectDemoComponent from './ProjectDemo.svelte';
   import { RiBusinessAwardFill } from 'svelte-icons-pack/ri';
   import { cn } from '$lib/utils';
 
@@ -13,7 +15,8 @@
     id?: string;
     class?: string;
     contentClass?: string;
-    demo?: Snippet;
+    demo?: ProjectDemo;
+    figureNumber?: number;
     demoClass?: string;
     awards?: string[];
     children: Snippet;
@@ -27,6 +30,7 @@
     class: className = '',
     contentClass = '',
     demo,
+    figureNumber,
     demoClass,
     awards,
     children,
@@ -34,9 +38,9 @@
 </script>
 
 <div {id} class={cn('not-prose', className)} itemscope itemtype="https://schema.org/CreativeWork">
-  {#if demo}
-    <div class={cn('mb-4 w-fit overflow-hidden rounded border border-border/50', demoClass)}>
-      {@render demo()}
+  {#if demo && figureNumber !== undefined}
+    <div class={cn('mb-4 w-fit overflow-hidden border border-border/50', demoClass)}>
+      <ProjectDemoComponent {demo} {figureNumber} />
     </div>
   {/if}
   <div class={contentClass}>

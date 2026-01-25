@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { SvelteMap } from 'svelte/reactivity';
   import { cn } from '$lib/utils';
   import { Icon } from 'svelte-icons-pack';
   import { BsGithub } from 'svelte-icons-pack/bs';
@@ -114,10 +115,12 @@
 
       const data: GitHubEvent[] = await response.json();
 
-      // Get unique repos (max 3) with their event types
-      const repoMap = new Map<string, RepoItem>();
+      // Get unique repos (max 3) with their event types - only user's own repos
+      const repoMap = new SvelteMap<string, RepoItem>();
       for (const event of data) {
         const repoName = event.repo.name;
+        // Skip repos not owned by the user
+        if (!repoName.startsWith(`${username}/`)) continue;
         const existing = repoMap.get(repoName);
         if (existing) {
           if (!existing.eventTypes.includes(event.type)) {
@@ -155,7 +158,7 @@
       <span>Recent activity</span>
     </div>
     {#if !loading && repos.length > 0}
-      {#each repos as repo}
+      {#each repos as repo (repo.name)}
         <a
           href={repo.url}
           target="_blank"
@@ -172,7 +175,7 @@
 
   {#if loading}
     <div class="space-y-2">
-      {#each Array(5) as _}
+      {#each [0, 1, 2, 3, 4] as i (i)}
         <div class="flex items-center gap-3">
           <div class="h-4 w-4 animate-pulse rounded bg-border/50"></div>
           <div class="h-4 w-48 animate-pulse rounded bg-border/50"></div>
