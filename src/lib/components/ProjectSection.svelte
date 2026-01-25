@@ -51,7 +51,7 @@
             <h2 id={sectionId}>{sectionTitle}</h2>
           {/if}
 
-          {#if group.gridRow && group.projects.length > 1}
+          {#if group.gridRow && (group.projects.length > 1 || filteredMode)}
             <!-- Grid row with multiple projects -->
             {@const gridCols = filteredMode ? 2 : (group.projects[0].grid?.cols ?? 2)}
             <div
