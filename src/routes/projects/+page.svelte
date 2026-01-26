@@ -7,6 +7,8 @@
   import ProjectSection from '$lib/components/ProjectSection.svelte';
 
   const allProjects = getAllProjects();
+  const allProfessional = allProjects.filter((p) => p.category === 'professional');
+  const allPersonal = allProjects.filter((p) => p.category === 'personal');
 
   // Filter to only categories that have existing projects
   const allProjectIds = new Set(allProjects.map((p) => p.id));
@@ -20,20 +22,20 @@
   // Reactive state for selected categories
   let selectedCategories = $state<string[]>([]);
 
-  // Get all project IDs from selected categories
-  const selectedProjectIds = $derived(
-    new Set(
-      availableCategories
-        .filter((cat) => selectedCategories.includes(cat.name))
-        .flatMap((cat) => cat.projectIds)
-    )
+  // Get all project IDs from selected categories (used for visibility)
+  const visibleProjectIds = $derived(
+    selectedCategories.length === 0
+      ? undefined // undefined means all visible
+      : new Set(
+          availableCategories
+            .filter((cat) => selectedCategories.includes(cat.name))
+            .flatMap((cat) => cat.projectIds)
+        )
   );
 
-  // Filter projects based on selected categories
+  // Filter projects based on selected categories (for counting and TOC)
   const filteredProjects = $derived(
-    selectedCategories.length === 0
-      ? allProjects
-      : allProjects.filter((p) => selectedProjectIds.has(p.id))
+    !visibleProjectIds ? allProjects : allProjects.filter((p) => visibleProjectIds.has(p.id))
   );
 
   const filteredProfessional = $derived(
@@ -55,8 +57,8 @@
     selectedCategories = [];
   }
 
-  // Pre-compute figure numbers for projects with demos
-  const figureNumbers = $derived(computeFigureNumbers(filteredProjects));
+  // Pre-compute figure numbers for ALL projects (so numbers stay stable)
+  const figureNumbers = $derived(computeFigureNumbers(allProjects));
 
   // TOC needs to be reactive to show filtered projects
   const tocItems: TOCItem[] = $derived([
@@ -87,7 +89,12 @@
 
     <!-- Category Filter -->
     <div class="not-prose mt-6">
-      <span class="mb-3 text-sm font-medium text-muted">Filter by category</span>
+      <div class="mb-3 flex items-center gap-2">
+        <span class="text-sm font-medium text-muted">Filter by category</span>
+        {#if selectedCategories.length > 0}
+          <span class="text-xs text-muted/70">{filteredProjects.length}/{allProjects.length}</span>
+        {/if}
+      </div>
       <div class="flex flex-wrap gap-1">
         {#each availableCategories as category (category.name)}
           {@const isSelected = selectedCategories.includes(category.name)}
@@ -121,26 +128,23 @@
           </button>
         {/if}
       </div>
-      {#if selectedCategories.length > 0}
-        <p class="mt-3 text-sm text-muted">
-          Showing {filteredProjects.length} of {allProjects.length} projects
-        </p>
-      {/if}
     </div>
   </Block>
 
   <ProjectSection
-    projects={filteredProfessional}
+    projects={allProfessional}
     sectionId="professional-work"
     sectionTitle="Professional Work"
     {figureNumbers}
+    {visibleProjectIds}
   />
 
   <ProjectSection
-    projects={filteredPersonal}
+    projects={allPersonal}
     sectionId="projects"
     sectionTitle="Projects"
     {figureNumbers}
+    {visibleProjectIds}
     useGridLayout
     filteredMode={isFiltered}
     firstBlockPadding

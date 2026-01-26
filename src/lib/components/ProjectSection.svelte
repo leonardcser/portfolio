@@ -17,6 +17,8 @@
     filteredMode?: boolean;
     /** Add top padding to first block */
     firstBlockPadding?: boolean;
+    /** Set of visible project IDs for CSS-based filtering (keeps DOM elements for caching) */
+    visibleProjectIds?: Set<string>;
     /** Optional footer content rendered in a Block at the end of the section */
     children?: Snippet;
   }
@@ -29,19 +31,30 @@
     useGridLayout = false,
     filteredMode = false,
     firstBlockPadding = false,
+    visibleProjectIds,
     children,
   }: Props = $props();
 
+  // Compute visible and hidden projects
+  const visibleProjects = $derived(
+    visibleProjectIds ? projects.filter((p) => visibleProjectIds.has(p.id)) : projects
+  );
+
+  const hiddenProjects = $derived(
+    visibleProjectIds ? projects.filter((p) => !visibleProjectIds.has(p.id)) : []
+  );
+
+  // Compute groups based on VISIBLE projects only (for correct layout)
   const projectGroups = $derived(
     useGridLayout
       ? filteredMode
-        ? groupFilteredProjects(projects)
-        : groupByGridRow(projects)
+        ? groupFilteredProjects(visibleProjects)
+        : groupByGridRow(visibleProjects)
       : null
   );
 </script>
 
-{#if projects.length > 0}
+{#if visibleProjects.length > 0}
   <section class="*:border-b">
     {#if useGridLayout && projectGroups}
       <!-- Grid layout mode (personal projects) -->
@@ -102,7 +115,7 @@
       {/each}
     {:else}
       <!-- Custom layout mode (professional projects) -->
-      {#each projects as project, index (project.id)}
+      {#each visibleProjects as project, index (project.id)}
         <Block>
           {#if index === 0}
             <h2 id={sectionId}>{sectionTitle}</h2>
@@ -131,4 +144,24 @@
       </Block>
     {/if}
   </section>
+{/if}
+
+<!-- Hidden preload container for filtered-out projects (keeps images cached) -->
+{#if hiddenProjects.length > 0}
+  <div class="hidden" aria-hidden="true">
+    {#each hiddenProjects as project (project.id)}
+      <ProjectItem
+        id={project.id}
+        title={project.title}
+        tags={project.tags}
+        linkTags={project.linkTags}
+        awards={project.awards}
+        demo={project.demo}
+        figureNumber={figureNumbers.get(project.id)}
+      >
+        <!-- eslint-disable-next-line svelte/no-at-html-tags -->
+        {@html project.description}
+      </ProjectItem>
+    {/each}
+  </div>
 {/if}
