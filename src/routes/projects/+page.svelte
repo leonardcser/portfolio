@@ -43,8 +43,6 @@
   );
   const filteredPersonal = $derived(filteredProjects.filter((p) => p.category === 'personal'));
 
-  const isFiltered = $derived(selectedCategories.length > 0);
-
   function toggleCategory(category: string) {
     if (selectedCategories.includes(category)) {
       selectedCategories = selectedCategories.filter((c) => c !== category);
@@ -146,7 +144,6 @@
     {figureNumbers}
     {visibleProjectIds}
     useGridLayout
-    filteredMode={isFiltered}
     firstBlockPadding
   />
 
