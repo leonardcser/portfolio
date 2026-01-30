@@ -212,6 +212,27 @@ export const allProjects: Project[] = [
     category: 'personal',
   },
   {
+    id: 'texttap',
+    title: 'TextTap',
+    tags: ['Swift', 'WhisperKit', 'macOS'],
+    linkTags: [
+      {
+        label: 'GitHub',
+        href: 'https://github.com/leonardcser/texttap',
+        icon: BsGithub,
+      },
+    ],
+    description:
+      'A macOS menu bar app for hands-free voice-to-text dictation. Uses on-device Whisper speech recognition with automatic silence detection.',
+    demo: {
+      type: 'image',
+      src: '/images/texttap.gif',
+      description: 'TextTap demo showing voice-to-text dictation with cursor indicator',
+    },
+    grid: { row: 'row-2', cols: 2, span: 1 },
+    category: 'personal',
+  },
+  {
     id: 'cursortab',
     title: 'cursortab.nvim',
     tags: ['Lua', 'Go', 'Neovim'],
@@ -229,6 +250,7 @@ export const allProjects: Project[] = [
       src: '/images/cursortab.gif',
       description: 'cursortab.nvim demo showing edit completions and cursor predictions in Neovim',
     },
+    grid: { row: 'row-2', cols: 2, span: 1 },
     category: 'personal',
   },
   {
@@ -464,14 +486,6 @@ export function getAllProjects(): Project[] {
   return allProjects;
 }
 
-export function getProfessionalProjects(): Project[] {
-  return allProjects.filter((p) => p.category === 'professional');
-}
-
-export function getPersonalProjects(): Project[] {
-  return allProjects.filter((p) => p.category === 'personal');
-}
-
 // Project categories for filtering (by project ID)
 export const projectCategories: { name: string; projectIds: string[] }[] = [
   {
@@ -483,6 +497,7 @@ export const projectCategories: { name: string; projectIds: string[] }[] = [
       'code-llm',
       'cursortab',
       'mathsnip',
+      'texttap',
       'captcha-solver',
       'slither-rl',
     ],
@@ -493,7 +508,7 @@ export const projectCategories: { name: string; projectIds: string[] }[] = [
   },
   {
     name: 'Native',
-    projectIds: ['mathsnip', 'commit'],
+    projectIds: ['mathsnip', 'texttap', 'commit'],
   },
   {
     name: 'Games',

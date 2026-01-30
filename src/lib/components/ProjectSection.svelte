@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
   import type { Project } from '$lib/data/projects';
-  import { groupByGridRow } from '$lib/data/projects';
+  import { groupByGridRow, groupFilteredProjects } from '$lib/data/projects';
   import { cn } from '$lib/utils';
   import Block from './Block.svelte';
   import ProjectItem from './ProjectItem.svelte';
@@ -15,7 +15,7 @@
     useGridLayout?: boolean;
     /** Add top padding to first block */
     firstBlockPadding?: boolean;
-    /** Set of visible project IDs for CSS-based filtering (keeps DOM elements for caching) */
+    /** Set of visible project IDs for filtering */
     visibleProjectIds?: Set<string>;
     /** Optional footer content rendered in a Block at the end of the section */
     children?: Snippet;
@@ -32,43 +32,44 @@
     children,
   }: Props = $props();
 
-  // Check visibility inline - all visible if no filter set
-  function isVisible(projectId: string): boolean {
-    return !visibleProjectIds || visibleProjectIds.has(projectId);
-  }
+  // Filter projects based on visibility
+  const filteredProjects = $derived(
+    visibleProjectIds ? projects.filter((p) => visibleProjectIds.has(p.id)) : projects
+  );
 
-  // Compute groups based on ALL projects (stable DOM structure)
-  // This runs once per projects array, not per filter change
-  const projectGroups = $derived(useGridLayout ? groupByGridRow(projects) : null);
+  // When filtering is active, re-group to pair visible projects together
+  // When no filter, use original groupByGridRow for stable layout
+  const projectGroups = $derived(
+    useGridLayout
+      ? visibleProjectIds
+        ? groupFilteredProjects(filteredProjects)
+        : groupByGridRow(projects)
+      : null
+  );
 </script>
 
 <section class="*:border-b">
   {#if useGridLayout && projectGroups}
     <!-- Grid layout mode (personal projects) -->
     {#each projectGroups as group, groupIndex (group.gridRow ?? `single-${groupIndex}`)}
-      {@const groupHasVisible = group.projects.some((p) => isVisible(p.id))}
-      <Block
-        class={cn(
-          groupIndex === 0 && firstBlockPadding ? 'pt-12' : '',
-          !groupHasVisible && 'filter-hidden'
-        )}
-      >
+      <Block class={groupIndex === 0 && firstBlockPadding ? 'pt-12' : undefined}>
         {#if groupIndex === 0}
           <h2 id={sectionId}>{sectionTitle}</h2>
         {/if}
 
         {#if group.gridRow && group.projects.length > 1}
           <!-- Grid row with multiple projects -->
-          {@const gridCols = group.projects[0].grid?.cols ?? 2}
+          <!-- When filtering, always use 2-col grid; otherwise respect original grid config -->
+          {@const isFiltered = !!visibleProjectIds}
+          {@const gridCols = isFiltered ? 2 : (group.projects[0].grid?.cols ?? 2)}
           <div
             class={cn(
               'max-sm:space-y-6 sm:grid sm:gap-6',
-              gridCols === 5 ? 'grid-cols-5' : 'grid-cols-2'
+              gridCols === 5 ? 'sm:grid-cols-5' : 'sm:grid-cols-2'
             )}
           >
             {#each group.projects as project (project.id)}
-              {@const colSpan = project.grid?.span ?? 1}
-              {@const visible = isVisible(project.id)}
+              {@const colSpan = isFiltered ? 1 : (project.grid?.span ?? 1)}
               <!-- col-span-2 col-span-3 - explicit classes for Tailwind JIT -->
               <ProjectItem
                 id={project.id}
@@ -78,10 +79,7 @@
                 awards={project.awards}
                 demo={project.demo}
                 figureNumber={figureNumbers.get(project.id)}
-                class={cn(
-                  colSpan === 3 ? 'col-span-3' : colSpan === 2 ? 'col-span-2' : undefined,
-                  !visible && 'filter-hidden'
-                )}
+                class={colSpan === 3 ? 'sm:col-span-3' : colSpan === 2 ? 'sm:col-span-2' : undefined}
               >
                 <!-- eslint-disable-next-line svelte/no-at-html-tags -->
                 {@html project.description}
@@ -91,7 +89,6 @@
         {:else}
           <!-- Single project (full width) -->
           {#each group.projects as project (project.id)}
-            {@const visible = isVisible(project.id)}
             <ProjectItem
               id={project.id}
               title={project.title}
@@ -100,7 +97,7 @@
               awards={project.awards}
               demo={project.demo}
               figureNumber={figureNumbers.get(project.id)}
-              class={cn(project.layout?.class, !visible && 'filter-hidden')}
+              class={project.layout?.class}
               demoClass={project.layout?.demoClass}
               contentClass={project.layout?.contentClass}
             >
@@ -113,9 +110,8 @@
     {/each}
   {:else}
     <!-- Custom layout mode (professional projects) -->
-    {#each projects as project, index (project.id)}
-      {@const visible = isVisible(project.id)}
-      <Block class={!visible ? 'filter-hidden' : undefined}>
+    {#each filteredProjects as project, index (project.id)}
+      <Block>
         {#if index === 0}
           <h2 id={sectionId}>{sectionTitle}</h2>
         {/if}

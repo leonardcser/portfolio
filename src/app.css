@@ -70,11 +70,3 @@
     -1px -1px;
 }
 
-/* Hide elements while keeping resources loaded (prevents image/video refetch on filter change) */
-.filter-hidden {
-  content-visibility: hidden;
-  contain-intrinsic-size: 0 0;
-  height: 0;
-  overflow: hidden;
-  visibility: hidden;
-}

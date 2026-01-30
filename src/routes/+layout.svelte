@@ -1,6 +1,5 @@
 <script lang="ts">
   import '../app.css';
-  import favicon from '$lib/assets/favicon.ico';
   import { ModeWatcher } from 'mode-watcher';
   import MediaPreview from '$lib/components/MediaPreview.svelte';
   import Header, { headerHeight } from '$lib/components/Header.svelte';
@@ -14,7 +13,7 @@
     name="description"
     content="Explore my personal portfolio, showcasing projects, skills, and achievements in software engineering, development, design, and technology."
   />
-  <link rel="icon" href={favicon} />
+  <link rel="icon" href="/favicon.ico" />
   <!-- Umami Web Analytics -->
   {#if import.meta.env.PROD}
     <script
