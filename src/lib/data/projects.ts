@@ -533,4 +533,3 @@ export function computeFigureNumbers(projects: Project[]): Map<string, number> {
   }
   return numbers;
 }
-
