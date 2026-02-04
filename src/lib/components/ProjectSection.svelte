@@ -1,7 +1,6 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
   import type { Project } from '$lib/data/projects';
-  import { groupByGridRow, groupFilteredProjects } from '$lib/data/projects';
   import { cn } from '$lib/utils';
   import Block from './Block.svelte';
   import ProjectItem from './ProjectItem.svelte';
@@ -37,40 +36,55 @@
     visibleProjectIds ? projects.filter((p) => visibleProjectIds.has(p.id)) : projects
   );
 
-  // When filtering is active, re-group to pair visible projects together
-  // When no filter, use original groupByGridRow for stable layout
-  const projectGroups = $derived(
-    useGridLayout
-      ? visibleProjectIds
-        ? groupFilteredProjects(filteredProjects)
-        : groupByGridRow(projects)
-      : null
-  );
+  // Group projects into rows based on span (for grid layout)
+  function groupIntoRows(projects: Project[]): Project[][] {
+    const rows: Project[][] = [];
+    let currentRow: Project[] = [];
+    let currentSpan = 0;
+
+    for (const project of projects) {
+      const span = project.grid?.span === 1 ? 1 : 2;
+
+      if (currentSpan + span > 2) {
+        // Start new row
+        if (currentRow.length > 0) rows.push(currentRow);
+        currentRow = [project];
+        currentSpan = span;
+      } else {
+        currentRow.push(project);
+        currentSpan += span;
+      }
+
+      if (currentSpan === 2) {
+        rows.push(currentRow);
+        currentRow = [];
+        currentSpan = 0;
+      }
+    }
+
+    if (currentRow.length > 0) rows.push(currentRow);
+    return rows;
+  }
+
+  const projectRows = $derived(useGridLayout ? groupIntoRows(filteredProjects) : null);
 </script>
 
 <section class="*:border-b">
-  {#if useGridLayout && projectGroups}
-    <!-- Grid layout mode (personal projects) -->
-    {#each projectGroups as group, groupIndex (group.gridRow ?? `single-${groupIndex}`)}
-      <Block class={groupIndex === 0 && firstBlockPadding ? 'pt-12' : undefined}>
-        {#if groupIndex === 0}
-          <h2 id={sectionId}>{sectionTitle}</h2>
-        {/if}
-
-        {#if group.gridRow && group.projects.length > 1}
-          <!-- Grid row with multiple projects -->
-          <!-- When filtering, always use 2-col grid; otherwise respect original grid config -->
-          {@const isFiltered = !!visibleProjectIds}
-          {@const gridCols = isFiltered ? 2 : (group.projects[0].grid?.cols ?? 2)}
+  {#if useGridLayout && projectRows}
+    <!-- Grid layout mode (personal projects) - rows with dividers -->
+    <Block class={firstBlockPadding ? 'pt-12' : undefined}>
+      <h2 id={sectionId}>{sectionTitle}</h2>
+      <div class="divide-y divide-dashed divide-border">
+        {#each projectRows as row, rowIndex (rowIndex)}
           <div
             class={cn(
-              'max-sm:space-y-6 sm:grid sm:gap-6',
-              gridCols === 5 ? 'sm:grid-cols-5' : 'sm:grid-cols-2'
+              'max-sm:space-y-6 sm:grid sm:grid-cols-2 sm:gap-6',
+              rowIndex > 0 && 'pt-6',
+              rowIndex < projectRows.length - 1 && 'pb-6'
             )}
           >
-            {#each group.projects as project (project.id)}
-              {@const colSpan = isFiltered ? 1 : (project.grid?.span ?? 1)}
-              <!-- col-span-2 col-span-3 - explicit classes for Tailwind JIT -->
+            {#each row as project (project.id)}
+              {@const isHalfWidth = project.grid?.span === 1}
               <ProjectItem
                 id={project.id}
                 title={project.title}
@@ -79,35 +93,18 @@
                 awards={project.awards}
                 demo={project.demo}
                 figureNumber={figureNumbers.get(project.id)}
-                class={colSpan === 3 ? 'sm:col-span-3' : colSpan === 2 ? 'sm:col-span-2' : undefined}
+                class={cn(!isHalfWidth && 'sm:col-span-2', project.layout?.class)}
+                demoClass={project.layout?.demoClass}
+                contentClass={project.layout?.contentClass}
               >
                 <!-- eslint-disable-next-line svelte/no-at-html-tags -->
                 {@html project.description}
               </ProjectItem>
             {/each}
           </div>
-        {:else}
-          <!-- Single project (full width) -->
-          {#each group.projects as project (project.id)}
-            <ProjectItem
-              id={project.id}
-              title={project.title}
-              tags={project.tags}
-              linkTags={project.linkTags}
-              awards={project.awards}
-              demo={project.demo}
-              figureNumber={figureNumbers.get(project.id)}
-              class={project.layout?.class}
-              demoClass={project.layout?.demoClass}
-              contentClass={project.layout?.contentClass}
-            >
-              <!-- eslint-disable-next-line svelte/no-at-html-tags -->
-              {@html project.description}
-            </ProjectItem>
-          {/each}
-        {/if}
-      </Block>
-    {/each}
+        {/each}
+      </div>
+    </Block>
   {:else}
     <!-- Custom layout mode (professional projects) -->
     {#each filteredProjects as project, index (project.id)}

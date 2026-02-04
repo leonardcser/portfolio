@@ -23,9 +23,7 @@ export interface ProjectLayout {
 }
 
 export interface GridConfig {
-  row: string; // Identifier for projects in the same row
-  cols: 2 | 5; // Number of grid columns
-  span: number; // How many columns this project spans
+  span?: 1 | 2; // 1 = half width (default), 2 = full width
 }
 
 export interface Project {
@@ -186,7 +184,28 @@ export const allProjects: Project[] = [
         'Training metrics showing model perplexity converging below 10 on Python code dataset',
       class: 'h-40 w-full object-cover',
     },
-    grid: { row: 'row-1', cols: 2, span: 1 },
+    grid: { span: 1 },
+    category: 'personal',
+  },
+  {
+    id: 'cursortab',
+    title: 'cursortab.nvim',
+    tags: ['Lua', 'Go', 'Neovim'],
+    linkTags: [
+      {
+        label: 'GitHub',
+        href: 'https://github.com/leonardcser/cursortab.nvim',
+        icon: BsGithub,
+      },
+    ],
+    description:
+      'A Neovim plugin for edit completions and cursor position predictions. Supports custom models and integrations with Zeta and SweepAI backends.',
+    demo: {
+      type: 'image',
+      src: '/images/cursortab.gif',
+      description: 'cursortab.nvim demo showing edit completions and cursor predictions in Neovim',
+    },
+    grid: { span: 1 },
     category: 'personal',
   },
   {
@@ -208,7 +227,7 @@ export const allProjects: Project[] = [
       description: 'MathSnip macOS menu bar app for converting mathematical equations to LaTeX',
       class: 'h-40 w-full object-cover',
     },
-    grid: { row: 'row-1', cols: 2, span: 1 },
+    grid: { span: 1 },
     category: 'personal',
   },
   {
@@ -229,28 +248,7 @@ export const allProjects: Project[] = [
       src: '/images/texttap.gif',
       description: 'TextTap demo showing voice-to-text dictation with cursor indicator',
     },
-    grid: { row: 'row-2', cols: 2, span: 1 },
-    category: 'personal',
-  },
-  {
-    id: 'cursortab',
-    title: 'cursortab.nvim',
-    tags: ['Lua', 'Go', 'Neovim'],
-    linkTags: [
-      {
-        label: 'GitHub',
-        href: 'https://github.com/leonardcser/cursortab.nvim',
-        icon: BsGithub,
-      },
-    ],
-    description:
-      'A Neovim plugin for edit completions and cursor position predictions. Supports custom models and integrations with Zeta and SweepAI backends. Features multi-line completions with fast inference (~500ms CPU, <100ms GPU).',
-    demo: {
-      type: 'image',
-      src: '/images/cursortab.gif',
-      description: 'cursortab.nvim demo showing edit completions and cursor predictions in Neovim',
-    },
-    grid: { row: 'row-2', cols: 2, span: 1 },
+    grid: { span: 1 },
     category: 'personal',
   },
   {
@@ -330,7 +328,7 @@ export const allProjects: Project[] = [
       description:
         'Amazon CAPTCHA example with 6 distorted characters used for neural network training',
     },
-    grid: { row: 'row-5', cols: 5, span: 3 },
+    grid: { span: 1 },
     category: 'personal',
   },
   {
@@ -351,7 +349,7 @@ export const allProjects: Project[] = [
       src: '/images/chess.png',
       description: 'Chess engine GUI showing an active game with piece movement and board state',
     },
-    grid: { row: 'row-5', cols: 5, span: 2 },
+    grid: { span: 1 },
     category: 'personal',
   },
   {
@@ -366,7 +364,7 @@ export const allProjects: Project[] = [
       description:
         'Reinforcement learning agent playing Slither.io, collecting food and avoiding collisions',
     },
-    grid: { row: 'row-6', cols: 2, span: 1 },
+    grid: { span: 1 },
     category: 'personal',
   },
   {
@@ -388,7 +386,7 @@ export const allProjects: Project[] = [
       src: '/videos/pacman',
       description: 'Pac-Man remake gameplay showing ghost AI behavior and custom level design',
     },
-    grid: { row: 'row-6', cols: 2, span: 1 },
+    grid: { span: 1 },
     category: 'personal',
   },
   {
@@ -472,7 +470,7 @@ export const featuredProjectIds = [
   'dafthunk',
   'mlops-guide',
   'code-llm',
-  'mathsnip',
+  'cursortab',
   'memsched',
 ];
 
@@ -536,60 +534,3 @@ export function computeFigureNumbers(projects: Project[]): Map<string, number> {
   return numbers;
 }
 
-// Utility: group projects by grid row for layout
-export interface ProjectGroup {
-  gridRow: string | null;
-  projects: Project[];
-}
-
-export function groupByGridRow(projects: Project[]): ProjectGroup[] {
-  const groups: ProjectGroup[] = [];
-  let currentGroup: ProjectGroup | null = null;
-
-  for (const project of projects) {
-    const gridRow = project.grid?.row ?? null;
-
-    if (gridRow !== null && currentGroup !== null && currentGroup.gridRow === gridRow) {
-      // Add to existing grid group
-      currentGroup.projects.push(project);
-    } else {
-      // Start a new group
-      currentGroup = { gridRow, projects: [project] };
-      groups.push(currentGroup);
-    }
-  }
-
-  return groups;
-}
-
-// Group projects for filtered view - pairs grid projects together, full-width projects stay alone
-export function groupFilteredProjects(projects: Project[]): ProjectGroup[] {
-  const groups: ProjectGroup[] = [];
-  let currentPair: Project[] = [];
-  let pairIndex = 0;
-
-  for (const project of projects) {
-    if (!project.grid) {
-      // Full-width project - flush current pair first, then add as own group
-      if (currentPair.length > 0) {
-        groups.push({ gridRow: `filtered-pair-${pairIndex++}`, projects: currentPair });
-        currentPair = [];
-      }
-      groups.push({ gridRow: null, projects: [project] });
-    } else {
-      // Grid project - add to current pair
-      currentPair.push(project);
-      if (currentPair.length === 2) {
-        groups.push({ gridRow: `filtered-pair-${pairIndex++}`, projects: currentPair });
-        currentPair = [];
-      }
-    }
-  }
-
-  // Flush remaining pair
-  if (currentPair.length > 0) {
-    groups.push({ gridRow: `filtered-pair-${pairIndex++}`, projects: currentPair });
-  }
-
-  return groups;
-}
