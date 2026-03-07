@@ -147,21 +147,6 @@ export const allProjects: Project[] = [
     },
     category: 'professional',
   },
-  {
-    id: 'mdwrap',
-    title: 'mdwrap',
-    tags: ['Python'],
-    linkTags: [
-      {
-        label: 'GitHub',
-        href: 'https://github.com/swiss-ai-center/mdwrap',
-        icon: BsGithub,
-      },
-    ],
-    description:
-      "Implemented a Python markdown formatter and line wrapper without any dependencies. It uses a simple state machine, tokenization and regex... (though I'd approach it differently now). This was used for the 'A Guide To MLOps'.",
-    category: 'professional',
-  },
 
   // Personal Projects
   {
@@ -332,27 +317,6 @@ export const allProjects: Project[] = [
     category: 'personal',
   },
   {
-    id: 'chess-engine',
-    title: 'Chess Engine',
-    tags: ['Java', 'HEIG-VD'],
-    linkTags: [
-      {
-        label: 'GitHub',
-        href: 'https://github.com/HEIG-VD-BA3-POO/labo08',
-        icon: BsGithub,
-      },
-    ],
-    description:
-      'Developed a chess engine during OOP Java course at <strong class="text-red-600">HEIG-VD</strong>.',
-    demo: {
-      type: 'image',
-      src: '/images/chess.png',
-      description: 'Chess engine GUI showing an active game with piece movement and board state',
-    },
-    grid: { span: 1 },
-    category: 'personal',
-  },
-  {
     id: 'slither-rl',
     title: 'Slither.io RL',
     tags: ['Tensorflow', 'Selenium', 'OpenCV'],
@@ -510,7 +474,7 @@ export const projectCategories: { name: string; projectIds: string[] }[] = [
   },
   {
     name: 'Games',
-    projectIds: ['chess-engine', 'pacman', 'slither-rl'],
+    projectIds: ['pacman', 'slither-rl'],
   },
   {
     name: 'MCP',
