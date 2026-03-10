@@ -194,6 +194,27 @@ export const allProjects: Project[] = [
     category: 'personal',
   },
   {
+    id: 'agent',
+    title: 'agent',
+    tags: ['Rust', 'TUI'],
+    linkTags: [
+      {
+        label: 'GitHub',
+        href: 'https://github.com/leonardcser/agent',
+        icon: BsGithub,
+      },
+    ],
+    description:
+      'A Rust TUI coding agent that connects to any OpenAI-compatible API (Ollama, OpenAI, etc.). Features configurable tool permissions, multiple modes (Normal, Plan, Apply, Yolo), session persistence, fuzzy history search, and vim mode.',
+    demo: {
+      type: 'image',
+      src: '/images/agent.gif',
+      description: 'agent TUI coding assistant running in the terminal',
+    },
+    grid: { span: 1 },
+    category: 'personal',
+  },
+  {
     id: 'mathsnip',
     title: 'MathSnip',
     tags: ['Swift', 'SwiftUI', 'CoreML', 'PyTorch'],
@@ -458,6 +479,7 @@ export const projectCategories: { name: string; projectIds: string[] }[] = [
       'license-plate',
       'code-llm',
       'cursortab',
+      'agent',
       'mathsnip',
       'texttap',
       'captcha-solver',
