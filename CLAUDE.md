@@ -1,6 +1,7 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code (claude.ai/code) when working with
+code in this repository.
 
 ## Tech Stack
 
@@ -55,8 +56,8 @@ Uses **Svelte 5 runes** exclusively - no external state libraries:
 
 ### Component Patterns
 
-**Snippet-based composition:**
-All major components use Svelte 5 snippets for flexible children:
+**Snippet-based composition:** All major components use Svelte 5 snippets for
+flexible children:
 
 ```svelte
 <ProjectItem>
@@ -67,16 +68,16 @@ All major components use Svelte 5 snippets for flexible children:
 </ProjectItem>
 ```
 
-**Class merging utility:**
-Always use `cn()` from `utils.ts` when merging Tailwind classes:
+**Class merging utility:** Always use `cn()` from `utils.ts` when merging
+Tailwind classes:
 
 ```typescript
 import { cn } from '$lib/utils';
 class={cn('base-class', props.class)}
 ```
 
-**Exported module constants and types:**
-Components export constants and types at module level for cross-component coordination:
+**Exported module constants and types:** Components export constants and types
+at module level for cross-component coordination:
 
 ```typescript
 // Constants for layout coordination (Header.svelte)
@@ -89,12 +90,16 @@ export type LinkTagProps = Props;
 
 **Navigation components pattern:**
 
-- `NavItem.svelte` - Handles navigation links with active state and conditional icon rendering
-- `NavMenu.svelte` - Full-screen mobile navigation menu that uses `NavItem` components
-- `LinkTag.svelte` - Project/content link tags with arrow icons for external references
+- `NavItem.svelte` - Handles navigation links with active state and conditional
+  icon rendering
+- `NavMenu.svelte` - Full-screen mobile navigation menu that uses `NavItem`
+  components
+- `LinkTag.svelte` - Project/content link tags with arrow icons for external
+  references
 - `Header.svelte` - Top navigation bar that coordinates `NavItem` and `NavMenu`
 
-Keep these components separate - they serve different purposes and share minimal logic.
+Keep these components separate - they serve different purposes and share minimal
+logic.
 
 **Table of Contents pattern:**
 
@@ -106,13 +111,16 @@ Keep these components separate - they serve different purposes and share minimal
 - Shows subsections only when their parent section is active
 - Uses `scrollToSection()` helper with header offset calculation
 
-When adding new sections, update the `sections` array in both `TableOfContents.svelte` and add corresponding IDs to elements in `+page.svelte`.
+When adding new sections, update the `sections` array in both
+`TableOfContents.svelte` and add corresponding IDs to elements in
+`+page.svelte`.
 
 ### Media Handling
 
 **Global modal system:**
 
-- `MediaPreview.svelte` component in root layout handles all fullscreen image/video displays
+- `MediaPreview.svelte` component in root layout handles all fullscreen
+  image/video displays
 - Use `openMediaPreview()` from `state.svelte.ts` to trigger modal
 - Images use `enhanced:img` directive for optimization
 - Videos support multiple formats (MP4, OGG, WebM)
@@ -152,11 +160,15 @@ Automatically wires up click-to-preview functionality.
 When refactoring or creating components:
 
 - **Don't over-abstract** - Keep components focused on their specific purpose
-- **Prefer composition** - Use snippets and component reuse over complex abstractions
+- **Prefer composition** - Use snippets and component reuse over complex
+  abstractions
 - **Export types** - Export prop interfaces as types for reuse across components
-- **Consistent naming** - Component prop types should match component name (e.g., `NavItemProps` for `NavItem`)
-- **Separate concerns** - Navigation, content links, and layout components serve different purposes
-- **Maintain styles** - Refactoring should not change visual appearance unless explicitly requested
+- **Consistent naming** - Component prop types should match component name
+  (e.g., `NavItemProps` for `NavItem`)
+- **Separate concerns** - Navigation, content links, and layout components serve
+  different purposes
+- **Maintain styles** - Refactoring should not change visual appearance unless
+  explicitly requested
 
 ## Important Workflows
 
@@ -208,4 +220,5 @@ Umami Analytics injected conditionally in production only. Track events with:
 
 ## Additional Working Directory
 
-The mathsnip project is available at `/Users/leo/dev/swift/mathsnip` for reference when needed.
+The mathsnip project is available at `/Users/leo/dev/swift/mathsnip` for
+reference when needed.

@@ -30,7 +30,7 @@
   {/if}
   <main
     class={cn(
-      'relative mx-0 flex flex-1 flex-col items-start overflow-x-hidden border-b border-border/50 bg-card px-6 py-8 sm:mx-12 sm:px-10 sm:py-10 lg:py-26',
+      'relative mx-0 flex flex-1 flex-col items-start overflow-x-hidden border-b border-border/50 bg-card px-6 py-8 md:mx-12 md:px-10 md:py-10 lg:py-26',
       showToc
         ? 'items-start border-x lg:ms-0 lg:me-12 lg:border-s-0 lg:px-20 lg:ps-6'
         : 'items-center border-x lg:mx-12 lg:px-20'

@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { mode } from 'mode-watcher';
-
   import { cn } from '$lib/utils';
   import type { HTMLAnchorAttributes, HTMLImgAttributes } from 'svelte/elements';
 
@@ -22,12 +20,11 @@
 
   const origin = 'https://memsched.com';
   const trueHref = $derived(href || `${origin}/widgets/${widget.id}`);
-  const imgSrc = $derived(`${origin}/api/widgets/${widget.id}?f=svg`);
+  const imgSrcLight = $derived(`${origin}/api/widgets/${widget.id}?f=svg`);
+  const imgSrcDark = $derived(`${origin}/api/widgets/${widget.id}?f=svg&dark`);
   const imgAlt = $derived(`${widget.title} - ${widget.subtitle}`);
 
   let loadedStatus = $state({ light: false, dark: false });
-  let currentImgSrc = $derived(mode.current === 'dark' ? imgSrc + '&dark' : imgSrc);
-  let isLoaded = $derived(mode.current === 'dark' ? loadedStatus.dark : loadedStatus.light);
 </script>
 
 <noscript>
@@ -47,26 +44,38 @@
 
 {#snippet widgetImage(props: HTMLImgAttributes)}
   <img
-    src={currentImgSrc}
+    src={imgSrcLight}
     alt={imgAlt}
     style="height: {height}px;"
     {...props}
     class={cn(
-      'transition-opacity duration-100',
-      isLoaded ? 'opacity-100' : 'opacity-0',
+      'transition-opacity duration-100 dark:hidden',
+      loadedStatus.light ? 'opacity-100' : 'opacity-0',
       props.class
     )}
-    onload={() => {
-      if (mode.current === 'dark') loadedStatus.dark = true;
-      else loadedStatus.light = true;
-    }}
+    onload={() => (loadedStatus.light = true)}
+  />
+  <img
+    src={imgSrcDark}
+    alt={imgAlt}
+    style="height: {height}px;"
+    {...props}
+    class={cn(
+      'hidden transition-opacity duration-100 dark:block',
+      loadedStatus.dark ? 'opacity-100' : 'opacity-0',
+      props.class
+    )}
+    onload={() => (loadedStatus.dark = true)}
   />
 {/snippet}
 
 <div
   style:height="{height}px"
   style:width={width ? width + 'px' : '33%'}
-  class={cn('widget-container-fallback', isLoaded ? 'w-fit' : 'animate-pulse bg-border/50')}
+  class={cn(
+    'widget-container-fallback',
+    loadedStatus.light || loadedStatus.dark ? 'w-fit' : 'animate-pulse bg-border/50'
+  )}
 >
   {#if url || href}
     <a href={trueHref} {...rest}>

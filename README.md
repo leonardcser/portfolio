@@ -1,6 +1,7 @@
 # Portfolio
 
-A personal portfolio website built with Svelte and deployed as a static site with Cloudflare.
+A personal portfolio website built with Svelte and deployed as a static site
+with Cloudflare.
 
 ## Technologies
 

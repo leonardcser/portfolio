@@ -53,6 +53,13 @@
         {/if}
       </div>
 
+      <div class="not-prose mt-12 border-t border-border pt-8">
+        <p class="text-sm text-muted">
+          <strong>A note:</strong> I put real thought into these posts. Every word here comes from the
+          human me. Thanks for reading.
+        </p>
+      </div>
+
       <PostNavigation prev={data.prev} next={data.next} />
     </article>
   </Block>

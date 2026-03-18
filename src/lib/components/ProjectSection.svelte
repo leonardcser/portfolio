@@ -78,7 +78,7 @@
         {#each projectRows as row, rowIndex (rowIndex)}
           <div
             class={cn(
-              'max-sm:space-y-6 sm:grid sm:grid-cols-2 sm:gap-6',
+              'max-md:space-y-6 md:grid md:grid-cols-2 md:gap-6',
               rowIndex > 0 && 'pt-6',
               rowIndex < projectRows.length - 1 && 'pb-6'
             )}

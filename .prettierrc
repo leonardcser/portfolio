@@ -11,6 +11,13 @@
       "options": {
         "parser": "svelte"
       }
+    },
+    {
+      "files": "*.md",
+      "options": {
+        "proseWrap": "always",
+        "printWidth": 80
+      }
     }
   ],
   "tailwindStylesheet": "./src/app.css"

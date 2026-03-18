@@ -1,5 +1,4 @@
 <script lang="ts">
-  import ThemeToggle from './ThemeToggle.svelte';
   import NavItem from './NavItem.svelte';
   import { Icon } from 'svelte-icons-pack';
   import { IoClose } from 'svelte-icons-pack/io';
@@ -80,10 +79,6 @@
           class="text-2xl!"
         />
       {/each}
-
-      <div class="mt-4">
-        <ThemeToggle />
-      </div>
     </nav>
   </div>
 </div>

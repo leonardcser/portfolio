@@ -36,7 +36,7 @@
 </script>
 
 <div
-  class="header-container fixed top-0 right-0 left-0 z-20 mx-0 flex items-center overflow-hidden border-b border-border/50 bg-background max-sm:px-6 sm:mx-12"
+  class="header-container fixed top-0 right-0 left-0 z-20 mx-0 flex items-center overflow-hidden border-b border-border/50 bg-background max-md:px-6 md:mx-12"
   style={`height: ${headerHeight}px`}
 >
   <a
@@ -53,10 +53,10 @@
     Leonard Cseres
   </a>
 
-  <!-- Desktop Navigation -->
+  <!-- Navigation -->
   <nav class="hidden flex-1 items-center justify-between sm:flex">
-    <div class="flex items-center gap-3 sm:gap-5">
-      <div class="ms-3 w-px self-stretch bg-primary sm:ms-5"></div>
+    <div class="flex items-center gap-3 md:gap-5">
+      <div class="ms-5 w-px self-stretch bg-primary"></div>
       {#each nav as item (item.label)}
         <NavItem
           href={item.href}
@@ -68,7 +68,7 @@
         />
       {/each}
     </div>
-    <div class="flex items-center gap-3 sm:gap-5">
+    <div class="hidden items-center gap-5 md:flex">
       {#each links as link (link.label)}
         <NavItem
           href={link.href}
@@ -80,10 +80,12 @@
     </div>
   </nav>
 
-  <!-- Mobile Hamburger Button -->
-  <button onclick={() => (navMenuOpen = true)} class="ml-auto p-2 sm:hidden" aria-label="Open menu">
-    <Icon src={IoMenu} size={24} />
-  </button>
+  <div class="ml-auto flex items-center gap-2 md:hidden">
+    <ThemeToggle />
+    <button onclick={() => (navMenuOpen = true)} class="p-2" aria-label="Open menu">
+      <Icon src={IoMenu} size={24} className="[&>line]:stroke-primary!" />
+    </button>
+  </div>
 </div>
 
 <!-- Nav Menu -->
