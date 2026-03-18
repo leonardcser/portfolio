@@ -1,67 +1,39 @@
 <script lang="ts">
-  import { cn } from '$lib/utils';
+  import type { PostMeta } from '$lib/types';
 
-  interface Props {
-    title: string;
-    description: string;
-    date: string;
-    slug: string;
-    tags?: string[];
-    readingTime?: number;
-    class?: string;
-  }
+  let { post }: { post: PostMeta } = $props();
 
-  const {
-    title,
-    description,
-    date,
-    slug,
-    tags = [],
-    readingTime,
-    class: className = '',
-  }: Props = $props();
-
-  const formattedDate = $derived(
-    new Date(date).toLocaleDateString('en-US', {
-      year: 'numeric',
+  function formatDate(date: string) {
+    return new Date(date).toLocaleDateString('en-US', {
       month: 'short',
       day: 'numeric',
-    })
-  );
+    });
+  }
 </script>
 
 <a
-  href="/blog/{slug}"
-  class={cn(
-    'group relative grid grid-cols-1 no-underline transition-colors sm:grid-cols-[7rem_1fr] sm:items-baseline sm:gap-x-4',
-    className
-  )}
+  href="/blog/{post.slug}"
+  class="group -mx-3 grid grid-cols-[4rem_1fr] gap-x-4 rounded-lg p-3 transition-colors hover:bg-border/20 sm:gap-x-6"
 >
-  <time
-    datetime={date}
-    class="order-first flex items-center text-sm text-muted tabular-nums sm:col-span-1"
-  >
-    {formattedDate}
+  <time datetime={post.date} class="shrink-0 text-sm leading-snug text-muted tabular-nums">
+    {formatDate(post.date)}
   </time>
-
-  <div class="sm:col-span-1">
-    <h2
-      class="mt-0 mb-1 text-xl font-semibold tracking-tight transition-colors group-hover:text-accent"
-    >
-      {title}
-    </h2>
-    <p class="text-base leading-relaxed text-muted">
-      {description}
-    </p>
-    <div class="mt-2 flex flex-wrap items-center gap-2">
-      {#each tags as tag (tag)}
-        <span class="rounded-full border border-border px-2 py-0.5 text-xs text-muted">
+  <div
+    class="text-sm leading-snug font-semibold text-primary transition-colors group-hover:text-accent"
+  >
+    {post.title}
+  </div>
+  <div></div>
+  <div>
+    <div class="mt-1 text-sm text-muted">
+      {post.description}
+    </div>
+    <div class="mt-2 flex flex-wrap gap-1.5">
+      {#each post.tags as tag (tag)}
+        <span class="rounded-full border border-border bg-card px-2 py-0.5 text-xs text-muted">
           {tag}
         </span>
       {/each}
-      {#if readingTime}
-        <span class="text-xs text-muted">{readingTime} min read</span>
-      {/if}
     </div>
   </div>
 </a>
