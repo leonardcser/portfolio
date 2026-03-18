@@ -215,6 +215,27 @@ export const allProjects: Project[] = [
     category: 'personal',
   },
   {
+    id: 'agent-mux',
+    title: 'agent-mux',
+    tags: ['Go', 'TUI', 'tmux'],
+    linkTags: [
+      {
+        label: 'GitHub',
+        href: 'https://github.com/leonardcser/agent-mux',
+        icon: BsGithub,
+      },
+    ],
+    description:
+      'A TUI for multiplexing AI coding agent sessions in tmux. Lists active agent panes (Claude Code, Open Code, Gemini CLI, Codex CLI) grouped by workspace, with a live preview panel and vim-style navigation.',
+    demo: {
+      type: 'image',
+      src: '/images/agent_mux.gif',
+      description: 'agent-mux TUI showing multiplexed AI coding agent sessions in tmux',
+    },
+    grid: { span: 1 },
+    category: 'personal',
+  },
+  {
     id: 'mathsnip',
     title: 'MathSnip',
     tags: ['Swift', 'SwiftUI', 'CoreML', 'PyTorch'],
