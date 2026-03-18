@@ -102,7 +102,7 @@
             {section.label}
           </a>
           {#if section.subsections && activeSection === section.id}
-            <ul class="relative flex flex-col space-y-0.5 pt-1 text-sm" id="toc-subsections">
+            <ul class="relative flex flex-col space-y-0.5 text-sm" id="toc-subsections">
               {#each section.subsections as subsection, index (index)}
                 <li>
                   <a

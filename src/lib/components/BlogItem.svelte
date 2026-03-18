@@ -6,10 +6,20 @@
     description: string;
     date: string;
     slug: string;
+    tags?: string[];
+    readingTime?: number;
     class?: string;
   }
 
-  const { title, description, date, slug, class: className = '' }: Props = $props();
+  const {
+    title,
+    description,
+    date,
+    slug,
+    tags = [],
+    readingTime,
+    class: className = '',
+  }: Props = $props();
 
   const formattedDate = $derived(
     new Date(date).toLocaleDateString('en-US', {
@@ -43,5 +53,15 @@
     <p class="text-base leading-relaxed text-muted">
       {description}
     </p>
+    <div class="mt-2 flex flex-wrap items-center gap-2">
+      {#each tags as tag (tag)}
+        <span class="rounded-full border border-border px-2 py-0.5 text-xs text-muted">
+          {tag}
+        </span>
+      {/each}
+      {#if readingTime}
+        <span class="text-xs text-muted">{readingTime} min read</span>
+      {/if}
+    </div>
   </div>
 </a>

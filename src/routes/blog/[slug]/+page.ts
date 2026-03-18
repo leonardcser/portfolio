@@ -1,12 +1,13 @@
 import { error } from '@sveltejs/kit';
 import type { PageLoad, EntryGenerator } from './$types';
-import type { TOCItem } from '$lib/types';
+import type { TOCItem, PostMeta } from '$lib/types';
 import type { Component } from 'svelte';
 
 interface PostMetadata {
   title: string;
   description: string;
   date: string;
+  tags?: string[];
 }
 
 interface MdsvexModule {
@@ -21,6 +22,22 @@ const rawPosts = import.meta.glob('/src/posts/*.md', {
   import: 'default',
 }) as Record<string, string>;
 
+function getAllPostsMeta(): PostMeta[] {
+  return Object.entries(posts)
+    .map(([, file]) => {
+      const slug =
+        Object.keys(posts)
+          .find((p) => posts[p] === file)
+          ?.split('/')
+          .at(-1)
+          ?.replace(/\.md$/, '') || '';
+      const { title, description, date, tags } = file.metadata;
+      return { title, description, date, slug, tags: tags || [] };
+    })
+    .filter((p) => p.slug && p.title)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+}
+
 export const load: PageLoad = async ({ params }) => {
   const postPath = `/src/posts/${params.slug}.md`;
   const post = posts[postPath];
@@ -30,6 +47,11 @@ export const load: PageLoad = async ({ params }) => {
     throw error(404, `Could not find ${params.slug}`);
   }
 
+  const allPosts = getAllPostsMeta();
+  const currentIndex = allPosts.findIndex((p) => p.slug === params.slug);
+  const prev = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
+  const next = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
+
   const tocItems: TOCItem[] = [];
   const lines = rawContent.split('\n');
   let isInsideFrontmatter = false;
@@ -38,10 +60,10 @@ export const load: PageLoad = async ({ params }) => {
   const slugify = (text: string) =>
     text
       .toLowerCase()
-      .replace(/<[^>]*>/g, '') // remove html tags
-      .replace(/[^\w\s-]/g, '') // remove special characters
-      .replace(/\s+/g, '-') // replace spaces with hyphens
-      .replace(/-+/g, '-') // replace multiple hyphens with single hyphen
+      .replace(/<[^>]*>/g, '')
+      .replace(/[^\w\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
       .trim();
 
   for (const line of lines) {
@@ -69,8 +91,10 @@ export const load: PageLoad = async ({ params }) => {
 
   return {
     content: post.default,
-    meta: post.metadata,
+    meta: { ...post.metadata, tags: post.metadata.tags || [] },
     tocItems,
+    prev,
+    next,
   };
 };
 

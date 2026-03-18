@@ -32,8 +32,8 @@
     class={cn(
       'relative mx-0 flex flex-1 flex-col items-start overflow-x-hidden border-b border-border/50 bg-card px-6 py-8 sm:mx-12 sm:px-10 sm:py-10 lg:py-26',
       showToc
-        ? 'border-x lg:ms-0 lg:me-12 lg:border-s-0 lg:px-20 lg:ps-6'
-        : 'border-x lg:mx-12 lg:px-20'
+        ? 'items-start border-x lg:ms-0 lg:me-12 lg:border-s-0 lg:px-20 lg:ps-6'
+        : 'items-center border-x lg:mx-12 lg:px-20'
     )}
     style={`min-height: calc(100vh - ${headerHeight}px)`}
   >

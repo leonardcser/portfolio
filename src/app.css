@@ -56,6 +56,40 @@
     border-radius: 0.5rem;
     overflow-x: auto;
   }
+
+  /* Headings with accent # prefix (article content only) */
+  article .prose h2::before {
+    content: '## ';
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  article .prose h3::before {
+    content: '### ';
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  /* Inline code styled like tag pills */
+  article .prose :not(pre) > code {
+    @apply rounded border border-border bg-background px-1 py-0.5 text-[0.85em] font-normal;
+  }
+
+  article .prose :not(pre) > code::before,
+  article .prose :not(pre) > code::after {
+    content: none;
+  }
+
+  /* Links: no underline by default, accent underline on hover (article content only) */
+  article .prose a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  article .prose a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
 }
 
 .bg-dotted {
