@@ -5,6 +5,7 @@
   import { getAllProjects, projectCategories, computeFigureNumbers } from '$lib/data/projects';
   import { cn } from '$lib/utils';
   import ProjectSection from '$lib/components/ProjectSection.svelte';
+  import { SITE_URL, SITE_NAME } from '$lib/constants';
 
   const allProjects = getAllProjects();
   const allProfessional = allProjects.filter((p) => p.category === 'professional');
@@ -74,7 +75,28 @@
 </script>
 
 <svelte:head>
-  <title>All Projects | Leonard Cseres</title>
+  <title>All Projects - {SITE_NAME}</title>
+  <meta
+    name="description"
+    content="A complete collection of professional work and personal projects by {SITE_NAME}."
+  />
+  <link rel="canonical" href="{SITE_URL}/projects" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="All Projects - {SITE_NAME}" />
+  <meta
+    property="og:description"
+    content="A complete collection of professional work and personal projects by {SITE_NAME}."
+  />
+  <meta property="og:url" content="{SITE_URL}/projects" />
+  <meta property="og:site_name" content={SITE_NAME} />
+  <meta property="og:image" content="{SITE_URL}/og/projects.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="All Projects - {SITE_NAME}" />
+  <meta
+    name="twitter:description"
+    content="A complete collection of professional work and personal projects by {SITE_NAME}."
+  />
+  <meta name="twitter:image" content="{SITE_URL}/og/projects.png" />
 </svelte:head>
 
 <Layout {tocItems}>

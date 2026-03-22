@@ -9,6 +9,7 @@
   import NavMenu from './NavMenu.svelte';
   import { Icon } from 'svelte-icons-pack';
   import { IoMenu } from 'svelte-icons-pack/io';
+  import { BsGithub, BsTwitterX, BsLinkedin } from 'svelte-icons-pack/bs';
   import { page } from '$app/state';
 
   let navMenuOpen = $state(false);
@@ -23,10 +24,17 @@
     {
       href: 'https://github.com/leonardcser',
       label: 'GitHub',
+      icon: BsGithub,
+    },
+    {
+      href: 'https://x.com/LeonardCser',
+      label: 'X',
+      icon: BsTwitterX,
     },
     {
       href: 'https://www.linkedin.com/in/leonardcsrs/',
       label: 'LinkedIn',
+      icon: BsLinkedin,
     },
     {
       href: 'mailto:leonard.cseres@devleo.ch',
@@ -73,6 +81,7 @@
         <NavItem
           href={link.href}
           label={link.label}
+          icon={link.icon}
           umamiEventPrefix={'navigation-' + link.label.toLowerCase()}
         />
       {/each}

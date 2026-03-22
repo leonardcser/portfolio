@@ -18,11 +18,9 @@
   <time datetime={post.date} class="shrink-0 text-sm leading-snug text-muted tabular-nums">
     {formatDate(post.date)}
   </time>
-  <div
-    class="text-sm leading-snug font-semibold text-primary transition-colors group-hover:text-accent"
-  >
+  <h3 class="leading-snug font-semibold text-primary transition-colors group-hover:text-accent">
     {post.title}
-  </div>
+  </h3>
   <div></div>
   <div>
     <div class="mt-1 text-sm text-muted">

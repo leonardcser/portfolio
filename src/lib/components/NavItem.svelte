@@ -51,12 +51,8 @@
   )}
 >
   {#if icon}
-    <span class="md:hidden">
-      <Icon src={icon} size={20} />
-    </span>
-    <span class="max-md:hidden">
-      {label}
-    </span>
+    <Icon src={icon} size={16} />
+    <span class="sr-only">{label}</span>
   {:else}
     {label}
   {/if}

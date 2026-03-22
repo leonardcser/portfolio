@@ -92,6 +92,7 @@ export const load: PageLoad = async ({ params }) => {
   return {
     content: post.default,
     meta: { ...post.metadata, tags: post.metadata.tags || [] },
+    slug: params.slug,
     tocItems,
     prev,
     next,

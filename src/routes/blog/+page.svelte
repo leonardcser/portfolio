@@ -4,6 +4,7 @@
   import BlogItem from '$lib/components/BlogItem.svelte';
   import { Icon } from 'svelte-icons-pack';
   import { FiRss } from 'svelte-icons-pack/fi';
+  import { SITE_URL, SITE_NAME } from '$lib/constants';
 
   let { data } = $props();
 
@@ -25,9 +26,25 @@
 </script>
 
 <svelte:head>
-  <title>Blog - Leonard Cseres</title>
+  <title>Blog - {SITE_NAME}</title>
   <meta name="description" content="Thoughts on software engineering, design, and technology." />
-  <link rel="alternate" type="application/rss+xml" title="Leonard Cseres' Blog" href="/rss.xml" />
+  <link rel="canonical" href="{SITE_URL}/blog" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Blog - {SITE_NAME}" />
+  <meta
+    property="og:description"
+    content="Thoughts on software engineering, design, and technology."
+  />
+  <meta property="og:url" content="{SITE_URL}/blog" />
+  <meta property="og:site_name" content={SITE_NAME} />
+  <meta property="og:image" content="{SITE_URL}/og/blog.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Blog - {SITE_NAME}" />
+  <meta
+    name="twitter:description"
+    content="Thoughts on software engineering, design, and technology."
+  />
+  <meta name="twitter:image" content="{SITE_URL}/og/blog.png" />
 </svelte:head>
 
 <Layout>

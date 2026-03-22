@@ -2,8 +2,29 @@ import { mdsvex, escapeSvelte } from 'mdsvex';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import adapter from '@sveltejs/adapter-static';
 import rehypeSlug from 'rehype-slug';
+import remarkFootnotes from 'remark-footnotes';
+import { visit } from 'unist-util-visit';
 import { createHighlighterCore } from 'shiki/core';
 import { createJavaScriptRegexEngine } from 'shiki/engine/javascript';
+
+function rehypeExternalLinks() {
+  return (tree) => {
+    visit(tree, 'element', (node) => {
+      if (node.tagName !== 'a') return;
+      const href = node.properties?.href;
+      if (typeof href !== 'string' || !href.startsWith('http')) return;
+
+      node.properties.target = '_blank';
+      node.properties.rel = 'noopener noreferrer';
+      node.children.push({
+        type: 'element',
+        tagName: 'span',
+        properties: { className: ['external-arrow'], ariaHidden: 'true' },
+        children: [{ type: 'text', value: '↗' }],
+      });
+    });
+  };
+}
 
 const highlighter = await createHighlighterCore({
   themes: [import('@shikijs/themes/github-light'), import('@shikijs/themes/github-dark')],
@@ -33,7 +54,8 @@ const config = {
     vitePreprocess(),
     mdsvex({
       extensions: ['.md'],
-      rehypePlugins: [rehypeSlug],
+      remarkPlugins: [[remarkFootnotes, { inlineNotes: true }]],
+      rehypePlugins: [rehypeSlug, rehypeExternalLinks],
       highlight: {
         highlighter: async (code, lang = 'text') => {
           const html = escapeSvelte(

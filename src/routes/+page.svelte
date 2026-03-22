@@ -2,6 +2,7 @@
   import Layout from '$lib/components/Layout.svelte';
   import type { TOCItem } from '$lib/types';
   import Block from '$lib/components/Block.svelte';
+  import { SITE_URL, SITE_NAME } from '$lib/constants';
   import { BsGithub } from 'svelte-icons-pack/bs';
   import SwissFlag from '$lib/components/SwissFlag.svelte';
   import { Icon } from 'svelte-icons-pack';
@@ -66,6 +67,48 @@
     },
   ];
 </script>
+
+<svelte:head>
+  <title>{SITE_NAME} - Personal Portfolio</title>
+  <meta
+    name="description"
+    content="Explore my personal portfolio, showcasing projects, skills, and achievements in software engineering, development, design, and technology."
+  />
+  <link rel="canonical" href={SITE_URL} />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="{SITE_NAME} - Personal Portfolio" />
+  <meta
+    property="og:description"
+    content="Explore my personal portfolio, showcasing projects, skills, and achievements in software engineering, development, design, and technology."
+  />
+  <meta property="og:url" content={SITE_URL} />
+  <meta property="og:site_name" content={SITE_NAME} />
+  <meta property="og:image" content="{SITE_URL}/og/home.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{SITE_NAME} - Personal Portfolio" />
+  <meta
+    name="twitter:description"
+    content="Explore my personal portfolio, showcasing projects, skills, and achievements in software engineering, development, design, and technology."
+  />
+  <meta name="twitter:image" content="{SITE_URL}/og/home.png" />
+  {@html `<script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org',
+    '@graph': [
+      { '@type': 'WebSite', name: SITE_NAME, url: SITE_URL },
+      {
+        '@type': 'Person',
+        name: SITE_NAME,
+        url: SITE_URL,
+        sameAs: [
+          'https://github.com/leonardcser',
+          'https://x.com/LeonardCser',
+          'https://www.linkedin.com/in/leonardcsrs/',
+        ],
+        jobTitle: 'ML and Software Student',
+      },
+    ],
+  })}</script>`}
+</svelte:head>
 
 <Layout {tocItems}>
   <Block>

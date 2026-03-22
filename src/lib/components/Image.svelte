@@ -11,7 +11,7 @@
   }
 
   const { src, description, figureNumber, class: className = '' }: Props = $props();
-  let imgElement: HTMLImageElement;
+  let imgElement = $state<HTMLImageElement>();
   let isLoaded = $state(false);
 
   onMount(() => {
@@ -19,15 +19,15 @@
       isLoaded = true;
     };
 
-    imgElement.addEventListener('load', handleLoad);
+    imgElement?.addEventListener('load', handleLoad);
 
     // Handle case where image is already cached
-    if (imgElement.complete && imgElement.naturalHeight !== 0) {
+    if (imgElement?.complete && imgElement.naturalHeight !== 0) {
       isLoaded = true;
     }
 
     return () => {
-      imgElement.removeEventListener('load', handleLoad);
+      imgElement?.removeEventListener('load', handleLoad);
     };
   });
 

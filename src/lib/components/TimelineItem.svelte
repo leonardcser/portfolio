@@ -20,7 +20,7 @@
     {#if date}
       <div class="text-sm text-muted/50">{date}</div>
     {/if}
-    <h3 class="text-base font-semibold">{title}</h3>
+    <h3 class="font-sans text-base font-semibold">{title}</h3>
   </div>
   <div></div>
   <p class="text-muted">{description}</p>

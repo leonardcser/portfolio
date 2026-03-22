@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import '@fontsource-variable/inter';
+@import '@fontsource-variable/source-serif-4';
 @import '@fontsource-variable/jetbrains-mono';
 @plugin '@tailwindcss/typography';
 
@@ -7,6 +8,7 @@
 
 @theme {
   --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-serif: 'Source Serif 4 Variable', ui-serif, Georgia, serif;
   --font-mono: 'JetBrains Mono Variable', monospace;
 
   --color-primary: #000000;
@@ -32,6 +34,15 @@
   body {
     @apply bg-background;
     /* counter-reset: h2; */
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-serif);
   }
 
   h1 {
@@ -70,25 +81,76 @@
     font-weight: 600;
   }
 
+  /* Bold */
+  article .prose strong {
+    @apply px-0.5 font-sans! text-base! text-accent!;
+  }
+
+  /* Quote blocks */
+  article .prose blockquote {
+    @apply font-normal!;
+  }
+
+  article .prose blockquote > p::before,
+  article .prose blockquote > p::after {
+    content: none !important;
+  }
+
   /* Inline code styled like tag pills */
   article .prose :not(pre) > code {
-    @apply rounded border border-border bg-background px-1 py-0.5 text-[0.85em] font-normal;
+    @apply rounded border border-border bg-background px-1.5 py-0.5 text-[0.85em] font-normal;
   }
 
   article .prose :not(pre) > code::before,
   article .prose :not(pre) > code::after {
-    content: none;
+    content: none !important;
   }
 
   /* Links: no underline by default, accent underline on hover (article content only) */
   article .prose a {
     color: var(--color-accent);
     text-decoration: none;
+    text-underline-offset: 3px;
   }
 
   article .prose a:hover {
     text-decoration: underline;
-    text-underline-offset: 3px;
+  }
+
+  article .prose a[target='_blank']::after {
+    content: '↗';
+    font-size: 0.75em;
+    margin-left: 1px;
+    position: relative;
+    top: -0.4em;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  article .prose table {
+    @apply w-full border-collapse border-2 border-border;
+  }
+
+  article .prose th,
+  article .prose td {
+    @apply border-2 border-border px-3! py-1.5;
+  }
+
+  article .prose th {
+    @apply text-center;
+  }
+
+  article .prose .footnotes > hr {
+    @apply border-t border-border! mt-12! mb-4!;
+    border-style: solid;
+  }
+
+  article .prose .footnotes ol {
+    @apply text-sm text-muted;
+  }
+
+  .external-arrow {
+    display: none;
   }
 }
 

@@ -1,6 +1,6 @@
 import type { RequestHandler } from './$types';
 
-const SITE_URL = 'https://devleo.ch';
+import { SITE_URL } from '$lib/constants';
 
 export const prerender = true;
 

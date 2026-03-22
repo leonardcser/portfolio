@@ -1,11 +1,12 @@
 <script lang="ts">
   import NavItem from './NavItem.svelte';
-  import { Icon } from 'svelte-icons-pack';
+  import { Icon, type IconType } from 'svelte-icons-pack';
   import { IoClose } from 'svelte-icons-pack/io';
 
   interface Link {
     href: string;
     label: string;
+    icon?: IconType;
   }
 
   interface Props {
@@ -74,6 +75,7 @@
         <NavItem
           href={link.href}
           label={link.label}
+          icon={link.icon}
           umamiEventPrefix={'navigation-' + link.label}
           onclick={onClose}
           class="text-2xl!"

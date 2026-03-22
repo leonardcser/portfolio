@@ -208,7 +208,7 @@ export const allProjects: Project[] = [
       'A Rust TUI coding agent that connects to any OpenAI-compatible API (Ollama, OpenAI, etc.). Features configurable tool permissions, multiple modes (Normal, Plan, Apply, Yolo), session persistence, fuzzy history search, and vim mode.',
     demo: {
       type: 'image',
-      src: '/images/agent.gif',
+      src: '/images/agent/demo1.gif',
       description: 'agent TUI coding assistant running in the terminal',
     },
     grid: { span: 1 },
@@ -229,7 +229,7 @@ export const allProjects: Project[] = [
       'A TUI for multiplexing AI coding agent sessions in tmux. Lists active agent panes (Claude Code, Open Code, Gemini CLI, Codex CLI) grouped by workspace, with a live preview panel and vim-style navigation.',
     demo: {
       type: 'image',
-      src: '/images/agent_mux.gif',
+      src: '/images/agent-mux.gif',
       description: 'agent-mux TUI showing multiplexed AI coding agent sessions in tmux',
     },
     grid: { span: 1 },

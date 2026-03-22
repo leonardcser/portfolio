@@ -8,12 +8,11 @@
 </script>
 
 <svelte:head>
-  <title>Leonard Cseres - Personal Portfolio</title>
-  <meta
-    name="description"
-    content="Explore my personal portfolio, showcasing projects, skills, and achievements in software engineering, development, design, and technology."
-  />
   <link rel="icon" href="/favicon.ico" />
+
+  <!-- RSS autodiscovery -->
+  <link rel="alternate" type="application/rss+xml" title="Leonard Cseres' Blog" href="/rss.xml" />
+
   <!-- Umami Web Analytics -->
   {#if import.meta.env.PROD}
     <script
