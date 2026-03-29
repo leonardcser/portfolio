@@ -76,6 +76,7 @@
           href={link.href}
           label={link.label}
           icon={link.icon}
+          iconSize={24}
           umamiEventPrefix={'navigation-' + link.label}
           onclick={onClose}
           class="text-2xl!"

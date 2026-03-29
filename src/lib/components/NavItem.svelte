@@ -6,6 +6,7 @@
     label: string;
     class?: string;
     icon?: IconType;
+    iconSize?: number;
     target?: string;
     rel?: string;
     umamiEventPrefix: string;
@@ -25,6 +26,7 @@
     label,
     class: className,
     icon,
+    iconSize = 16,
     target,
     rel,
     umamiEventPrefix,
@@ -51,7 +53,7 @@
   )}
 >
   {#if icon}
-    <Icon src={icon} size={16} />
+    <Icon src={icon} size={iconSize} />
     <span class="sr-only">{label}</span>
   {:else}
     {label}
