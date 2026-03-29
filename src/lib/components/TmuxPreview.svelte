@@ -96,7 +96,7 @@
     },
     {
       id: 4,
-      name: 'agent',
+      name: 'smelt',
       wrap: true,
       html: [
         `<span style="background:#2a2a2a;color:#D8DEE9;padding:0 4px"> Fix the mobile nav overflow issue </span>`,

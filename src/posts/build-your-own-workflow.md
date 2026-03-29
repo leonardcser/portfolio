@@ -66,9 +66,9 @@ But no tool fits perfectly. Claude Code felt sluggish in my setup,
 and<OpencodeLogo class="ms-1.5"/> doesn't work with tmux scrollback. All I
 wanted was a fast agent that fits in naturally.
 
-So I built [`agent`](https://github.com/leonardcser/agent).
+So I built [`smelt`](https://github.com/leonardcser/smelt).
 
-![agent](/images/agent/demo2.gif)
+![smelt](/images/smelt/demo2.gif)
 
 It's a lightweight Rust CLI for agentic coding — tool use, sessions,
 permissions, the whole package. 20K LOC. Written by Claude Code. In a weekend.

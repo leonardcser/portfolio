@@ -8,7 +8,7 @@
 
   const title = $derived(data.meta?.title || 'Blog Post');
   const description = $derived(data.meta?.description || '');
-  const tocItems = $derived(data.tocItems || []);
+  // const tocItems = $derived(data.tocItems || []);
   const canonicalUrl = $derived(`${SITE_URL}/blog/${data.slug}`);
   const isoDate = $derived(data.meta?.date ? new Date(data.meta.date).toISOString() : '');
   const fullTitle = $derived(`${title} - ${SITE_NAME}`);
@@ -69,7 +69,7 @@
   })}</script>`}
 </svelte:head>
 
-<Layout {tocItems}>
+<Layout>
   <Block>
     <article>
       <header class="mb-8">

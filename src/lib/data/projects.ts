@@ -194,13 +194,13 @@ export const allProjects: Project[] = [
     category: 'personal',
   },
   {
-    id: 'agent',
-    title: 'agent',
+    id: 'smelt',
+    title: 'smelt',
     tags: ['Rust', 'TUI'],
     linkTags: [
       {
         label: 'GitHub',
-        href: 'https://github.com/leonardcser/agent',
+        href: 'https://github.com/leonardcser/smelt',
         icon: BsGithub,
       },
     ],
@@ -208,8 +208,8 @@ export const allProjects: Project[] = [
       'A Rust TUI coding agent that connects to any OpenAI-compatible API (Ollama, OpenAI, etc.). Features configurable tool permissions, multiple modes (Normal, Plan, Apply, Yolo), session persistence, fuzzy history search, and vim mode.',
     demo: {
       type: 'image',
-      src: '/images/agent/demo1.gif',
-      description: 'agent TUI coding assistant running in the terminal',
+      src: '/images/smelt/demo1.gif',
+      description: 'smelt TUI coding assistant running in the terminal',
     },
     grid: { span: 1 },
     category: 'personal',
@@ -500,7 +500,7 @@ export const projectCategories: { name: string; projectIds: string[] }[] = [
       'license-plate',
       'code-llm',
       'cursortab',
-      'agent',
+      'smelt',
       'mathsnip',
       'texttap',
       'captcha-solver',
