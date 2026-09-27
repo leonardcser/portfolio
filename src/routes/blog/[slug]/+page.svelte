@@ -37,7 +37,7 @@
     <meta property="article:published_time" content={isoDate} />
   {/if}
   {#if data.meta?.tags?.length}
-    {#each data.meta.tags as tag}
+    {#each data.meta.tags as tag (tag)}
       <meta property="article:tag" content={tag} />
     {/each}
   {/if}
@@ -46,7 +46,8 @@
   <meta name="twitter:title" content={fullTitle} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content="{SITE_URL}/og/blog/{data.slug}.png" />
-  {@html `<script type="application/ld+json">${JSON.stringify({
+  <!-- eslint-disable-next-line svelte/no-at-html-tags -->
+  {@html `<${'script'} type="application/ld+json">${JSON.stringify({
     '@context': 'https://schema.org',
     '@graph': [
       {
@@ -66,7 +67,7 @@
         ],
       },
     ],
-  })}</script>`}
+  }).replace(/</g, '\\u003c')}</${'script'}>`}
 </svelte:head>
 
 <Layout>

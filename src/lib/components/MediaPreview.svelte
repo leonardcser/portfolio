@@ -15,6 +15,7 @@
 
   function handleKeydown(event: KeyboardEvent) {
     if (event.key === 'Escape' && mediaPreviewState.isOpen) {
+      event.preventDefault();
       closeMediaPreview();
     }
   }

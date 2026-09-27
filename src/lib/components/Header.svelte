@@ -18,6 +18,7 @@
     { href: '/', label: 'Home' },
     { href: '/projects', label: 'Projects' },
     { href: '/blog', label: 'Blog' },
+    { href: '/library', label: 'Library' },
   ];
 
   const links = [
@@ -44,7 +45,7 @@
 </script>
 
 <div
-  class="header-container fixed top-0 right-0 left-0 z-20 mx-0 flex items-center overflow-hidden border-b border-border/50 bg-background max-md:px-6 md:mx-12"
+  class="header-container fixed top-0 right-0 left-0 z-30 mx-0 flex items-center overflow-hidden border-b border-border/50 bg-background max-md:px-6 md:mx-12"
   style={`height: ${headerHeight}px`}
 >
   <a

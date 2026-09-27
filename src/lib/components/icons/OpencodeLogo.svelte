@@ -21,10 +21,7 @@
   >
     <!-- "open" -->
     <path d="M18 30H6V18H18V30Z" class="fill-[#CFCECD] dark:fill-[#4B4646]" />
-    <path
-      d="M18 12H6V30H18V12ZM24 36H0V6H24V36Z"
-      class="fill-[#656363] dark:fill-[#B7B1B1]"
-    />
+    <path d="M18 12H6V30H18V12ZM24 36H0V6H24V36Z" class="fill-[#656363] dark:fill-[#B7B1B1]" />
     <path d="M48 30H36V18H48V30Z" class="fill-[#CFCECD] dark:fill-[#4B4646]" />
     <path
       d="M36 30H48V12H36V30ZM54 36H36V42H30V6H54V36Z"
@@ -42,10 +39,7 @@
     />
     <!-- "code" -->
     <path d="M144 30H126V18H144V30Z" class="fill-[#CFCECD] dark:fill-[#4B4646]" />
-    <path
-      d="M144 12H126V30H144V36H120V6H144V12Z"
-      class="fill-[#211E1E] dark:fill-[#F1ECEC]"
-    />
+    <path d="M144 12H126V30H144V36H120V6H144V12Z" class="fill-[#211E1E] dark:fill-[#F1ECEC]" />
     <path d="M168 30H156V18H168V30Z" class="fill-[#CFCECD] dark:fill-[#4B4646]" />
     <path
       d="M168 12H156V30H168V12ZM174 36H150V6H174V36Z"

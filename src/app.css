@@ -141,7 +141,7 @@
   }
 
   article .prose .footnotes > hr {
-    @apply border-t border-border! mt-12! mb-4!;
+    @apply mt-12! mb-4! border-t border-border!;
     border-style: solid;
   }
 
@@ -164,4 +164,555 @@
   background-position:
     0 0,
     -1px -1px;
+}
+
+.book-cover {
+  border-radius: 2px;
+  box-shadow: 8px 0 14px -5px rgb(0 0 0 / 30%);
+}
+
+.book-cover::before,
+.book-cover::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+}
+
+.book-cover::before {
+  top: 1px;
+  bottom: 1px;
+  left: calc(100% - 12px);
+  width: 16px;
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--book-cover-color) 65%, black);
+}
+
+.book-cover::after {
+  top: 2px;
+  bottom: 2px;
+  left: calc(100% - 10px);
+  width: 11px;
+  background: #e8e2d6;
+  box-shadow: 1px 0 0 #bcb7ad;
+}
+
+.book-front {
+  z-index: 1;
+  border-radius: 2px;
+  background: var(--book-cover-color);
+}
+
+@media (scripting: enabled) {
+  .library-artwork:not([data-art-ready]) img {
+    opacity: 0;
+  }
+}
+
+a.book-cover {
+  perspective: 800px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .library-artwork img {
+    transition: opacity 180ms ease-out;
+  }
+
+  a.book-cover .book-front {
+    transform-origin: left center;
+    transition: transform 230ms ease-out;
+  }
+
+  a.book-cover:is(:hover, :focus-visible) .book-front {
+    transform: rotateY(-18deg);
+  }
+}
+
+.book-front::before,
+.book-front::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.book-front::before {
+  inset: 0;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");
+  opacity: 0.045;
+}
+
+.book-front::after {
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(
+      90deg,
+      rgb(0 0 0 / 28%),
+      rgb(255 255 255 / 12%) 2%,
+      rgb(0 0 0 / 10%) 4%,
+      transparent 8%
+    ),
+    linear-gradient(180deg, rgb(255 255 255 / 20%), transparent 9%),
+    linear-gradient(270deg, rgb(255 255 255 / 20%), transparent 8%),
+    linear-gradient(0deg, rgb(0 0 0 / 12%), transparent 3%);
+}
+
+.bookshelf {
+  row-gap: 40px;
+  padding-bottom: 40px;
+}
+
+.shelf-book {
+  position: relative;
+  display: flex;
+  width: calc(var(--spine-width) * 0.8615);
+  height: 224px;
+  flex: none;
+  align-items: flex-end;
+  --cover-depth: calc((224px - var(--height-variation, 0px)) * 0.66);
+}
+
+.shelf-divider {
+  width: 76px;
+  height: 224px;
+  flex: none;
+}
+
+.shelf-book:nth-child(7n + 2) {
+  --height-variation: 10px;
+}
+
+.shelf-book:nth-child(7n + 3) {
+  --height-variation: 17px;
+}
+
+.shelf-book:nth-child(7n + 5) {
+  --height-variation: 6px;
+}
+
+.shelf-book:nth-child(7n + 6) {
+  --height-variation: 13px;
+}
+
+.shelf-book-visual {
+  position: relative;
+  width: 100%;
+  height: calc(100% - var(--height-variation, 0px));
+}
+
+.shelf-sides {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: var(--shelf-perspective-x, 50%) bottom;
+  transform: perspective(2200px);
+  transform-style: preserve-3d;
+}
+
+.shelf-spine {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.shelf-spine-front {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 1px 1px 0 1px;
+  background: var(--book-cover-color);
+  backface-visibility: hidden;
+  transform-origin: var(--shelf-perspective-x, 50%) bottom;
+  transform: perspective(2200px);
+  pointer-events: none;
+}
+
+.shelf-spine:focus-visible {
+  outline: none;
+}
+
+.shelf-spine:focus-visible .shelf-spine-front {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.shelf-cover-face {
+  position: absolute;
+  top: 0;
+  width: var(--cover-depth);
+  height: 100%;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--book-cover-color);
+  backface-visibility: hidden;
+}
+
+.shelf-cover-face::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgb(0 0 0 / 20%), transparent 18%, transparent 85%, rgb(0 0 0 / 9%)),
+    linear-gradient(0deg, rgb(0 0 0 / 14%), transparent 10%),
+    linear-gradient(180deg, rgb(255 255 255 / 9%), transparent 12%);
+}
+
+.shelf-cover-face {
+  left: calc(100% - 1px);
+  transform-origin: left center;
+  transform: rotateY(90deg);
+}
+
+.shelf-cover-face img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@property --seam-left {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: rgb(0 0 0 / 30%);
+}
+
+@property --seam-right {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: rgb(0 0 0 / 24%);
+}
+
+@property --seam-left-width {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 6px;
+}
+
+@property --seam-right-width {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 6px;
+}
+
+.shelf-spine-front::after {
+  --seam-left: rgb(0 0 0 / 30%);
+  --seam-right: rgb(0 0 0 / 24%);
+  --seam-left-width: 6px;
+  --seam-right-width: 6px;
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 15%), transparent 12%),
+    linear-gradient(0deg, rgb(0 0 0 / 8%), transparent 6%),
+    linear-gradient(90deg, var(--seam-left), transparent var(--seam-left-width)),
+    linear-gradient(270deg, var(--seam-right), transparent var(--seam-right-width));
+}
+
+.shelf-book:has(+ .shelf-book[data-touching-left]:is(:hover, :focus-within, [data-hover-active]))
+  .shelf-spine-front::after {
+  --seam-right: rgb(0 0 0 / 48%);
+  --seam-right-width: 10px;
+}
+
+.shelf-book:is(:hover, :focus-within, [data-hover-active])
+  + .shelf-book[data-touching-left]
+  .shelf-spine-front::after {
+  --seam-left: rgb(0 0 0 / 48%);
+  --seam-left-width: 10px;
+}
+
+.shelf-book[data-hover-active] .shelf-spine {
+  z-index: 10;
+}
+
+.shelf-book:is(:hover, :focus-within) .shelf-spine {
+  z-index: 20;
+}
+
+@keyframes shelf-retract {
+  from {
+    z-index: 10;
+  }
+
+  to {
+    z-index: 1;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .shelf-sides,
+  .shelf-spine-front {
+    transition: transform 240ms;
+  }
+
+  .shelf-spine {
+    animation: shelf-retract 240ms step-end;
+  }
+
+  .shelf-spine-front::after {
+    transition:
+      --seam-left 240ms ease-out,
+      --seam-right 240ms ease-out,
+      --seam-left-width 240ms ease-out,
+      --seam-right-width 240ms ease-out;
+  }
+
+  .shelf-book:is(:hover, :focus-within, [data-hover-active]) :is(.shelf-sides, .shelf-spine-front) {
+    transform: perspective(2200px) translateZ(64px);
+  }
+
+  .shelf-book:is(:hover, :focus-within, [data-hover-active]) .shelf-spine {
+    animation: none;
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .shelf-book:active :is(.shelf-sides, .shelf-spine-front) {
+    transform: perspective(2200px) rotateX(-5deg) translateZ(64px);
+  }
+}
+
+@media (min-width: 640px) {
+  .shelf-book {
+    width: var(--spine-width);
+    height: 260px;
+    --cover-depth: calc((260px - var(--height-variation, 0px)) * 0.66);
+  }
+
+  .shelf-divider {
+    width: 88px;
+    height: 260px;
+  }
+}
+
+.book-pile {
+  position: relative;
+  z-index: 31;
+  display: flex;
+  width: min(100%, 21rem);
+  flex-direction: column;
+  align-items: center;
+  margin-inline: auto;
+  padding-bottom: 32px;
+  pointer-events: none;
+  --pile-paper: repeating-linear-gradient(
+    to bottom,
+    #faf7ee 0 1px,
+    #d8d2c6 1px 1.5px,
+    #f3eee4 1.5px 2px
+  );
+}
+
+.pile-book {
+  position: relative;
+  z-index: var(--pile-layer);
+  display: block;
+  width: calc(100% - var(--pile-inset));
+  height: var(--pile-thickness);
+  margin-top: -1px;
+  pointer-events: auto;
+}
+
+.pile-book:first-child {
+  height: calc(var(--pile-thickness) + 100px);
+  margin-top: 0;
+}
+
+.pile-book-visual {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(100%, 14rem);
+  aspect-ratio: 2 / 3;
+  transform: perspective(1100px) translate(calc(-50% + var(--pile-x) + var(--pile-pull, 0px)), -50%)
+    rotateX(65deg) rotateZ(var(--pile-hover-roll, var(--pile-roll)));
+  transform-origin: center;
+  transform-style: preserve-3d;
+}
+
+.pile-book:first-child .pile-book-visual {
+  top: calc(50% + 50px);
+}
+
+.pile-book-cover {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--book-cover-color);
+  box-shadow: 0 4px 10px rgb(0 0 0 / 18%);
+}
+
+.pile-book-bottom {
+  position: absolute;
+  inset: 0;
+  border-radius: 2px;
+  background: var(--book-cover-color);
+  box-shadow: 0 9px 13px rgb(0 0 0 / 28%);
+  transform: translateZ(calc(-1 * var(--pile-thickness)));
+}
+
+.pile-book-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pile-book-spine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 150%;
+  height: var(--pile-thickness);
+  overflow: hidden;
+  border-radius: 0 0 2px 2px;
+  background: var(--book-cover-color);
+  box-shadow: 0 2px 6px rgb(0 0 0 / 25%);
+  transform: rotateZ(90deg) rotateX(-90deg);
+  transform-origin: left top;
+  container-type: inline-size;
+}
+
+.pile-book-spine img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--pile-thickness);
+  height: 100cqw;
+  object-fit: fill;
+  translate: -50% -50%;
+  rotate: 90deg;
+}
+
+.pile-book-spine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      0deg,
+      rgb(0 0 0 / 20%),
+      transparent 20%,
+      transparent 85%,
+      rgb(255 255 255 / 10%)
+    ),
+    linear-gradient(90deg, rgb(0 0 0 / 12%), transparent 8%, transparent 92%, rgb(0 0 0 / 16%));
+}
+
+.pile-book-back,
+.pile-book-pages {
+  position: absolute;
+  height: calc(var(--pile-thickness) - 2px);
+  background: var(--pile-paper);
+  box-shadow:
+    inset 5px 0 6px rgb(0 0 0 / 14%),
+    inset -2px 0 3px rgb(0 0 0 / 12%);
+}
+
+.pile-book-back {
+  top: 1px;
+  left: 1px;
+  width: calc(100% - 2px);
+  transform: translateZ(-1px) rotateX(-90deg);
+  transform-origin: center top;
+}
+
+.pile-book-pages {
+  top: 1px;
+  left: calc(100% - 1px);
+  width: calc(150% - 2px);
+  transform: translateZ(-1px) rotateZ(90deg) rotateX(-90deg);
+  transform-origin: left top;
+}
+
+.pile-book-pages-end {
+  top: calc(100% - 1px);
+  left: 1px;
+  width: calc(100% - 2px);
+  transform: translateZ(-1px) rotateX(-90deg);
+  transform-origin: center top;
+}
+
+.pile-book:has(~ .pile-book:is(:hover, :focus-visible)) {
+  --pile-pull: var(--pile-group-pull, 14px);
+}
+
+.pile-book:has(+ .pile-book:is(:hover, :focus-visible)) {
+  --pile-pull: 55px;
+}
+
+.pile-book:is(:hover, :focus-visible) {
+  --pile-pull: 110px;
+  --pile-hover-roll: -90deg;
+}
+
+.pile-book:is(:hover, :focus-visible) :is(.pile-book-cover, .pile-book-bottom, .pile-book-spine) {
+  box-shadow: none;
+}
+
+.pile-book:is(:hover, :focus-visible)::after {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 130px;
+  height: 100%;
+  content: '';
+}
+
+@media (max-width: 639px) {
+  .book-pile {
+    width: min(100%, 18rem);
+  }
+
+  .pile-book-visual {
+    width: min(100%, 12rem);
+  }
+
+  .pile-book:has(~ .pile-book:is(:hover, :focus-visible)) {
+    --pile-pull: var(--pile-group-pull-mobile, 6px);
+  }
+
+  .pile-book:has(+ .pile-book:is(:hover, :focus-visible)) {
+    --pile-pull: 23px;
+  }
+
+  .pile-book:is(:hover, :focus-visible) {
+    --pile-pull: 45px;
+  }
+
+  .pile-book:is(:hover, :focus-visible)::after {
+    width: 55px;
+  }
+}
+
+.pile-book:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pile-book-visual {
+    transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: 500ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: 0.01ms;
+  }
 }

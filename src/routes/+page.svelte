@@ -91,7 +91,8 @@
     content="Explore my personal portfolio, showcasing projects, skills, and achievements in software engineering, development, design, and technology."
   />
   <meta name="twitter:image" content="{SITE_URL}/og/home.png" />
-  {@html `<script type="application/ld+json">${JSON.stringify({
+  <!-- eslint-disable-next-line svelte/no-at-html-tags -->
+  {@html `<${'script'} type="application/ld+json">${JSON.stringify({
     '@context': 'https://schema.org',
     '@graph': [
       { '@type': 'WebSite', name: SITE_NAME, url: SITE_URL },
@@ -107,7 +108,7 @@
         jobTitle: 'ML and Software Student',
       },
     ],
-  })}</script>`}
+  }).replace(/</g, '\\u003c')}</${'script'}>`}
 </svelte:head>
 
 <Layout {tocItems}>

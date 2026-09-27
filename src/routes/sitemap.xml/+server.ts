@@ -1,6 +1,7 @@
 import type { RequestHandler } from './$types';
 
 import { SITE_URL } from '$lib/constants';
+import { books } from '$lib/data/books';
 
 export const prerender = true;
 
@@ -9,7 +10,13 @@ interface MdsvexFile {
 }
 
 export const GET: RequestHandler = async () => {
-  const staticPages = ['', '/blog', '/projects'];
+  const staticPages = [
+    '',
+    '/blog',
+    '/projects',
+    '/library',
+    ...books.map((book) => `/library/${book.slug}`),
+  ];
 
   const posts = import.meta.glob('/src/posts/*.md', { eager: true });
   const postPages = Object.entries(posts).map(([path, file]) => {

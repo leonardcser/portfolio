@@ -127,7 +127,7 @@
     return () => clearInterval(id);
   });
   const clock = $derived(
-    `"macair" ${now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })} ${now.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: '2-digit' }).replace(/ /g, '-')}`,
+    `"macair" ${now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })} ${now.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: '2-digit' }).replace(/ /g, '-')}`
   );
 
   let prefixActive = $state(false);
@@ -157,16 +157,18 @@
     class="flex h-[18lh] flex-col overflow-hidden bg-black font-mono text-[13px] leading-normal text-[#D8DEE9]"
   >
     <div class="flex-1 overflow-hidden {activeWindow?.padding ?? 'py-1'}">
-      <!-- eslint-disable-next-line svelte/no-at-html-tags -->
+      <!-- eslint-disable svelte/no-at-html-tags -->
       <pre
-        class="m-0 border-none! bg-transparent! p-0! {activeWindow?.wrap ? 'whitespace-pre-wrap' : 'whitespace-pre'}">{@html activeWindow?.html}</pre>
+        class="m-0 border-none! bg-transparent! p-0! {activeWindow?.wrap
+          ? 'whitespace-pre-wrap'
+          : 'whitespace-pre'}">{@html activeWindow?.html}</pre>
     </div>
     {#if activeWindow?.lualine}
-      <!-- eslint-disable-next-line svelte/no-at-html-tags -->
       <div class="flex items-stretch bg-[#112638] py-0.5 text-xs leading-none text-[#c3ccdc]">
         {@html activeWindow.lualine}
       </div>
     {/if}
+    <!-- eslint-enable svelte/no-at-html-tags -->
   </div>
 
   <!-- tmux status bar -->

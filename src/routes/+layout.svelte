@@ -3,8 +3,25 @@
   import { ModeWatcher } from 'mode-watcher';
   import MediaPreview from '$lib/components/MediaPreview.svelte';
   import Header, { headerHeight } from '$lib/components/Header.svelte';
+  import { onNavigate } from '$app/navigation';
 
   let { children } = $props();
+
+  onNavigate((navigation) => {
+    if (
+      !document.startViewTransition ||
+      !navigation.from?.url.pathname.startsWith('/library') ||
+      !navigation.to?.url.pathname.startsWith('/library')
+    )
+      return;
+
+    return new Promise<void>((resolve) => {
+      document.startViewTransition(async () => {
+        resolve();
+        await navigation.complete;
+      });
+    });
+  });
 </script>
 
 <svelte:head>
