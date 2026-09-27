@@ -150,6 +150,27 @@ export const allProjects: Project[] = [
 
   // Personal Projects
   {
+    id: 'fieldnode',
+    title: 'FieldNode',
+    tags: ['KiCad', 'PCB', 'ESP32', 'ESPHome'],
+    linkTags: [
+      {
+        label: 'GitHub',
+        href: 'https://github.com/leonardcser/fieldnode',
+        icon: BsGithub,
+      },
+    ],
+    description:
+      'Designed and hand-assembled an ESP32-based gate controller PCB with a relay output and contact sensing, integrated with Home Assistant through ESPHome.',
+    demo: {
+      type: 'image',
+      src: '/images/fieldnode/stacked-routing.webp',
+      description: 'FieldNode PCB layout showing top, bottom, and internal power routing',
+    },
+    grid: { span: 1 },
+    category: 'personal',
+  },
+  {
     id: 'code-llm',
     title: 'CodeLLM',
     tags: ['PyTorch', 'C++', 'Transformers', 'Lightning', 'DVC'],
