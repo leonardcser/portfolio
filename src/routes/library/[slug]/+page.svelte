@@ -23,9 +23,19 @@
   <title>{data.book.title} - Library - {SITE_NAME}</title>
   <meta name="description" content={data.book.description} />
   <link rel="canonical" href="{SITE_URL}/library/{data.book.slug}" />
+  <meta property="og:type" content="book" />
   <meta property="og:title" content="{data.book.title} - Library - {SITE_NAME}" />
   <meta property="og:description" content={data.book.description} />
-  <meta property="og:image" content="{SITE_URL}{data.book.cover}" />
+  <meta property="og:url" content="{SITE_URL}/library/{data.book.slug}" />
+  <meta property="og:site_name" content={SITE_NAME} />
+  <meta property="og:image" content="{SITE_URL}/og/library/{data.book.slug}.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="{data.book.title} by {data.book.author}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{data.book.title} - Library - {SITE_NAME}" />
+  <meta name="twitter:description" content={data.book.description} />
+  <meta name="twitter:image" content="{SITE_URL}/og/library/{data.book.slug}.png" />
 </svelte:head>
 
 <Layout>

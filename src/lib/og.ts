@@ -40,9 +40,18 @@ interface OgOptions {
   prefix?: string; // e.g. "## blog"
   title: string;
   subtitle?: string;
+  book?: { author: string; cover: string; coverColor: string };
 }
 
-export async function generateOgImage({ prefix, title, subtitle }: OgOptions): Promise<Response> {
+export async function generateOgImage({
+  prefix,
+  title,
+  subtitle,
+  book,
+}: OgOptions): Promise<Response> {
+  const coverDataUri = book
+    ? `data:image/jpeg;base64,${readFileSync(join(process.cwd(), 'static', book.cover.slice(1))).toString('base64')}`
+    : undefined;
   const svg = await satori(
     {
       type: 'div',
@@ -77,69 +86,164 @@ export async function generateOgImage({ prefix, title, subtitle }: OgOptions): P
             },
           },
           // Content
-          {
-            type: 'div',
-            props: {
-              style: {
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                textAlign: 'center',
-                padding: '0 10%',
-              },
-              children: [
-                // ## prefix
-                ...(prefix
-                  ? [
-                      {
-                        type: 'p',
-                        props: {
-                          style: {
-                            fontFamily: 'JetBrains Mono',
-                            fontSize: 20,
-                            fontWeight: 600,
-                            color: COLORS.accent,
-                            letterSpacing: '-0.02em',
-                            margin: 0,
+          book && coverDataUri
+            ? {
+                type: 'div',
+                props: {
+                  style: {
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    width: '100%',
+                    padding: '0 100px',
+                  },
+                  children: [
+                    {
+                      type: 'div',
+                      props: {
+                        style: {
+                          display: 'flex',
+                          flexDirection: 'column',
+                          width: 610,
+                        },
+                        children: [
+                          {
+                            type: 'p',
+                            props: {
+                              style: {
+                                fontFamily: 'JetBrains Mono',
+                                fontSize: 20,
+                                fontWeight: 600,
+                                color: COLORS.accent,
+                                margin: 0,
+                              },
+                              children: prefix,
+                            },
                           },
-                          children: prefix,
+                          {
+                            type: 'p',
+                            props: {
+                              style: {
+                                fontFamily: 'Source Serif 4',
+                                fontSize: title.length > 50 ? 44 : title.length > 30 ? 54 : 68,
+                                fontWeight: 800,
+                                lineHeight: 1.08,
+                                color: COLORS.primary,
+                                margin: '16px 0 0',
+                              },
+                              children: title,
+                            },
+                          },
+                          {
+                            type: 'p',
+                            props: {
+                              style: {
+                                fontFamily: 'Inter',
+                                fontSize: 26,
+                                color: COLORS.muted,
+                                margin: '20px 0 0',
+                              },
+                              children: `by ${book.author}`,
+                            },
+                          },
+                          {
+                            type: 'p',
+                            props: {
+                              style: {
+                                fontFamily: 'Inter',
+                                fontSize: 18,
+                                color: COLORS.muted,
+                                margin: '42px 0 0',
+                              },
+                              children: `${SITE_NAME} · devleo.ch`,
+                            },
+                          },
+                        ],
+                      },
+                    },
+                    {
+                      type: 'img',
+                      props: {
+                        src: coverDataUri,
+                        width: 260,
+                        height: 390,
+                        style: {
+                          width: 260,
+                          height: 390,
+                          objectFit: 'cover',
+                          borderRadius: 3,
+                          backgroundColor: book.coverColor,
+                          boxShadow: '10px 16px 26px rgba(0, 0, 0, 0.22)',
+                          transform: 'rotate(3deg)',
                         },
                       },
-                    ]
-                  : []),
-                // Title
-                {
-                  type: 'p',
-                  props: {
-                    style: {
-                      fontFamily: 'Source Serif 4',
-                      fontSize: title.length > 30 ? 72 : 88,
-                      fontWeight: 800,
-                      lineHeight: 1.05,
-                      color: COLORS.primary,
-                      margin: 0,
-                      marginTop: prefix ? 12 : 0,
                     },
-                    children: title,
-                  },
+                  ],
                 },
-                // Subtitle
-                {
-                  type: 'p',
-                  props: {
-                    style: {
-                      fontFamily: 'Inter',
-                      fontSize: 18,
-                      color: COLORS.muted,
-                      margin: 0,
-                      marginTop: 24,
+              }
+            : {
+                type: 'div',
+                props: {
+                  style: {
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    textAlign: 'center',
+                    padding: '0 10%',
+                  },
+                  children: [
+                    // ## prefix
+                    ...(prefix
+                      ? [
+                          {
+                            type: 'p',
+                            props: {
+                              style: {
+                                fontFamily: 'JetBrains Mono',
+                                fontSize: 20,
+                                fontWeight: 600,
+                                color: COLORS.accent,
+                                letterSpacing: '-0.02em',
+                                margin: 0,
+                              },
+                              children: prefix,
+                            },
+                          },
+                        ]
+                      : []),
+                    // Title
+                    {
+                      type: 'p',
+                      props: {
+                        style: {
+                          fontFamily: 'Source Serif 4',
+                          fontSize: title.length > 30 ? 72 : 88,
+                          fontWeight: 800,
+                          lineHeight: 1.05,
+                          color: COLORS.primary,
+                          margin: 0,
+                          marginTop: prefix ? 12 : 0,
+                        },
+                        children: title,
+                      },
                     },
-                    children: subtitle || `${SITE_NAME} · devleo.ch`,
-                  },
+                    // Subtitle
+                    {
+                      type: 'p',
+                      props: {
+                        style: {
+                          fontFamily: 'Inter',
+                          fontSize: 18,
+                          color: COLORS.muted,
+                          margin: 0,
+                          marginTop: 24,
+                        },
+                        children: subtitle || `${SITE_NAME} · devleo.ch`,
+                      },
+                    },
+                  ],
                 },
-              ],
-            },
-          },
+              },
         ],
       },
     },
