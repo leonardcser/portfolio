@@ -72,6 +72,12 @@ const entries: [title: string, added: string, tags: string[], status?: ReadingSt
   ['The Great CEO Within', '', ['Business', 'Leadership'], 'queue'],
   ['Principles', '', ['Business', 'Leadership'], 'queue'],
   ['Tools of Titans', '', ['Productivity', 'Business'], 'queue'],
+  [
+    'Our Iceberg Is Melting: Changing and Succeeding Under Any Conditions',
+    '',
+    ['Business', 'Leadership'],
+    'queue',
+  ],
 ];
 
 const details: Record<string, { author: string; description: string }> = {
@@ -276,6 +282,11 @@ const details: Record<string, { author: string; description: string }> = {
   'The War of Art': {
     author: 'Steven Pressfield',
     description: 'A short guide to overcoming resistance and doing creative work consistently.',
+  },
+  'Our Iceberg Is Melting: Changing and Succeeding Under Any Conditions': {
+    author: 'John P. Kotter and Holger Rathgeber',
+    description:
+      'A fable about penguins facing a melting iceberg, with lessons on leading change and helping teams adapt.',
   },
   'Our Mathematical Universe': {
     author: 'Max Tegmark',
