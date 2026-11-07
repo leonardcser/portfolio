@@ -229,10 +229,9 @@ export const allProjects: Project[] = [
       'A Rust TUI coding agent that connects to any OpenAI-compatible API (Ollama, OpenAI, etc.). Features configurable tool permissions, multiple modes (Normal, Plan, Apply, Yolo), session persistence, fuzzy history search, and vim mode.',
     demo: {
       type: 'image',
-      src: '/images/smelt/demo1.gif',
+      src: '/images/smelt/demo.gif',
       description: 'smelt TUI coding assistant running in the terminal',
     },
-    grid: { span: 1 },
     category: 'personal',
   },
   {
@@ -496,9 +495,9 @@ export const featuredProjectIds = [
   'greenland-lakes',
   'dafthunk',
   'mlops-guide',
+  'smelt',
   'code-llm',
   'cursortab',
-  'memsched',
 ];
 
 export function getFeaturedProjects(): Project[] {
