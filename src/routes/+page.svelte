@@ -6,7 +6,6 @@
   import { BsGithub } from 'svelte-icons-pack/bs';
   import SwissFlag from '$lib/components/SwissFlag.svelte';
   import { Icon } from 'svelte-icons-pack';
-  import WidgetImage from '$lib/components/WidgetImage.svelte';
   import GitHubActivity from '$lib/components/GitHubActivity.svelte';
   import Timeline from '$lib/components/Timeline.svelte';
   import { getFeaturedProjects, computeFigureNumbers } from '$lib/data/projects';
@@ -120,53 +119,6 @@
         class="me-1 mb-1 inline size-3.5"
       />. I love working problems and I am a curious learner.
     </p>
-    <p>I've built these live widgets to share my current goals:</p>
-    <div class="not-prose flex flex-wrap gap-2">
-      <WidgetImage
-        widget={{
-          id: '02d23572-ad59-4ea2-8a97-ed209251f83b',
-          title: 'Understanding Deep Learning',
-          subtitle: 'Machine learning book',
-        }}
-        width={430}
-        height={75}
-        href="https://github.com/leonardcser/understanding-deep-learning"
-        data-umami-event="understanding-deep-learning-widget-link"
-      />
-      <WidgetImage
-        widget={{
-          id: '7f24d256-c9df-4f6d-9094-37811e56e0a7',
-          title: 'Introduction to Deep Learning - MIT 6.S191',
-          subtitle: 'MIT 6.S191',
-        }}
-        width={360}
-        height={75}
-        href="https://github.com/leonardcser/introtodeeplearning"
-        data-umami-event="github-commits-widget-link"
-      />
-      <WidgetImage
-        widget={{
-          id: '77178590-1aa8-4ab4-bfbf-2c6abe0c367f',
-          title: 'GitHub Commits - Public contributions',
-          subtitle: 'Public contributions',
-        }}
-        width={327}
-        height={75}
-        href="https://github.com/leonardcser"
-        data-umami-event="github-commits-widget-link"
-      />
-      <WidgetImage
-        widget={{
-          id: '4fa0ef32-09d6-4038-94d8-e7caf8672c0f',
-          title: 'LeetCode - Problems Solved',
-          subtitle: 'Problems solved',
-        }}
-        width={333}
-        height={75}
-        href="https://github.com/leonardcser/leetcode"
-        data-umami-event="leetcode-widget-link"
-      />
-    </div>
     <p>
       You can find more technical details of my projects on my
       <a

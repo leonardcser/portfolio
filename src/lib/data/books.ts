@@ -10,7 +10,7 @@ type ReadingStatus = 'read' | 'reading' | 'queue';
 
 const entries: [title: string, added: string, tags: string[], status?: ReadingStatus][] = [
   ['The Fountainhead', '2026-04-17', ['Fiction', 'Philosophy']],
-  ['Why Greatness Cannot Be Planned', '2026-09-22', ['Science', 'Philosophy'], 'reading'],
+  ['Why Greatness Cannot Be Planned', '2026-09-22', ['Science', 'Philosophy'], 'read'],
   ['Educated', '2026-04-17', ['Memoir']],
   ['The ONE Thing', '2025-07-30', ['Productivity', 'Business']],
   ['Benjamin Franklin: An American Life', '2023-07-09', ['Biography', 'History']],
@@ -66,7 +66,7 @@ const entries: [title: string, added: string, tags: string[], status?: ReadingSt
   ['Range', '2026-09-22', ['Learning', 'Psychology'], 'queue'],
   ['How Big Things Get Done', '2026-09-22', ['Business'], 'queue'],
   ['High Output Management', '2026-09-22', ['Business', 'Leadership'], 'queue'],
-  ['The Beginning of Infinity', '2026-09-22', ['Science', 'Philosophy'], 'queue'],
+  ['The Beginning of Infinity', '2026-09-22', ['Science', 'Philosophy'], 'reading'],
   ['The Alchemist', '2026-04-17', ['Fiction', 'Philosophy'], 'queue'],
   ['The World for Sale', '', ['Business', 'History'], 'queue'],
   ['The Great CEO Within', '', ['Business', 'Leadership'], 'queue'],
