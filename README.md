@@ -9,4 +9,4 @@ with Cloudflare.
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [mdsvex](https://mdsvex.pngwn.io/) for markdown support
-- [pnpm](https://pnpm.io/) package manager
+- [bun](https://bun.sh/) package manager
