@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { SvelteMap } from 'svelte/reactivity';
-  import { cn } from '$lib/utils';
+  import { cn } from '#lib/utils.ts';
   import { Icon } from 'svelte-icons-pack';
   import { BsGithub } from 'svelte-icons-pack/bs';
   import {

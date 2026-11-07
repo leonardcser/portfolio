@@ -13,7 +13,7 @@
 </script>
 
 <script lang="ts">
-  import { cn } from '$lib/utils';
+  import { cn } from '#lib/utils.ts';
   import { Icon, type IconType } from 'svelte-icons-pack';
   import { FiArrowUpRight } from 'svelte-icons-pack/fi';
 

@@ -18,7 +18,7 @@
 </script>
 
 <script lang="ts">
-  import { cn } from '$lib/utils';
+  import { cn } from '#lib/utils.ts';
   import { Icon } from 'svelte-icons-pack';
 
   let {

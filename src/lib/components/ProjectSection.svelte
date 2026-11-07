@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
-  import type { Project } from '$lib/data/projects';
-  import { cn } from '$lib/utils';
+  import type { Project } from '#lib/data/projects.ts';
+  import { cn } from '#lib/utils.ts';
   import Block from './Block.svelte';
   import ProjectItem from './ProjectItem.svelte';
 

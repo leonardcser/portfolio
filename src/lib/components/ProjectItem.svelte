@@ -1,11 +1,11 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
-  import type { ProjectDemo } from '$lib/data/projects';
+  import type { ProjectDemo } from '#lib/data/projects.ts';
   import Tag from './Tag.svelte';
   import LinkTag, { type LinkTagProps } from './LinkTag.svelte';
   import ProjectDemoComponent from './ProjectDemo.svelte';
   import { RiBusinessAwardFill } from 'svelte-icons-pack/ri';
-  import { cn } from '$lib/utils';
+  import { cn } from '#lib/utils.ts';
 
   interface Props {
     title: string;

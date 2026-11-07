@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
 import type { PageLoad, EntryGenerator } from './$types';
-import type { TOCItem, PostMeta } from '$lib/types';
+import type { TOCItem, PostMeta } from '#lib/types.ts';
 import type { Component } from 'svelte';
 
 interface PostMetadata {

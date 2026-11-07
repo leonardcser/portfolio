@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-  import { cn } from '$lib/utils';
+  import { cn } from '#lib/utils.ts';
 
   let { logo, title, description, date, logoClass }: TimelineItemProps = $props();
 </script>

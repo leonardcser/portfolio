@@ -1,8 +1,8 @@
 <script lang="ts">
   import '../app.css';
   import { ModeWatcher } from 'mode-watcher';
-  import MediaPreview from '$lib/components/MediaPreview.svelte';
-  import Header, { headerHeight } from '$lib/components/Header.svelte';
+  import MediaPreview from '#lib/components/MediaPreview.svelte';
+  import Header, { headerHeight } from '#lib/components/Header.svelte';
   import { onNavigate } from '$app/navigation';
 
   let { children } = $props();

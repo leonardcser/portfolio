@@ -1,14 +1,14 @@
 <script lang="ts">
-  import Layout from '$lib/components/Layout.svelte';
-  import Block from '$lib/components/Block.svelte';
-  import BlogItem from '$lib/components/BlogItem.svelte';
+  import Layout from '#lib/components/Layout.svelte';
+  import Block from '#lib/components/Block.svelte';
+  import BlogItem from '#lib/components/BlogItem.svelte';
   import { Icon } from 'svelte-icons-pack';
   import { FiRss } from 'svelte-icons-pack/fi';
-  import { SITE_URL, SITE_NAME } from '$lib/constants';
+  import { SITE_URL, SITE_NAME } from '#lib/constants.ts';
 
   let { data } = $props();
 
-  import type { PostMeta } from '$lib/types';
+  import type { PostMeta } from '#lib/types.ts';
 
   const groupedByYear = $derived.by(() => {
     const groups: { year: number; posts: PostMeta[] }[] = [];

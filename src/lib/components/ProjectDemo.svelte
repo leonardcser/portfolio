@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { ProjectDemo } from '$lib/data/projects';
+  import type { ProjectDemo } from '#lib/data/projects.ts';
   import Image from './Image.svelte';
   import AutoplayVideo from './AutoplayVideo.svelte';
 

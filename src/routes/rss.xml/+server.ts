@@ -11,7 +11,7 @@ interface MdsvexFile {
   metadata: PostMetadata;
 }
 
-import { SITE_URL } from '$lib/constants';
+import { SITE_URL } from '#lib/constants.ts';
 
 export const prerender = true;
 

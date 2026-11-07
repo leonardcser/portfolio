@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Layout from '$lib/components/Layout.svelte';
-  import Block from '$lib/components/Block.svelte';
-  import { SITE_NAME, SITE_URL } from '$lib/constants';
-  import { latestRead } from '$lib/data/books';
+  import Layout from '#lib/components/Layout.svelte';
+  import Block from '#lib/components/Block.svelte';
+  import { SITE_NAME, SITE_URL } from '#lib/constants.ts';
+  import { latestRead } from '#lib/data/books.ts';
   import { goto } from '$app/navigation';
   import type { PageData } from './$types';
 

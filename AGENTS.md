@@ -20,7 +20,7 @@ bun run build       # Production build
 
 ## Key Conventions
 
-- Use `cn()` from `$lib/utils` for merging Tailwind classes
+- Use `cn()` from `#lib/utils.ts` for merging Tailwind classes
 - Components use Svelte 5 snippets for composition (not slots)
 - Global state in `src/lib/state.svelte.ts` using runes
 - Images use `enhanced:img` directive; `<Image>` component wires

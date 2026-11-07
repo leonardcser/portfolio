@@ -3,7 +3,7 @@
 </script>
 
 <script lang="ts">
-  import { scrollToTop } from '$lib/utils';
+  import { scrollToTop } from '#lib/utils.ts';
   import NavItem from './NavItem.svelte';
   import ThemeToggle from './ThemeToggle.svelte';
   import NavMenu from './NavMenu.svelte';

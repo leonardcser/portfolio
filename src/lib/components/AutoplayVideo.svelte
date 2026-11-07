@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { cn } from '$lib/utils';
+  import { cn } from '#lib/utils.ts';
   import { onMount } from 'svelte';
-  import { openMediaPreview } from '$lib/state.svelte';
+  import { openMediaPreview } from '#lib/state.svelte.ts';
 
   interface Props {
     src: string;

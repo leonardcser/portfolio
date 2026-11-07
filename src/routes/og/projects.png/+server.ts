@@ -1,4 +1,4 @@
-import { generateOgImage } from '$lib/og';
+import { generateOgImage } from '#lib/og.ts';
 import type { RequestHandler } from './$types';
 
 export const prerender = true;

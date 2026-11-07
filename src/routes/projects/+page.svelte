@@ -1,11 +1,11 @@
 <script lang="ts">
-  import Layout from '$lib/components/Layout.svelte';
-  import type { TOCItem } from '$lib/types';
-  import Block from '$lib/components/Block.svelte';
-  import { getAllProjects, projectCategories, computeFigureNumbers } from '$lib/data/projects';
-  import { cn } from '$lib/utils';
-  import ProjectSection from '$lib/components/ProjectSection.svelte';
-  import { SITE_URL, SITE_NAME } from '$lib/constants';
+  import Layout from '#lib/components/Layout.svelte';
+  import type { TOCItem } from '#lib/types.ts';
+  import Block from '#lib/components/Block.svelte';
+  import { getAllProjects, projectCategories, computeFigureNumbers } from '#lib/data/projects.ts';
+  import { cn } from '#lib/utils.ts';
+  import ProjectSection from '#lib/components/ProjectSection.svelte';
+  import { SITE_URL, SITE_NAME } from '#lib/constants.ts';
 
   const allProjects = getAllProjects();
   const allProfessional = allProjects.filter((p) => p.category === 'professional');

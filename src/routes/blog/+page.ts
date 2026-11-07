@@ -1,5 +1,5 @@
 import type { PageLoad } from './$types';
-import type { PostMeta } from '$lib/types';
+import type { PostMeta } from '#lib/types.ts';
 
 interface PostMetadata {
   title: string;

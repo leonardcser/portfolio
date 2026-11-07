@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Layout from '$lib/components/Layout.svelte';
-  import Block from '$lib/components/Block.svelte';
-  import { bookSpineWidth, books } from '$lib/data/books';
-  import { SITE_NAME, SITE_URL } from '$lib/constants';
+  import Layout from '#lib/components/Layout.svelte';
+  import Block from '#lib/components/Block.svelte';
+  import { bookSpineWidth, books } from '#lib/data/books.ts';
+  import { SITE_NAME, SITE_URL } from '#lib/constants.ts';
   import { afterNavigate } from '$app/navigation';
   import { tick } from 'svelte';
   let selectedTags = $state<string[]>([]);

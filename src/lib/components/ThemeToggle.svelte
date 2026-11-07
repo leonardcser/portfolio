@@ -5,7 +5,7 @@
   import { Icon } from 'svelte-icons-pack';
   import { IoMoon, IoSunny } from 'svelte-icons-pack/io';
 
-  import { cn } from '$lib/utils';
+  import { cn } from '#lib/utils.ts';
 
   const { ...props }: HTMLButtonAttributes = $props();
 </script>

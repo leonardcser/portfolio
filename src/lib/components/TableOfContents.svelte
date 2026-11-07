@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import type { TOCItem } from '$lib/types';
+  import type { TOCItem } from '#lib/types.ts';
 
   interface Props {
     items: TOCItem[];
@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-  import { headerHeight } from '$lib/components/Header.svelte';
+  import { headerHeight } from '#lib/components/Header.svelte';
   import { onMount } from 'svelte';
 
   interface Props {

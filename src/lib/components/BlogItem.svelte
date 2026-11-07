@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { PostMeta } from '$lib/types';
+  import type { PostMeta } from '#lib/types.ts';
 
   let { post }: { post: PostMeta } = $props();
 

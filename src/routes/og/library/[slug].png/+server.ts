@@ -1,5 +1,5 @@
-import { books } from '$lib/data/books';
-import { generateOgImage } from '$lib/og';
+import { books } from '#lib/data/books.ts';
+import { generateOgImage } from '#lib/og.ts';
 import type { EntryGenerator, RequestHandler } from './$types';
 
 export const prerender = true;

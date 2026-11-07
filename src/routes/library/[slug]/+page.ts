@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { books } from '$lib/data/books';
+import { books } from '#lib/data/books.ts';
 import type { PageLoad } from './$types';
 
 export const entries = () => books.map((book) => ({ slug: book.slug }));

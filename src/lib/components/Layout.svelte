@@ -1,10 +1,10 @@
 <script lang="ts" module>
-  import type { TOCItem } from '$lib/types';
+  import type { TOCItem } from '#lib/types.ts';
   export type LayoutProps = Props;
 </script>
 
 <script lang="ts">
-  import { cn } from '$lib/utils';
+  import { cn } from '#lib/utils.ts';
   import type { Snippet } from 'svelte';
   import TableOfContents from './TableOfContents.svelte';
   import { headerHeight } from './Header.svelte';

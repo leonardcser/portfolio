@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { mediaPreviewState, closeMediaPreview } from '$lib/state.svelte';
+  import { mediaPreviewState, closeMediaPreview } from '#lib/state.svelte.ts';
 
   $effect(() => {
     if (mediaPreviewState.isOpen) {

@@ -8,10 +8,10 @@ tags:
 ---
 
 <script>
-  import AiCodeChart from '$lib/components/AiCodeChart.svelte';
-  import CursorLogo from '$lib/components/icons/CursorLogo.svelte';
-  import ClaudeLogo from '$lib/components/icons/ClaudeLogo.svelte';
-  import OpencodeLogo from '$lib/components/icons/OpencodeLogo.svelte';
+  import AiCodeChart from '#lib/components/AiCodeChart.svelte';
+  import CursorLogo from '#lib/components/icons/CursorLogo.svelte';
+  import ClaudeLogo from '#lib/components/icons/ClaudeLogo.svelte';
+  import OpencodeLogo from '#lib/components/icons/OpencodeLogo.svelte';
 </script>
 
 The best developer tool doesn't exist yet — because you haven't built it.

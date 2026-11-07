@@ -1,7 +1,7 @@
 import type { RequestHandler } from './$types';
 
-import { SITE_URL } from '$lib/constants';
-import { books } from '$lib/data/books';
+import { SITE_URL } from '#lib/constants.ts';
+import { books } from '#lib/data/books.ts';
 
 export const prerender = true;
 
