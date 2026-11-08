@@ -4,8 +4,11 @@ import { readFileSync } from 'fs';
 import { join } from 'path';
 import { SITE_NAME } from './constants';
 
-const interRegular = readFileSync(
-  join(process.cwd(), 'node_modules/@fontsource/inter/files/inter-latin-400-normal.woff')
+const plexRegular = readFileSync(
+  join(
+    process.cwd(),
+    'node_modules/@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-400-normal.woff'
+  )
 );
 const serifExtrabold = readFileSync(
   join(
@@ -138,7 +141,7 @@ export async function generateOgImage({
                             type: 'p',
                             props: {
                               style: {
-                                fontFamily: 'Inter',
+                                fontFamily: 'IBM Plex Sans',
                                 fontSize: 26,
                                 color: COLORS.muted,
                                 margin: '20px 0 0',
@@ -150,7 +153,7 @@ export async function generateOgImage({
                             type: 'p',
                             props: {
                               style: {
-                                fontFamily: 'Inter',
+                                fontFamily: 'IBM Plex Sans',
                                 fontSize: 18,
                                 color: COLORS.muted,
                                 margin: '42px 0 0',
@@ -232,7 +235,7 @@ export async function generateOgImage({
                       type: 'p',
                       props: {
                         style: {
-                          fontFamily: 'Inter',
+                          fontFamily: 'IBM Plex Sans',
                           fontSize: 18,
                           color: COLORS.muted,
                           margin: 0,
@@ -251,7 +254,7 @@ export async function generateOgImage({
       width: WIDTH,
       height: HEIGHT,
       fonts: [
-        { name: 'Inter', data: interRegular, weight: 400, style: 'normal' },
+        { name: 'IBM Plex Sans', data: plexRegular, weight: 400, style: 'normal' },
         { name: 'Source Serif 4', data: serifExtrabold, weight: 800, style: 'normal' },
         { name: 'JetBrains Mono', data: monoSemibold, weight: 600, style: 'normal' },
       ],
