@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Layout from '#lib/components/Layout.svelte';
-  import Block from '#lib/components/Block.svelte';
-  import PostNavigation from '#lib/components/PostNavigation.svelte';
+  import Layout from '#lib/components/site/Layout.svelte';
+  import Block from '#lib/components/ui/Block.svelte';
+  import PostNavigation from '#lib/components/site/PostNavigation.svelte';
   import { SITE_URL, SITE_NAME } from '#lib/constants.ts';
 
   let { data } = $props();

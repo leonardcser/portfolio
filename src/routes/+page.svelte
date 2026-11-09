@@ -1,16 +1,16 @@
 <script lang="ts">
-  import Layout from '#lib/components/Layout.svelte';
+  import Layout from '#lib/components/site/Layout.svelte';
   import type { TOCItem } from '#lib/types.ts';
-  import Block from '#lib/components/Block.svelte';
+  import Block from '#lib/components/ui/Block.svelte';
   import { SITE_URL, SITE_NAME } from '#lib/constants.ts';
   import { BsGithub } from 'svelte-icons-pack/bs';
-  import SwissFlag from '#lib/components/SwissFlag.svelte';
+  import SwissFlag from '#lib/components/site/SwissFlag.svelte';
   import { Icon } from 'svelte-icons-pack';
-  import GitHubActivity from '#lib/components/GitHubActivity.svelte';
-  import Timeline from '#lib/components/Timeline.svelte';
+  import GitHubActivity from '#lib/components/site/GitHubActivity.svelte';
+  import Timeline from '#lib/components/site/Timeline.svelte';
   import { getFeaturedProjects, computeFigureNumbers } from '#lib/data/projects.ts';
   import { FiArrowRight } from 'svelte-icons-pack/fi';
-  import ProjectSection from '#lib/components/ProjectSection.svelte';
+  import ProjectSection from '#lib/components/site/ProjectSection.svelte';
 
   const featuredProjects = getFeaturedProjects();
   const professionalProjects = featuredProjects.filter((p) => p.category === 'professional');

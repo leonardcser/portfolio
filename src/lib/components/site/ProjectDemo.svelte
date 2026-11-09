@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { ProjectDemo } from '#lib/data/projects.ts';
-  import Image from './Image.svelte';
-  import AutoplayVideo from './AutoplayVideo.svelte';
+  import Image from '#lib/components/ui/Image.svelte';
+  import AutoplayVideo from '#lib/components/ui/AutoplayVideo.svelte';
 
   interface Props {
     demo: ProjectDemo;

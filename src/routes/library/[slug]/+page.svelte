@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Layout from '#lib/components/Layout.svelte';
-  import Block from '#lib/components/Block.svelte';
+  import Layout from '#lib/components/site/Layout.svelte';
+  import Block from '#lib/components/ui/Block.svelte';
   import { SITE_NAME, SITE_URL } from '#lib/constants.ts';
   import { latestRead } from '#lib/data/books.ts';
   import { goto } from '$app/navigation';

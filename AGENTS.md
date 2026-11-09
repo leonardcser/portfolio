@@ -28,6 +28,20 @@ bun run build       # Production build
 - Dark mode via `.dark` class (managed by `mode-watcher`)
 - Umami analytics: `data-umami-event="event-name"` on elements
 
+## Components
+
+`src/lib/components/` is grouped by how reusable a component is:
+
+- `site/` - page chrome and page sections (Header, Layout, ProjectSection)
+- `ui/` - small generic parts (Block, Tag, Image)
+- `charts/` - chart parts that know nothing about a post (LineChart, Figure,
+  `chart.ts`, `format.ts`)
+- `icons/` - logos
+- `posts/<slug>/` - components used by one blog post. When a second post needs
+  one, move it to `charts/` or `ui/`.
+
+Data for a post lives in `src/lib/data/`.
+
 ## Adding Projects
 
 1. Add image/video to `/static/images/` or `/static/videos/`

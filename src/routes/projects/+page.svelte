@@ -1,10 +1,10 @@
 <script lang="ts">
-  import Layout from '#lib/components/Layout.svelte';
+  import Layout from '#lib/components/site/Layout.svelte';
   import type { TOCItem } from '#lib/types.ts';
-  import Block from '#lib/components/Block.svelte';
+  import Block from '#lib/components/ui/Block.svelte';
   import { getAllProjects, projectCategories, computeFigureNumbers } from '#lib/data/projects.ts';
   import { cn } from '#lib/utils.ts';
-  import ProjectSection from '#lib/components/ProjectSection.svelte';
+  import ProjectSection from '#lib/components/site/ProjectSection.svelte';
   import { SITE_URL, SITE_NAME } from '#lib/constants.ts';
 
   const allProjects = getAllProjects();

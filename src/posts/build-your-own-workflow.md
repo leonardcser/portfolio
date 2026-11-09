@@ -8,7 +8,7 @@ tags:
 ---
 
 <script>
-  import AiCodeChart from '#lib/components/AiCodeChart.svelte';
+  import AiCodeChart from '#lib/components/posts/build-your-own-workflow/AiCodeChart.svelte';
   import CursorLogo from '#lib/components/icons/CursorLogo.svelte';
   import ClaudeLogo from '#lib/components/icons/ClaudeLogo.svelte';
   import OpencodeLogo from '#lib/components/icons/OpencodeLogo.svelte';

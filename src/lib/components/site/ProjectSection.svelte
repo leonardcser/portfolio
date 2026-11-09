@@ -2,7 +2,7 @@
   import type { Snippet } from 'svelte';
   import type { Project } from '#lib/data/projects.ts';
   import { cn } from '#lib/utils.ts';
-  import Block from './Block.svelte';
+  import Block from '#lib/components/ui/Block.svelte';
   import ProjectItem from './ProjectItem.svelte';
 
   interface Props {

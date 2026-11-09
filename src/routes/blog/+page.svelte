@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Layout from '#lib/components/Layout.svelte';
-  import Block from '#lib/components/Block.svelte';
-  import BlogItem from '#lib/components/BlogItem.svelte';
+  import Layout from '#lib/components/site/Layout.svelte';
+  import Block from '#lib/components/ui/Block.svelte';
+  import BlogItem from '#lib/components/site/BlogItem.svelte';
   import { Icon } from 'svelte-icons-pack';
   import { FiRss } from 'svelte-icons-pack/fi';
   import { SITE_URL, SITE_NAME } from '#lib/constants.ts';

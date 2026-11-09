@@ -1,8 +1,8 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
   import type { ProjectDemo } from '#lib/data/projects.ts';
-  import Tag from './Tag.svelte';
-  import LinkTag, { type LinkTagProps } from './LinkTag.svelte';
+  import Tag from '#lib/components/ui/Tag.svelte';
+  import LinkTag, { type LinkTagProps } from '#lib/components/ui/LinkTag.svelte';
   import ProjectDemoComponent from './ProjectDemo.svelte';
   import { RiBusinessAwardFill } from 'svelte-icons-pack/ri';
   import { cn } from '#lib/utils.ts';

@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-  import { headerHeight } from '#lib/components/Header.svelte';
+  import { headerHeight } from './Header.svelte';
   import { onMount } from 'svelte';
 
   interface Props {
